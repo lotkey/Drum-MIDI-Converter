@@ -1,0 +1,4 @@
+﻿  Drum-MIDI-Converter.cpp
+C:\Users\Chris\Desktop\Code\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter.cpp(11,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Chris\Desktop\Code\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter.cpp(13,30): warning C4018: '<': signed/unsigned mismatch
+  Drum-MIDI-Converter.vcxproj -> C:\Users\Chris\Desktop\Code\Drum-MIDI-Converter\Drum-MIDI-Converter\Debug\Drum-MIDI-Converter.exe

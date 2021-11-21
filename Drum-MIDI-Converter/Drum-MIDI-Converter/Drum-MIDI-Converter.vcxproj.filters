@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="midifile">
+      <UniqueIdentifier>{a77547c4-9fed-4353-813f-02dd52c4c94c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="midifile\include">
+      <UniqueIdentifier>{3938cfb7-0fba-418c-bfb2-ac66557945be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="midifile\src">
+      <UniqueIdentifier>{da3f4bf6-d7a1-46ea-959a-1184e9a606db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="midi">
+      <UniqueIdentifier>{a42864cf-ecf9-46a0-91b5-6aca73741062}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Drum-MIDI-Converter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="midifile\src\MidiMessage.cpp">
+      <Filter>midifile\src</Filter>
+    </ClCompile>
+    <ClCompile Include="midifile\src\Binasc.cpp">
+      <Filter>midifile\src</Filter>
+    </ClCompile>
+    <ClCompile Include="midifile\src\MidiEvent.cpp">
+      <Filter>midifile\src</Filter>
+    </ClCompile>
+    <ClCompile Include="midifile\src\MidiEventList.cpp">
+      <Filter>midifile\src</Filter>
+    </ClCompile>
+    <ClCompile Include="midifile\src\MidiFile.cpp">
+      <Filter>midifile\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="midifile\include\MidiFile.h">
+      <Filter>midifile\include</Filter>
+    </ClInclude>
+    <ClInclude Include="midifile\include\MidiMessage.h">
+      <Filter>midifile\include</Filter>
+    </ClInclude>
+    <ClInclude Include="midifile\include\Binasc.h">
+      <Filter>midifile\include</Filter>
+    </ClInclude>
+    <ClInclude Include="midifile\include\MidiEvent.h">
+      <Filter>midifile\include</Filter>
+    </ClInclude>
+    <ClInclude Include="midifile\include\MidiEventList.h">
+      <Filter>midifile\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="midi\test.MID">
+      <Filter>midi</Filter>
+    </None>
+  </ItemGroup>
+</Project>
