@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="midi\test.MID" />
+    <None Include="midi\test_out.MID" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

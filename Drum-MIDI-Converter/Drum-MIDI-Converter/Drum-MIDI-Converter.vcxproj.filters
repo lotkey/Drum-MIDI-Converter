@@ -109,5 +109,6 @@
     <None Include="midi\test.MID">
       <Filter>midi</Filter>
     </None>
+    <None Include="midi\test_out.MID" />
   </ItemGroup>
 </Project>
