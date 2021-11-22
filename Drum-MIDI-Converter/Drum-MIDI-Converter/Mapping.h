@@ -4,12 +4,18 @@
 #include <map>
 #include <string>
 
+#include "SampleGroup.h"
+
 class Mapping {
 private:
-	const std::map<std::string, uint8_t> mapping;
+	std::map<std::string, SampleGroup> _mapping;
 public:
-	virtual uint8_t getNoteFromKey(const std::string&) const = 0;
-	virtual bool containsKey(const std::string&) const = 0;
+	Mapping() {} ;
+	Mapping(const std::map<std::string, SampleGroup>&);
+	void insert(const std::string&, const SampleGroup&);
+	bool containsNote(const uint8_t&) const;
+	std::string getSampleGroupKeyOfNote(const uint8_t&) const;
+	SampleGroup operator[](const std::string&);
 };
 
 #endif

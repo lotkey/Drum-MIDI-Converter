@@ -140,20 +140,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Drum-MIDI-Converter.cpp" />
+    <ClCompile Include="GGD.cpp" />
+    <ClCompile Include="MandaAudio.cpp" />
+    <ClCompile Include="Mapping.cpp" />
     <ClCompile Include="midifile\src\Binasc.cpp" />
     <ClCompile Include="midifile\src\MidiEvent.cpp" />
     <ClCompile Include="midifile\src\MidiEventList.cpp" />
     <ClCompile Include="midifile\src\MidiFile.cpp" />
     <ClCompile Include="midifile\src\MidiMessage.cpp" />
+    <ClCompile Include="ModernAndMassive.cpp" />
+    <ClCompile Include="MTPowerDrumKit2.cpp" />
+    <ClCompile Include="SampleGroup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keys.h" />
     <ClInclude Include="Mapping.h" />
+    <ClInclude Include="Mappings.h" />
     <ClInclude Include="midifile\include\Binasc.h" />
     <ClInclude Include="midifile\include\MidiEvent.h" />
     <ClInclude Include="midifile\include\MidiEventList.h" />
     <ClInclude Include="midifile\include\MidiFile.h" />
     <ClInclude Include="midifile\include\MidiMessage.h" />
+    <ClInclude Include="Note.h" />
+    <ClInclude Include="SampleGroup.h" />
+    <ClInclude Include="SampleGroupTags.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="midi\test.MID" />

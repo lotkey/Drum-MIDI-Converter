@@ -25,6 +25,12 @@
     <Filter Include="midi">
       <UniqueIdentifier>{a42864cf-ecf9-46a0-91b5-6aca73741062}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GGD">
+      <UniqueIdentifier>{c70a05e7-9ebb-47a8-b6dd-8ebf70b8fe79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MandaAudio">
+      <UniqueIdentifier>{c011d89a-cec3-44d2-8e29-e0f418ca316e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Drum-MIDI-Converter.cpp">
@@ -44,6 +50,24 @@
     </ClCompile>
     <ClCompile Include="midifile\src\MidiFile.cpp">
       <Filter>midifile\src</Filter>
+    </ClCompile>
+    <ClCompile Include="SampleGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGD.cpp">
+      <Filter>Source Files\GGD</Filter>
+    </ClCompile>
+    <ClCompile Include="ModernAndMassive.cpp">
+      <Filter>Source Files\GGD</Filter>
+    </ClCompile>
+    <ClCompile Include="MandaAudio.cpp">
+      <Filter>Source Files\MandaAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="MTPowerDrumKit2.cpp">
+      <Filter>Source Files\MandaAudio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +90,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mappings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Note.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SampleGroupTags.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

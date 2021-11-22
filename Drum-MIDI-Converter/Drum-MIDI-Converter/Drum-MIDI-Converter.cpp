@@ -3,20 +3,32 @@
 
 #include "./midifile/include/MidiFile.h"
 #include "Mapping.h"
+#include "Mappings.h"
 
 int main() {
-	smf::MidiFile midifile;
-	midifile.read("./midi/test.MID");
-	std::cout << midifile.getNumEvents(0) << std::endl;
-	for (unsigned int i = 0; i < midifile.getNumTracks(); i++) {
-		smf::MidiEventList eventList = midifile[i];
+	auto mmMapping = Mappings::GGD::getModernAndMassiveMapping();
+	auto mtMapping = Mappings::MandaAudio::getMTPowerDrumKit2Mapping();
+
+	smf::MidiFile infile, outfile;
+	infile.read("./midi/test.MID");
+	outfile.write("./midi/test_out.MID");
+
+	for (unsigned int i = 0; i < infile.getNumTracks(); i++) {
+		smf::MidiEventList eventList = infile[i];
+		smf::MidiEventList outEventList = smf::MidiEventList();
+
 		for (unsigned int i = 0; i < eventList.getEventCount(); i++) {
 			smf::MidiEvent midiEvent = eventList[i];
-			if (midiEvent.isNoteOn())
-				std::cout << "Note on: ";
-			else if (midiEvent.isNoteOff())
-				std::cout << "Note off: ";
-			std::cout << midiEvent.getKeyNumber() << std::endl;
+			smf::MidiEvent outMidiEvent = smf::MidiEvent(midiEvent);
+			if (mmMapping.containsNote(midiEvent.getKeyNumber())) {
+				std::string groupKey = mmMapping.getSampleGroupKeyOfNote(midiEvent.getKeyNumber());
+				std::string key = mmMapping[groupKey].getKeyFromNote(midiEvent.getKeyNumber());
+				std::cout << groupKey << ", " << key << std::endl;
+				std::cout << (int)mmMapping[groupKey][key] << "->" << (int)mtMapping[groupKey][key] << std::endl;
+			}
+			else {
+				outEventList.append(outMidiEvent);
+			}
 		}
 	}
 }
