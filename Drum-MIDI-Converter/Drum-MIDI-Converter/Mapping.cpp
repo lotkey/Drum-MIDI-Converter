@@ -1,5 +1,6 @@
 #include <stdexcept>
 
+#include "midifile/include/MidiFile.h"
 #include "Mapping.h"
 
 Mapping::Mapping(const std::map<std::string, SampleGroup>& mapping)
@@ -28,6 +29,14 @@ SampleGroup Mapping::operator[](const std::string& index) {
 	return _mapping[index];
 }
 
+<<<<<<< Updated upstream
 SampleGroup Mapping::operator[](const std::string& index) const {
 	return _mapping.at(index);
+=======
+double Mapping::testFit(const std::string& filename) const {
+	int fit = 0, nonfit = 0;
+	smf::MidiFile infile;
+	infile.read(filename);
+
+>>>>>>> Stashed changes
 }

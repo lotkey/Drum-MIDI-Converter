@@ -25,6 +25,7 @@ void convertMapping(const std::string& pathFrom, const std::string& pathTo, cons
 		for (unsigned int j = 0; j < eventList.getEventCount(); j++) {
 			smf::MidiEvent midiEvent = eventList[j];
 			smf::MidiEvent outMidiEvent = smf::MidiEvent(midiEvent);
+<<<<<<< Updated upstream
 			if (mappingFrom.containsNote(midiEvent.getKeyNumber())) {
 				std::string groupKey = mappingFrom.getSampleGroupKeyOfNote(midiEvent.getKeyNumber());
 				std::string key = mappingFrom[groupKey].getKeyFromNote(midiEvent.getKeyNumber());
@@ -33,6 +34,16 @@ void convertMapping(const std::string& pathFrom, const std::string& pathTo, cons
 			}
 			else {
 				outfile.addEvent(i, outMidiEvent.tick / 8, outMidiEvent);
+=======
+			if (mmMapping.containsNote(midiEvent.getKeyNumber())) {
+				std::string groupKey = mmMapping.getSampleGroupKeyOfNote(midiEvent.getKeyNumber());
+				std::string key = mmMapping[groupKey].getKeyFromNote(midiEvent.getKeyNumber());
+				outMidiEvent.setKeyNumber(mtMapping[groupKey][key]);
+				outfile.addEvent(i, outMidiEvent);
+			}
+			else {
+				outfile.addEvent(i, outMidiEvent);
+>>>>>>> Stashed changes
 			}
 		}
 	}
