@@ -29,14 +29,23 @@ SampleGroup Mapping::operator[](const std::string& index) {
 	return _mapping[index];
 }
 
-<<<<<<< Updated upstream
 SampleGroup Mapping::operator[](const std::string& index) const {
 	return _mapping.at(index);
-=======
+}
+
 double Mapping::testFit(const std::string& filename) const {
-	int fit = 0, nonfit = 0;
+	int fit = 0, total = 0;
 	smf::MidiFile infile;
 	infile.read(filename);
 
->>>>>>> Stashed changes
+	for (unsigned int i = 0; i < infile.getNumTracks(); i++) {
+		smf::MidiEventList eventList = infile[i];
+
+		for (unsigned int j = 0; j < eventList.getEventCount(); j++) {
+			smf::MidiEvent midiEvent = eventList[j];
+			if (containsNote(midiEvent.getKeyNumber())) fit++;
+			total++;
+		}
+	}
+	return (double)fit / (double)(total);
 }
