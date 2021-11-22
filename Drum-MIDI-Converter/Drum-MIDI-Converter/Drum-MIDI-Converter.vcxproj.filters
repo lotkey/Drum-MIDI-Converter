@@ -25,11 +25,11 @@
     <Filter Include="midi">
       <UniqueIdentifier>{a42864cf-ecf9-46a0-91b5-6aca73741062}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GGD">
-      <UniqueIdentifier>{c70a05e7-9ebb-47a8-b6dd-8ebf70b8fe79}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\MandaAudio">
       <UniqueIdentifier>{c011d89a-cec3-44d2-8e29-e0f418ca316e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GetGoodDrums">
+      <UniqueIdentifier>{c70a05e7-9ebb-47a8-b6dd-8ebf70b8fe79}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,11 +57,11 @@
     <ClCompile Include="Mapping.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GGD.cpp">
-      <Filter>Source Files\GGD</Filter>
+    <ClCompile Include="GetGoodDrums.cpp">
+      <Filter>Source Files\GetGoodDrums</Filter>
     </ClCompile>
     <ClCompile Include="ModernAndMassive.cpp">
-      <Filter>Source Files\GGD</Filter>
+      <Filter>Source Files\GetGoodDrums</Filter>
     </ClCompile>
     <ClCompile Include="MandaAudio.cpp">
       <Filter>Source Files\MandaAudio</Filter>
@@ -109,6 +109,8 @@
     <None Include="midi\test.MID">
       <Filter>midi</Filter>
     </None>
-    <None Include="midi\test_out.MID" />
+    <None Include="midi\test_out.MID">
+      <Filter>midi</Filter>
+    </None>
   </ItemGroup>
 </Project>

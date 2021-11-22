@@ -27,3 +27,7 @@ std::string Mapping::getSampleGroupKeyOfNote(const uint8_t& key) const {
 SampleGroup Mapping::operator[](const std::string& index) {
 	return _mapping[index];
 }
+
+SampleGroup Mapping::operator[](const std::string& index) const {
+	return _mapping.at(index);
+}

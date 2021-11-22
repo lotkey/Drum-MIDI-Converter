@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Drum-MIDI-Converter.cpp" />
-    <ClCompile Include="GGD.cpp" />
+    <ClCompile Include="GetGoodDrums.cpp" />
     <ClCompile Include="MandaAudio.cpp" />
     <ClCompile Include="Mapping.cpp" />
     <ClCompile Include="midifile\src\Binasc.cpp" />

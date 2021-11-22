@@ -2,7 +2,7 @@
 #include "Mappings.h"
 #include "SampleGroupTags.h"
 
-Mapping Mappings::GGD::getModernAndMassiveMapping() {
+Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
 	SampleGroup kick = SampleGroup(Keys::Kick, {
 		{Keys::Kick, getMidiNote(Note::C, 0)}
 		});

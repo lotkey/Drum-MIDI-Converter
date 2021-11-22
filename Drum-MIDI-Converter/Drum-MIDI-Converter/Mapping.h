@@ -16,6 +16,7 @@ public:
 	bool containsNote(const uint8_t&) const;
 	std::string getSampleGroupKeyOfNote(const uint8_t&) const;
 	SampleGroup operator[](const std::string&);
+	SampleGroup operator[](const std::string&) const;
 };
 
 #endif

@@ -1,4 +1,10 @@
 ﻿  Drum-MIDI-Converter.cpp
-C:\Users\Steelhead\Desktop\Programming\C++\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter.cpp(15,29): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Steelhead\Desktop\Programming\C++\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter.cpp(19,30): warning C4018: '<': signed/unsigned mismatch
-  Drum-MIDI-Converter.vcxproj -> C:\Users\Steelhead\Desktop\Programming\C++\Drum-MIDI-Converter\Drum-MIDI-Converter\Debug\Drum-MIDI-Converter.exe
+C:\Users\Chris\Desktop\Code\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter.cpp(21,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Chris\Desktop\Code\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter\Drum-MIDI-Converter.cpp(25,30): warning C4018: '<': signed/unsigned mismatch
+  GetGoodDrums.cpp
+  MTPowerDrumKit2.cpp
+  MandaAudio.cpp
+  Mapping.cpp
+  ModernAndMassive.cpp
+  Generating Code...
+  Drum-MIDI-Converter.vcxproj -> C:\Users\Chris\Desktop\Code\Drum-MIDI-Converter\Drum-MIDI-Converter\Debug\Drum-MIDI-Converter.exe

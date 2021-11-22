@@ -8,7 +8,7 @@
 
 namespace Mappings {
 
-	class GGD {
+	class GetGoodDrums {
 	private:
 		static uint8_t getMidiNote(const Note& note, const uint8_t& octave);
 	public:
@@ -21,6 +21,7 @@ namespace Mappings {
 	public:
 		static Mapping getMTPowerDrumKit2Mapping();
 	};
+
 }
 
 #endif
