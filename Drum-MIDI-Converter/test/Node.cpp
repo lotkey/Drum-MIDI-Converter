@@ -77,7 +77,7 @@ void Node::print() const {
 
 void Node::print(const uint32_t& numTabs) const {
     for (unsigned int i = 0; i < numTabs; i++)
-        std::cout << "\t";
+        std::cout << "  ";
     std::cout << _key;
 
     if (!_isLeaf) {
