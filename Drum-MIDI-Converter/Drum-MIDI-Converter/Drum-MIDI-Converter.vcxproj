@@ -140,7 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Drum-MIDI-Converter.cpp" />
+    <ClCompile Include="EZDrummer.cpp" />
     <ClCompile Include="GetGoodDrums.cpp" />
+    <ClCompile Include="Invasion.cpp" />
     <ClCompile Include="MandaAudio.cpp" />
     <ClCompile Include="Mapping.cpp" />
     <ClCompile Include="midifile\src\Binasc.cpp" />
@@ -151,6 +153,7 @@
     <ClCompile Include="ModernAndMassive.cpp" />
     <ClCompile Include="MTPowerDrumKit2.cpp" />
     <ClCompile Include="SampleGroup.cpp" />
+    <ClCompile Include="Toontrack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keys.h" />

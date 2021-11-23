@@ -3,8 +3,8 @@
 #include "SampleGroupTags.h"
 
 Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
-	SampleGroup kick = SampleGroup(Keys::Kick, {
-		{Keys::Kick, getMidiNote(Note::C, 0)}
+	SampleGroup kick = SampleGroup(Keys::Kick::hit, {
+		{Keys::Kick::hit, getMidiNote(Note::C, 0)}
 		});
 
 	SampleGroup snare = SampleGroup(Keys::Snare::hit, {
@@ -15,22 +15,22 @@ Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
 		{Keys::Snare::sidestick, getMidiNote(Note::F_SHARP, 0)},
 		});
 
-	SampleGroup toms = SampleGroup(Keys::Tom::rack, {
-		{Keys::Tom::rack, getMidiNote(Note::A, 0)},
+	SampleGroup toms = SampleGroup(Keys::Tom::rack1, {
+		{Keys::Tom::rack1, getMidiNote(Note::A, 0)},
 		{Keys::Tom::floor1, getMidiNote(Note::C_SHARP, 1)},
 		{Keys::Tom::floor2, getMidiNote(Note::D_SHARP, 1)},
 		});
 
 	SampleGroup hat = SampleGroup(Keys::Hat::open0, {
-		{Keys::Hat::tight, getMidiNote(Note::A, 1)},
+		{Keys::Hat::tight_edge, getMidiNote(Note::A, 1)},
 		{Keys::Hat::ching, getMidiNote(Note::G_SHARP, 1)},
-		{Keys::Hat::closed, getMidiNote(Note::B, 1)},
-		{Keys::Hat::closed_loose, getMidiNote(Note::C, 2)},
+		{Keys::Hat::closed_edge, getMidiNote(Note::B, 1)},
+		{Keys::Hat::loose, getMidiNote(Note::C, 2)},
 		{Keys::Hat::open0, getMidiNote(Note::F, 2)},
 		{Keys::Hat::open1, getMidiNote(Note::F_SHARP, 2)},
 		{Keys::Hat::open2, getMidiNote(Note::G_SHARP, 2)},
 		{Keys::Hat::open3, getMidiNote(Note::A_SHARP, 2)},
-		{Keys::Hat::pedal_chick, getMidiNote(Note::G, 1)},
+		{Keys::Hat::pedal_close_foot, getMidiNote(Note::G, 1)},
 		});
 
 	SampleGroup ride = SampleGroup(Keys::Ride::hit, {
@@ -39,21 +39,15 @@ Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
 		{Keys::Ride::tip, getMidiNote(Note::C, 4)}
 		});
 
-	SampleGroup crash = SampleGroup(Keys::Crash::L::hit, {
-		{Keys::Crash::L::hit, getMidiNote(Note::D, 3)},
-		{Keys::Crash::L::choke, getMidiNote(Note::E, 3)},
-		{Keys::Crash::R::hit, getMidiNote(Note::G, 3)},
-		{Keys::Crash::R::choke, getMidiNote(Note::A, 3)}
-		});
-
-	SampleGroup china = SampleGroup(Keys::China::hit, {
-		{Keys::China::hit, getMidiNote(Note::E, 4)},
-		{Keys::China::choke, getMidiNote(Note::F, 4)}
-		});
-
-	SampleGroup splash = SampleGroup(Keys::Splash::hit, {
-		{Keys::Splash::hit, getMidiNote(Note::B, 4)},
-		{Keys::Splash::choke, getMidiNote(Note::A_SHARP, 4)}
+	SampleGroup cymbal = SampleGroup(Keys::Cymbal::crash1_hit, {
+		{Keys::Cymbal::crash1_hit, getMidiNote(Note::D, 3)},
+		{Keys::Cymbal::crash1_choke, getMidiNote(Note::E, 3)},
+		{Keys::Cymbal::crash2_hit, getMidiNote(Note::G, 3)},
+		{Keys::Cymbal::crash2_choke, getMidiNote(Note::A, 3)},
+		{Keys::Cymbal::china1_hit, getMidiNote(Note::E, 4)},
+		{Keys::Cymbal::china1_choke, getMidiNote(Note::F, 4)},
+		{Keys::Cymbal::splash1_hit, getMidiNote(Note::B, 4)},
+		{Keys::Cymbal::splash1_choke, getMidiNote(Note::A_SHARP, 4)}
 		});
 
 	Mapping m = Mapping({
@@ -62,9 +56,7 @@ Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
 		{SampleGroupTags::tom, toms},
 		{SampleGroupTags::ride, ride},
 		{SampleGroupTags::hat, hat},
-		{SampleGroupTags::crash, crash},
-		{SampleGroupTags::china, china},
-		{SampleGroupTags::splash, splash}
+		{SampleGroupTags::cymbal, cymbal}
 		});
 
 	return m;

@@ -31,6 +31,9 @@
     <Filter Include="Source Files\GetGoodDrums">
       <UniqueIdentifier>{c70a05e7-9ebb-47a8-b6dd-8ebf70b8fe79}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Toontrack">
+      <UniqueIdentifier>{41d2cbcc-19cb-4f1e-af57-b7f15e2aeb04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Drum-MIDI-Converter.cpp">
@@ -68,6 +71,15 @@
     </ClCompile>
     <ClCompile Include="MTPowerDrumKit2.cpp">
       <Filter>Source Files\MandaAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="Toontrack.cpp">
+      <Filter>Source Files\Toontrack</Filter>
+    </ClCompile>
+    <ClCompile Include="EZDrummer.cpp">
+      <Filter>Source Files\Toontrack</Filter>
+    </ClCompile>
+    <ClCompile Include="Invasion.cpp">
+      <Filter>Source Files\GetGoodDrums</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

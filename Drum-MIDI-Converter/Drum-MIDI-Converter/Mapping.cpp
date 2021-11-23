@@ -18,6 +18,10 @@ bool Mapping::containsNote(const uint8_t& key) const {
 	return false;
 }
 
+bool Mapping::containsSampleGroup(const std::string& group) const {
+	return _mapping.find(group) != _mapping.end();
+}
+
 std::string Mapping::getSampleGroupKeyOfNote(const uint8_t& key) const {
 	for (const auto& pair : _mapping) {
 		if (pair.second.containsNote(key)) return pair.first;

@@ -3,8 +3,8 @@
 #include "SampleGroupTags.h"
 
 Mapping Mappings::MandaAudio::getMTPowerDrumKit2Mapping() {
-	SampleGroup kick = SampleGroup(Keys::Kick, {
-		{Keys::Kick, getMidiNote(Note::C, 1)}
+	SampleGroup kick = SampleGroup(Keys::Kick::hit, {
+		{Keys::Kick::hit, getMidiNote(Note::C, 1)}
 		});
 
 	SampleGroup snare = SampleGroup(Keys::Snare::hit, {
@@ -14,13 +14,13 @@ Mapping Mappings::MandaAudio::getMTPowerDrumKit2Mapping() {
 
 	SampleGroup hat = SampleGroup(Keys::Hat::open0, {
 		{Keys::Hat::open0, getMidiNote(Note::A_SHARP, 1)},
-		{Keys::Hat::closed_loose, getMidiNote(Note::G_SHARP, 1)},
-		{Keys::Hat::closed, getMidiNote(Note::F_SHARP, 1)},
-		{Keys::Hat::pedal_chick, getMidiNote(Note::F, 3)}
+		{Keys::Hat::loose, getMidiNote(Note::G_SHARP, 1)},
+		{Keys::Hat::closed_edge, getMidiNote(Note::F_SHARP, 1)},
+		{Keys::Hat::pedal_close_foot, getMidiNote(Note::F, 3)}
 		});
 
 	SampleGroup toms = SampleGroup(Keys::Tom::floor1, {
-		{Keys::Tom::rack, getMidiNote(Note::C, 2)},
+		{Keys::Tom::rack1, getMidiNote(Note::C, 2)},
 		{Keys::Tom::floor1, getMidiNote(Note::A, 1)},
 		{Keys::Tom::floor2, getMidiNote(Note::F, 1)}
 		});
@@ -30,18 +30,12 @@ Mapping Mappings::MandaAudio::getMTPowerDrumKit2Mapping() {
 		{Keys::Ride::bell, getMidiNote(Note::F, 2)}
 		});
 
-	SampleGroup crash = SampleGroup(Keys::Crash::L::hit, {
-		{Keys::Crash::L::hit, getMidiNote(Note::C_SHARP, 2)},
-		{Keys::Crash::R::hit, getMidiNote(Note::A, 2)},
-		{Keys::Crash::R::choke, getMidiNote(Note::A_SHARP, 2)}
-		});
-
-	SampleGroup china = SampleGroup(Keys::China::hit, {
-		{Keys::China::hit, getMidiNote(Note::E, 2)}
-		});
-
-	SampleGroup splash = SampleGroup(Keys::Splash::hit, {
-		{Keys::Splash::hit, getMidiNote(Note::G, 2)}
+	SampleGroup cymbal = SampleGroup(Keys::Cymbal::crash1_hit, {
+		{Keys::Cymbal::crash1_hit, getMidiNote(Note::C_SHARP, 2)},
+		{Keys::Cymbal::crash1_choke, getMidiNote(Note::A_SHARP, 2)},
+		{Keys::Cymbal::crash2_hit, getMidiNote(Note::A, 2)},
+		{Keys::Cymbal::china1_hit, getMidiNote(Note::E, 2)},
+		{Keys::Cymbal::splash1_hit, getMidiNote(Note::G, 2)}
 		});
 
 	Mapping m = Mapping({
@@ -50,9 +44,7 @@ Mapping Mappings::MandaAudio::getMTPowerDrumKit2Mapping() {
 		{SampleGroupTags::hat, hat},
 		{SampleGroupTags::tom, toms},
 		{SampleGroupTags::ride, ride},
-		{SampleGroupTags::crash, crash},
-		{SampleGroupTags::china, china},
-		{SampleGroupTags::splash, splash}
+		{SampleGroupTags::cymbal, cymbal}
 		});
 
 	return m;

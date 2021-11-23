@@ -27,13 +27,12 @@ void convertMapping(const std::string& pathFrom, const std::string& pathTo, cons
 			smf::MidiEvent outMidiEvent = smf::MidiEvent(midiEvent);
 			if (mappingFrom.containsNote(midiEvent.getKeyNumber())) {
 				std::string groupKey = mappingFrom.getSampleGroupKeyOfNote(midiEvent.getKeyNumber());
-				std::string key = mappingFrom[groupKey].getKeyFromNote(midiEvent.getKeyNumber());
-				outMidiEvent.setKeyNumber(mappingTo[groupKey][key]);
-				outfile.addEvent(i, outMidiEvent.tick / 8, outMidiEvent);
+				if (mappingTo.containsSampleGroup(groupKey)) {
+					std::string key = mappingFrom[groupKey].getKeyFromNote(midiEvent.getKeyNumber());
+					outMidiEvent.setKeyNumber(mappingTo[groupKey][key]);
+				}
 			}
-			else {
-				outfile.addEvent(i, outMidiEvent.tick / 8, outMidiEvent);
-			}
+			outfile.addEvent(i, outMidiEvent.tick / 8, outMidiEvent);
 		}
 	}
 

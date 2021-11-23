@@ -10,9 +10,9 @@ namespace SampleGroupTags {
 	const string tom = "tom";
 	const string ride = "ride";
 	const string hat = "hat";
-	const string crash = "crash";
-	const string china = "china";
+	const string cymbal = "cymbal";
 	const string splash = "splash";
+	const string perc = "perc";
 }
 
 #endif

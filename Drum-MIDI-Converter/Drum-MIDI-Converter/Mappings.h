@@ -13,6 +13,7 @@ namespace Mappings {
 		static uint8_t getMidiNote(const Note& note, const uint8_t& octave);
 	public:
 		static Mapping getModernAndMassiveMapping();
+		static Mapping getInvasionMapping();
 	};
 
 	class MandaAudio {
@@ -20,6 +21,13 @@ namespace Mappings {
 		static uint8_t getMidiNote(const Note& note, const uint8_t& octave);
 	public:
 		static Mapping getMTPowerDrumKit2Mapping();
+	};
+
+	class Toontrack {
+	private:
+		static uint8_t getMidiNote(const Note& note, const uint8_t& octave);
+	public:
+		static Mapping getEZDrummerMapping();
 	};
 
 }

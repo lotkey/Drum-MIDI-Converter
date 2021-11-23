@@ -14,6 +14,7 @@ public:
 	Mapping(const std::map<std::string, SampleGroup>&);
 	void insert(const std::string&, const SampleGroup&);
 	bool containsNote(const uint8_t&) const;
+	bool containsSampleGroup(const std::string&) const;
 	std::string getSampleGroupKeyOfNote(const uint8_t&) const;
 	SampleGroup operator[](const std::string&);
 	SampleGroup operator[](const std::string&) const;
