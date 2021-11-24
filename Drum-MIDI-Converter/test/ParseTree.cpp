@@ -140,7 +140,7 @@ std::vector<std::string> ParseTree::getPathToKey(const std::string& key) {
     for (const auto& pair : _roots) {
         if (pair.second->containsKey(key)) {
             path.push_back(pair.first);
-            pair.second->appendPathToKey(path, key);
+            pair.second->getPathToKey(path, key);
             return path;
         }
     }
