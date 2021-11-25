@@ -4,7 +4,9 @@
 #include <map>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
+#include "Mapping.h"
 #include "ParseTree.h"
 #include "stringpp.h"
 
@@ -182,6 +184,34 @@ ParseTreeNode& ParseTree::at(const std::string& key) const {
 
 ParseTreeNode& ParseTree::at(std::vector<std::string> keys) const {
     return operator[](keys);
+}
+
+#pragma endregion
+
+#pragma region Parsing
+
+bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path, uint8_t& value) const {
+    if (mapping.containsKey(path.back())) {
+        value = mapping[path.back()];
+        return true;
+    }
+    path.pop_back();
+
+    // Look through defaults
+    while (path.size() > 0) {
+        std::vector<std::string> defaults = at(path).getDefaultKeys();
+        for (const auto& key : defaults) {
+            path.push_back(key);
+            if (mapping.containsKey(path.back())) {
+                value = mapping[path.back()];
+                return true;
+            }
+            path.pop_back();
+        }
+        path.pop_back();
+    }
+    value = 0;
+    return false;
 }
 
 #pragma endregion

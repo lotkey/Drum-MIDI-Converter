@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "Mapping.h"
 #include "ParseTreeNode.h"
 
 class ParseTree {
@@ -32,6 +33,9 @@ public:
     ParseTreeNode& operator[](std::vector<std::string>) const;
     ParseTreeNode& at(const std::string&) const;
     ParseTreeNode& at(std::vector<std::string>) const;
+    #pragma endregion
+    #pragma region Parsing
+    bool findNearestFit(const Mapping&, std::vector<std::string>, uint8_t&) const;
     #pragma endregion
 };
 

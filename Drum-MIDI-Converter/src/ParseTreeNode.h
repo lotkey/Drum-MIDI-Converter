@@ -13,6 +13,7 @@ private:
     ParseTreeNode* _parent = nullptr;
     bool _isLeaf = true;
     void print(const uint32_t&) const;
+    void addDefaultKeys(std::vector<std::string>&) const;
 public:
     #pragma region Constructors/Destructors/Assigment
     ParseTreeNode();
@@ -35,6 +36,7 @@ public:
     void addDefaults(const std::vector<std::string>&);
     #pragma endregion
     #pragma region Accessors
+    ParseTreeNode* parent() const;
     ParseTreeNode& operator[](const std::string&) const;
     ParseTreeNode& operator[](std::vector<std::string>) const;
     ParseTreeNode& at(const std::string& key) const;

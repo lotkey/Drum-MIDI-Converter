@@ -162,11 +162,20 @@ std::vector<std::string> ParseTreeNode::getPathToKey(const std::string& key) con
 }
 
 std::vector<std::string> ParseTreeNode::getDefaultKeys() const {
-    if (_isLeaf) throw std::runtime_error("Leaf cannot have defaults.");
-
     std::vector<std::string> keys;
-    for (const auto& pair : _defaults) keys.push_back(pair.first);
+    addDefaultKeys(keys);
     return keys;
+}
+
+void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys) const {
+    if (_isLeaf)
+        return;
+
+    for (const auto& pair : _defaults) {
+        if (pair.second->isLeaf()) keys.push_back(pair.first);
+        else pair.second->addDefaultKeys(keys);
+        return;
+    }
 }
 
 #pragma endregion
@@ -196,6 +205,10 @@ void ParseTreeNode::addDefault(const std::string& key) {
 #pragma endregion
 
 #pragma region Accessors
+
+ParseTreeNode* ParseTreeNode::parent() const {
+    return _parent;
+}
 
 ParseTreeNode& ParseTreeNode::operator[](const std::string& key) const {
     if (_children.find(key) != _children.end()) return *_children.at(key);
