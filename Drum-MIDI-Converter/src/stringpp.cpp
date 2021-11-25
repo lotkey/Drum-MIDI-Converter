@@ -1,3 +1,6 @@
+#include <cinttypes>
+#include <iostream>
+
 #include "stringpp.h"
 
 std::string stringpp::ltrim(const std::string& s) {
@@ -13,4 +16,11 @@ std::string stringpp::rtrim(const std::string &s)
  
 std::string stringpp::trim(const std::string &s) {
     return rtrim(ltrim(s));
+}
+
+std::string stringpp::repeat(const std::string& s, const uint32_t& numRepetitions) {
+    std::string result = "";
+    for (unsigned int i = 0; i < numRepetitions; i++)
+        result += s;
+    return result;
 }

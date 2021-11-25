@@ -19,6 +19,6 @@ enum class Note {
     A_SHARP = 10,
     B_FLAT = 10,
     B = 11
-}
+};
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef MAPPING_H
 #define MAPPING_H
 
-#include <inttypes.h>
+#include <cinttypes>
 #include <map>
 #include <string>
 
@@ -19,6 +19,7 @@ public:
     std::string operator[](const uint8_t&) const;
     uint8_t at(const std::string&) const;
     std::string at(const uint8_t&) const;
+    void print() const;
 };
 
 #endif

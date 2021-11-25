@@ -1,6 +1,8 @@
+#include <iostream>
 #include <stdexcept>
 
 #include "Mapping.h"
+#include "stringpp.h"
 
 Mapping::Mapping() 
 { }
@@ -31,7 +33,7 @@ bool Mapping::containsValue(const uint8_t& value) const {
 std::string Mapping::operator[](const uint8_t& value) const {
     for (const auto& pair : _map)
         if (pair.second == value) return pair.first;
-    else throw std::invalid_argument("Value is not in mapping.");
+    throw std::invalid_argument("Value is not in mapping.");
 }
 
 uint8_t Mapping::operator[](const std::string& key) const {
@@ -44,4 +46,19 @@ std::string Mapping::at(const uint8_t& value) const {
 
 uint8_t Mapping::at(const std::string& key) const {
     return operator[](key);
+}
+
+void Mapping::print() const {
+    unsigned int difference = 0;
+    std::string keyHeader = "Key:", valueHeader = "Value:";
+    int maxLen = keyHeader.length();
+    for (const auto& pair : _map)
+        if (pair.first.length() > maxLen) maxLen = pair.first.length();
+
+    std::cout << keyHeader << stringpp::repeat(" ", maxLen - keyHeader.length()) << "  " << valueHeader << std::endl;
+
+    for (const auto& pair : _map) {
+        difference = maxLen - pair.first.length();
+        std::cout << pair.first << stringpp::repeat(" ", difference) << "  " << (int)pair.second << std::endl;
+    }
 }

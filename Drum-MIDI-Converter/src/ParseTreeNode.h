@@ -1,7 +1,7 @@
 #ifndef PARSETREENODE_H
 #define PARSETREENODE_H
 
-#include <inttypes.h>
+#include <cinttypes>
 #include <map>
 #include <string>
 #include <vector>

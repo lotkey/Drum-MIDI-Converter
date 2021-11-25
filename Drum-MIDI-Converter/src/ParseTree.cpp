@@ -1,5 +1,5 @@
 #include <fstream>
-#include <inttypes.h>
+#include <cinttypes>
 #include <iostream>
 #include <map>
 #include <stdexcept>

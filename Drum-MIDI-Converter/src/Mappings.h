@@ -1,7 +1,7 @@
 #ifndef MAPPINGS_H
 #define MAPPINGS_H
 
-#include <inttypes.h>
+#include <cinttypes>
 
 #include "Keys.h"
 #include "Mapping.h"
@@ -9,7 +9,7 @@
 
 namespace Mappings {
 
-    uint8_t yamahatoi(const Note&, const uint8_t&);
+    uint8_t yamahatoi(const Note&, const int8_t&);
 
     namespace GetGoodDrums {
         Mapping getInvasionMapping();
