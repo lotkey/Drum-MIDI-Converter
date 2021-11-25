@@ -14,6 +14,7 @@ private:
     bool _isLeaf = true;
     void print(const uint32_t&) const;
     void addDefaultKeys(std::vector<std::string>&) const;
+    void addDefaultKeys(std::vector<std::string>&, const std::string&) const;
 public:
     #pragma region Constructors/Destructors/Assigment
     ParseTreeNode();
@@ -28,6 +29,7 @@ public:
     bool containsKey(const std::string&) const;
     std::vector<std::string> getPathToKey(const std::string&) const;
     std::vector<std::string> getDefaultKeys() const;
+    std::vector<std::string> getDefaultKeys(const std::string&) const;
     #pragma endregion
     #pragma region Modifiers
     void addChild(const std::string&);

@@ -5,6 +5,7 @@ cymbal
    *crash2_bell
   *ride
    *ride1_bell
+   *ride1_bell_tip
  choke
   *china
    *china1_choke

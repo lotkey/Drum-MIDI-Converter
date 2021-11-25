@@ -1,7 +1,7 @@
 #include <cinttypes>
 #include <iostream>
 
-#include "stringpp.h"
+#include "stringpp.hpp"
 
 std::string stringpp::ltrim(const std::string& s) {
     size_t start = s.find_first_not_of(WHITESPACE);

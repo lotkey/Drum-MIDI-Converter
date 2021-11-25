@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 
-#include "Mapping.h"
-#include "Mappings.h"
-#include "ParseTree.h"
+#include "Mapping.hpp"
+#include "Mappings.hpp"
+#include "ParseTree.hpp"
 
 int main() {
     ParseTree tree = ParseTree("./tree.txt");
-    Mapping invasion = Mappings::GetGoodDrums::getInvasionMapping();
-    invasion.print();
+    Mapping mt = Mappings::MandaAudio::getMTPowerDrumKit2Mapping();
+    mt.print();
 
     return 0;
 }

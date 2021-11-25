@@ -15,6 +15,7 @@ namespace Keys {
 
             namespace Ride {
                 const string ride1_bell = "ride1_bell";
+                const string ride1_bell_tip = "ride1_bell_tip";
             }
         }
 

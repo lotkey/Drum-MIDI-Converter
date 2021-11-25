@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include "Mapping.h"
-#include "ParseTreeNode.h"
+#include "Mapping.hpp"
+#include "ParseTreeNode.hpp"
 
 class ParseTree {
 private:

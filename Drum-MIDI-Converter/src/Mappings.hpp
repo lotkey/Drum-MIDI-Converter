@@ -3,9 +3,9 @@
 
 #include <cinttypes>
 
-#include "Keys.h"
-#include "Mapping.h"
-#include "Note.h"
+#include "Keys.hpp"
+#include "Mapping.hpp"
+#include "Note.hpp"
 
 namespace Mappings {
 
@@ -18,6 +18,10 @@ namespace Mappings {
 
     namespace MandaAudio {
         Mapping getMTPowerDrumKit2Mapping();
+    }
+
+    namespace Drumforge {
+        Mapping getUltimateMapping();
     }
 }
 

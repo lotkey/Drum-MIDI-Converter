@@ -1,7 +1,7 @@
 main:
-	g++ main.cpp ParseTree.cpp ParseTreeNode.cpp stringpp.cpp Mapping.cpp Mappings.cpp ./GetGoodDrums/Invasion.cpp -o main
+	g++ *.cpp GetGoodDrums/*.cpp MandaAudio/*.cpp Drumforge/*.cpp -o main
+again:
+	rm main
+	make main
 clean:
 	rm main
-again:
-	$(MAKE) clean
-	$(MAKE) main

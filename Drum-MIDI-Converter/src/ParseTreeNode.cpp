@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "ParseTreeNode.h"
+#include "ParseTreeNode.hpp"
 
 #pragma region Constructors/Destructors/Assignment
 
@@ -167,14 +167,29 @@ std::vector<std::string> ParseTreeNode::getDefaultKeys() const {
     return keys;
 }
 
+std::vector<std::string> ParseTreeNode::getDefaultKeys(const std::string& exclude) const {
+    std::vector<std::string> keys;
+    addDefaultKeys(keys, exclude);
+    return keys;
+}
+
 void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys) const {
-    if (_isLeaf)
-        return;
+    if (_isLeaf) return;
 
     for (const auto& pair : _defaults) {
         if (pair.second->isLeaf()) keys.push_back(pair.first);
         else pair.second->addDefaultKeys(keys);
-        return;
+    }
+}
+
+void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys, const std::string& exclude) const {
+    if (_isLeaf) return;
+
+    for (const auto& pair : _defaults) {
+        if (pair.first != exclude) {
+            if (pair.second->isLeaf()) keys.push_back(pair.first);
+            else pair.second->addDefaultKeys(keys, exclude);
+        }        
     }
 }
 

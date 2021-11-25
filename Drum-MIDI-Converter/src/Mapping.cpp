@@ -1,8 +1,8 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Mapping.h"
-#include "stringpp.h"
+#include "Mapping.hpp"
+#include "stringpp.hpp"
 
 Mapping::Mapping() 
 { }

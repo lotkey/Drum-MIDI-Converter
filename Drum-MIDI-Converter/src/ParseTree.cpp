@@ -6,9 +6,9 @@
 #include <string>
 #include <vector>
 
-#include "Mapping.h"
-#include "ParseTree.h"
-#include "stringpp.h"
+#include "Mapping.hpp"
+#include "ParseTree.hpp"
+#include "stringpp.hpp"
 
 #pragma region Constructors/Destructors/Assignment
 
@@ -191,15 +191,18 @@ ParseTreeNode& ParseTree::at(std::vector<std::string> keys) const {
 #pragma region Parsing
 
 bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path, uint8_t& value) const {
+    std::string exclude;
+    
     if (mapping.containsKey(path.back())) {
         value = mapping[path.back()];
         return true;
     }
+    exclude = path.back();
     path.pop_back();
 
     // Look through defaults
     while (path.size() > 0) {
-        std::vector<std::string> defaults = at(path).getDefaultKeys();
+        std::vector<std::string> defaults = at(path).getDefaultKeys(exclude);
         for (const auto& key : defaults) {
             path.push_back(key);
             if (mapping.containsKey(path.back())) {
@@ -208,6 +211,7 @@ bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> 
             }
             path.pop_back();
         }
+        exclude = path.back();
         path.pop_back();
     }
     value = 0;

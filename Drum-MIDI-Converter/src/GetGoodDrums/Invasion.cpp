@@ -1,9 +1,9 @@
 #include <inttypes.h>
 #include <string>
 
-#include "../Keys.h"
-#include "../Mapping.h"
-#include "../Mappings.h"
+#include "../Keys.hpp"
+#include "../Mapping.hpp"
+#include "../Mappings.hpp"
 
 using namespace Keys;
 
