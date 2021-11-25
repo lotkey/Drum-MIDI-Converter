@@ -9,7 +9,7 @@ ParseTreeNode::ParseTreeNode()
 { }
 
 ParseTreeNode::ParseTreeNode(const ParseTreeNode& src) {
-    if (_isLeaf) {
+    if (src._isLeaf) {
         _defaults.clear();
         _children.clear();
         _isLeaf = true;
@@ -33,16 +33,12 @@ ParseTreeNode::ParseTreeNode(ParseTreeNode* parent)
 
 ParseTreeNode::~ParseTreeNode() {
     for (const auto& pair : _children) {
-        if (!pair.second->isLeaf())
-            pair.second->~ParseTreeNode();
         pair.second->_parent = nullptr;
         delete pair.second;
         _children.erase(pair.first);
     }
 
     for (const auto& pair : _defaults) {
-        if (!pair.second->isLeaf())
-            pair.second->~ParseTreeNode();
         pair.second->_parent = nullptr;
         delete pair.second;
         _children.erase(pair.first);
@@ -50,7 +46,22 @@ ParseTreeNode::~ParseTreeNode() {
 }
 
 void ParseTreeNode::operator=(const ParseTreeNode& src) {
-    // assignment operator
+    if (src._isLeaf) {
+        _defaults.clear();
+        _children.clear();
+        _isLeaf = true;
+    }
+    else {
+        for (const auto& pair : src._children) {
+            _children.insert({pair.first, new ParseTreeNode(*pair.second)});
+            _children[pair.first]->_parent = this;
+        }
+
+        for (const auto& pair : src._defaults) {
+            _defaults.insert({pair.first, new ParseTreeNode(*pair.second)});
+            _defaults[pair.first]->_parent = this;
+        }
+    }
 }
 
 #pragma endregion

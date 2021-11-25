@@ -4,6 +4,11 @@
 
 #include "ParseTree.h"
 
+void printParseTree(ParseTree tree) {
+    tree.print();
+    return;
+}
+
 int main() {
     ParseTree tree = ParseTree("./tree.txt");
     // if (tree.containsKey("tom_floor1_rimshot")) {
@@ -14,7 +19,6 @@ int main() {
     //     std::cout << " end\n";
     // }
 
-    ParseTree copy = ParseTree(tree);
-
-    copy.print();
+    printParseTree(tree);
+    return 0;
 }
