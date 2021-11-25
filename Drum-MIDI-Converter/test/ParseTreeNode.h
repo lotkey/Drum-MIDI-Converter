@@ -23,9 +23,9 @@ public:
     #pragma endregion
     #pragma region Info
     void print() const;
-    void getPathToKey(std::vector<std::string>&, const std::string&) const;
     bool isLeaf() const { return _isLeaf; };
     bool containsKey(const std::string&) const;
+    std::vector<std::string> getPathToKey(const std::string&) const;
     std::vector<std::string> getDefaultKeys() const;
     #pragma endregion
     #pragma region Modifiers

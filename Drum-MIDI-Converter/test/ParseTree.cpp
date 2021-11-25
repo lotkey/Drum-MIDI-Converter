@@ -143,11 +143,8 @@ bool ParseTree::containsKey(const std::string& key) const {
 std::vector<std::string> ParseTree::getPathToKey(const std::string& key) const {
     std::vector<std::string> path;
     for (const auto& pair : _roots) {
-        if (pair.second->containsKey(key)) {
-            path.push_back(pair.first);
-            pair.second->getPathToKey(path, key);
-            return path;
-        }
+        path = pair.second->getPathToKey(key);
+        if (path.size() != 0) return path;
     }
     return path;
 }

@@ -11,14 +11,11 @@ void printParseTree(ParseTree tree) {
 
 int main() {
     ParseTree tree = ParseTree("./tree.txt");
-    // if (tree.containsKey("tom_floor1_rimshot")) {
-    //     std::vector<std::string> path = tree.getPathToKey("tom_floor1_rimshot");
-    //     for (const auto& s : path) {
-    //         std::cout << s << " -> ";
-    //     }
-    //     std::cout << " end\n";
-    // }
+    std::vector<std::string> path = tree.getPathToKey("tom_floor1_riimshot");
+    for (const auto& s : path) {
+        std::cout << s << " -> ";
+    }
+    std::cout << " end\n";
 
-    printParseTree(tree);
     return 0;
 }
