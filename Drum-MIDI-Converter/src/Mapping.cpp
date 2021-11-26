@@ -5,11 +5,20 @@
 #include "stringpp.hpp"
 
 Mapping::Mapping() 
+    : _name("unnamed map")
 { }
 
-Mapping::Mapping(const std::map<std::string, uint8_t>& map) 
-    : _map(map)
+Mapping::Mapping(const std::string& name)
+    : _name(name)
 { }
+
+Mapping::Mapping(const std::string& name, const std::map<std::string, uint8_t>& map) 
+    : _map(map), _name(name)
+{ }
+
+std::string Mapping::name() const {
+    return _name;
+}
 
 void Mapping::insert(const std::string& key, const uint8_t& value) {
     _map.insert({key, value});
@@ -28,6 +37,13 @@ bool Mapping::containsValue(const uint8_t& value) const {
     for (const auto& pair : _map)
         if (pair.second == value) return true;
     return false;
+}
+
+std::vector<std::string> Mapping::getKeys() const {
+    std::vector<std::string> keys;
+    for (const auto& pair : _map)
+        keys.push_back(pair.first);
+    return keys;
 }
 
 std::string Mapping::operator[](const uint8_t& value) const {
@@ -50,6 +66,7 @@ uint8_t Mapping::at(const std::string& key) const {
 
 void Mapping::print() const {
     unsigned int difference = 0;
+    std::cout << _name << std::endl;
     std::string keyHeader = "Key:", valueHeader = "Value:";
     int maxLen = keyHeader.length();
     for (const auto& pair : _map)

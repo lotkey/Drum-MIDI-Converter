@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 
+#include "ConversionMap.hpp"
 #include "Mapping.hpp"
 #include "ParseTreeNode.hpp"
 
@@ -36,6 +37,7 @@ public:
     #pragma endregion
     #pragma region Parsing
     bool findNearestFit(const Mapping&, std::vector<std::string>, uint8_t&) const;
+    ConversionMap makeConversionMapping(const Mapping&, const Mapping&) const;
     #pragma endregion
 };
 

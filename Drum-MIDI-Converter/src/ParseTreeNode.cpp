@@ -136,7 +136,6 @@ std::vector<std::string> ParseTreeNode::getPathToKey(const std::string& key) con
     for (const auto& pair : _children) {
         if (pair.second->isLeaf()) {
             if (pair.first == key) return std::vector<std::string>({pair.first});
-            else return std::vector<std::string>();
         }
 
         std::vector<std::string> path = pair.second->getPathToKey(key);
@@ -149,7 +148,6 @@ std::vector<std::string> ParseTreeNode::getPathToKey(const std::string& key) con
     for (const auto& pair : _defaults) {
         if (pair.second->isLeaf()) {
             if (pair.first == key) return std::vector<std::string>({pair.first});
-            else return std::vector<std::string>();
         }
 
         std::vector<std::string> path = pair.second->getPathToKey(key);

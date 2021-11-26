@@ -8,7 +8,7 @@
 using namespace Keys;
 
 Mapping Mappings::MandaAudio::getMTPowerDrumKit2Mapping() {
-    return Mapping({
+    return Mapping("MTPowerDrumKit2", {
         {Cymbal::Hit::China::china1_hit, yamahatoi(Note::E, 2)},
         {Cymbal::Hit::Crash::crash1_hit, yamahatoi(Note::C_SHARP, 2)},
         {Cymbal::Hit::Crash::crash2_hit, yamahatoi(Note::A, 2)},

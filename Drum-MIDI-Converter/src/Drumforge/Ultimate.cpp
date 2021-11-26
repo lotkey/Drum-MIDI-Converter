@@ -8,7 +8,7 @@
 using namespace Keys;
 
 Mapping Mappings::Drumforge::getUltimateMapping() {
-    return Mapping({
+    return Mapping("Drumforge Ultimate", {
         {Cymbal::Hit::Crash::crash1_hit, yamahatoi(Note::C, 3)},
         {Cymbal::Choke::Crash::crash1_choke, yamahatoi(Note::C_SHARP, 3)},
         {Cymbal::Hit::Crash::crash2_hit, yamahatoi(Note::D, 3)},

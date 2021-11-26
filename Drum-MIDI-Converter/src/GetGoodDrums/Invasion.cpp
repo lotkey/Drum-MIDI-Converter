@@ -8,7 +8,7 @@
 using namespace Keys;
 
 Mapping Mappings::GetGoodDrums::getInvasionMapping() {
-    return Mapping({
+    return Mapping("GGD Invasion", {
         {Cymbal::Bell::Crash::crash1_bell, yamahatoi(Note::G, 4)},
         {Cymbal::Bell::Crash::crash2_bell, yamahatoi(Note::G_SHARP, 4)},
         

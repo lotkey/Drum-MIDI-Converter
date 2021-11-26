@@ -1,11 +1,15 @@
-#include <fstream>
+#include <algorithm>
 #include <cinttypes>
+#include <cstdlib>
 #include <iostream>
+#include <fstream>
 #include <map>
+#include <random>
 #include <stdexcept>
 #include <string>
 #include <vector>
 
+#include "ConversionMap.hpp"
 #include "Mapping.hpp"
 #include "ParseTree.hpp"
 #include "stringpp.hpp"
@@ -146,7 +150,10 @@ std::vector<std::string> ParseTree::getPathToKey(const std::string& key) const {
     std::vector<std::string> path;
     for (const auto& pair : _roots) {
         path = pair.second->getPathToKey(key);
-        if (path.size() != 0) return path;
+        if (path.size() != 0) {
+            path.insert(path.begin(), pair.first);
+            return path;
+        }
     }
     return path;
 }
@@ -200,9 +207,12 @@ bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> 
     exclude = path.back();
     path.pop_back();
 
+    std::random_device rd;
+    std::mt19937 g(rd());
     // Look through defaults
     while (path.size() > 0) {
         std::vector<std::string> defaults = at(path).getDefaultKeys(exclude);
+        std::shuffle(defaults.begin(), defaults.end(), rd);
         for (const auto& key : defaults) {
             path.push_back(key);
             if (mapping.containsKey(path.back())) {
@@ -216,6 +226,22 @@ bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> 
     }
     value = 0;
     return false;
+}
+
+ConversionMap ParseTree::makeConversionMapping(const Mapping& mapFrom, const Mapping& mapTo) const {
+    bool hasNearestFit;
+    uint8_t value;
+    ConversionMap m = ConversionMap(mapFrom.name(), mapTo.name());
+    std::vector<std::string> path;
+
+    for (const std::string& key : mapFrom.getKeys()) {
+        path = getPathToKey(key);
+        hasNearestFit = findNearestFit(mapTo, path, value);
+        if (hasNearestFit)
+            m.insert(mapFrom[key], value);
+    }
+
+    return m;
 }
 
 #pragma endregion
