@@ -197,6 +197,23 @@ ParseTreeNode& ParseTree::at(std::vector<std::string> keys) const {
 
 #pragma region Parsing
 
+void ParseTree::exportAsNamespace(const std::string& path) const {
+    std::ofstream outfile;
+    outfile.open(path);
+
+    outfile << "#ifndef TEST_H\n#define TEST_H\n\n#include <string>\n\nusing namespace std;\n\nnamespace Keys {\n";
+    for (const auto& pair : _roots) {
+        std::string label = pair.first;
+        label[0] = toupper(label[0]);
+        outfile << "   " << "namespace " << label << " {\n";
+        pair.second->addToStream(outfile, 2);
+        outfile << "   }\n";
+    }
+    outfile << "}\n\n#endif";
+
+    outfile.close();
+}
+
 bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path, uint8_t& value) const {
     std::string exclude;
     

@@ -36,6 +36,7 @@ public:
     ParseTreeNode& at(std::vector<std::string>) const;
     #pragma endregion
     #pragma region Parsing
+    void exportAsNamespace(const std::string&) const;
     bool findNearestFit(const Mapping&, std::vector<std::string>, uint8_t&) const;
     ConversionMap makeConversionMapping(const Mapping&, const Mapping&) const;
     #pragma endregion

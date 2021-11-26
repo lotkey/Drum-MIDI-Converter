@@ -2,6 +2,7 @@
 #define PARSETREENODE_H
 
 #include <cinttypes>
+#include <fstream>
 #include <map>
 #include <string>
 #include <vector>
@@ -43,6 +44,7 @@ public:
     ParseTreeNode& operator[](std::vector<std::string>) const;
     ParseTreeNode& at(const std::string& key) const;
     ParseTreeNode& at(std::vector<std::string> keys) const;
+    void addToStream(std::ofstream&, uint32_t) const;
     #pragma endregion
 };
 

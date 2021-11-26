@@ -2,6 +2,7 @@
 #include <stdexcept>
 
 #include "ParseTreeNode.hpp"
+#include "stringpp.hpp"
 
 #pragma region Constructors/Destructors/Assignment
 
@@ -245,6 +246,32 @@ ParseTreeNode& ParseTreeNode::at(const std::string& key) const {
 
 ParseTreeNode& ParseTreeNode::at(std::vector<std::string> key) const {
     return operator[](key);
+}
+
+void ParseTreeNode::addToStream(std::ofstream& outfile, uint32_t numTabs) const {
+    for (const auto& pair : _children) {
+        if (pair.second->isLeaf())
+            outfile << stringpp::repeat("   ", numTabs) << "const string " << pair.first << " = \"" << pair.first << "\";\n";
+        else {
+            std::string label = pair.first;
+            label[0] = toupper(label[0]);
+            outfile << stringpp::repeat("   ", numTabs) << "namespace " << label << " {\n";
+            pair.second->addToStream(outfile, numTabs + 1);
+            outfile << stringpp::repeat("   ", numTabs) << "}\n";
+        }
+    }
+
+    for (const auto& pair : _defaults) {
+        if (pair.second->isLeaf())
+            outfile << stringpp::repeat("   ", numTabs) << "const string " << pair.first << " = \"" << pair.first << "\";\n";
+        else {
+            std::string label = pair.first;
+            label[0] = toupper(label[0]);
+            outfile << stringpp::repeat("   ", numTabs) << "namespace " << label << " {\n";
+            pair.second->addToStream(outfile, numTabs + 1);
+            outfile << stringpp::repeat("   ", numTabs) << "}\n";
+        }
+    }
 }
 
 #pragma endregion
