@@ -18,7 +18,7 @@ Mapping Mappings::Drumforge::getUltimateMapping() {
         {Cymbal::Bell::Ride::ride1_bell, yamahatoi(Note::A, 3)},
         {Cymbal::Bell::Ride::ride1_bell_tip, yamahatoi(Note::A_SHARP, 3)},
         {Cymbal::Hit::Ride::ride1_bow, yamahatoi(Note::G, 3)},
-        {Cymbal::Hit::Ride::ride1_tip, yamahatoi(Note::G_SHARP, 3)},
+        {Cymbal::Hit::Ride::ride1_bow_tip, yamahatoi(Note::G_SHARP, 3)},
 
         {Tom::Hit::Floor::tom_floor1, yamahatoi(Note::G, 1)},
         {Tom::Hit::Rack::tom_rack1, yamahatoi(Note::E, 1)},

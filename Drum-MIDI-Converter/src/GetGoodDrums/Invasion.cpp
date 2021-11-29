@@ -35,7 +35,7 @@ Mapping Mappings::GetGoodDrums::getInvasionMapping() {
 
         {Cymbal::Bell::Ride::ride1_bell, yamahatoi(Note::C_SHARP, 3)},
         {Cymbal::Hit::Ride::ride1_bow, yamahatoi(Note::D, 3)},
-        {Cymbal::Hit::Ride::ride1_tip, yamahatoi(Note::D_SHARP, 3)},
+        {Cymbal::Hit::Ride::ride1_bow_tip, yamahatoi(Note::D_SHARP, 3)},
 
         {Tom::Hit::Floor::tom_floor1, yamahatoi(Note::C, 1)},
         {Tom::Hit::Floor::tom_floor2, yamahatoi(Note::C_SHARP, 1)},
