@@ -27,13 +27,13 @@ Mapping Mappings::SingularSound::getBeatBuddyMapping() {
         {Tom::Hit::Rack::tom_rack2, yamahatoi(Note::C, 2)},
         {Tom::Hit::Rack::tom_rack3, yamahatoi(Note::A, 1)},
 
-        {Hat::Closed::hat_closed_edge, yamahatoi(Note::F_SHARP, 1)},
+        {Hat::Closed::hat_closed0, yamahatoi(Note::F_SHARP, 1)},
         {Hat::Closed::hat_pedal_close_foot, yamahatoi(Note::G_SHARP, 1)},
         {Hat::Open::hat_open0, yamahatoi(Note::F_SHARP, 1)},
 
         {Kick::kick_hit, yamahatoi(Note::C, 1)},
 
-        {Snare::snare_hit, yamahatoi(Note::D, 1)},
-        {Snare::snare_sidestick, yamahatoi(Note::C_SHARP, 1)}
+        {Snare::Hit::snare_hit, yamahatoi(Note::D, 1)},
+        {Snare::Side::snare_sidestick, yamahatoi(Note::C_SHARP, 1)}
     });
 }

@@ -25,6 +25,8 @@ namespace Keys {
          namespace Ride {
             const string ride1_bell = "ride1_bell";
             const string ride1_bell_tip = "ride1_bell_tip";
+            const string ride2_bell = "ride2_bell";
+            const string ride2_bell_tip = "ride2_bell_tip";
          }
       }
       namespace Choke {
@@ -41,6 +43,7 @@ namespace Keys {
          }
          namespace Ride {
             const string ride1_choke = "ride1_choke";
+            const string ride2_choke = "ride2_choke";
          }
          namespace Splash {
             const string splash1_choke = "splash1_choke";
@@ -73,7 +76,11 @@ namespace Keys {
             const string ride1_bow = "ride1_bow";
             const string ride1_bow_tip = "ride1_bow_tip";
             const string ride1_edge = "ride1_edge";
+            const string ride2_bow = "ride2_bow";
+            const string ride2_bow_tip = "ride2_bow_tip";
+            const string ride2_edge = "ride2_edge";
             const string ride1_hit = "ride1_hit";
+            const string ride2_hit = "ride2_hit";
          }
          namespace Splash {
             const string splash1_hit = "splash1_hit";
@@ -87,10 +94,13 @@ namespace Keys {
    namespace Hat {
       namespace Closed {
          const string hat_closed_bell = "hat_closed_bell";
+         const string hat_closed_loose = "hat_closed_loose";
          const string hat_pedal_close_foot = "hat_pedal_close_foot";
+         const string hat_tight = "hat_tight";
          const string hat_tight_edge = "hat_tight_edge";
          const string hat_tight_tip = "hat_tight_tip";
          const string hat_x_closed = "hat_x_closed";
+         const string hat_closed0 = "hat_closed0";
          const string hat_closed_edge = "hat_closed_edge";
          const string hat_closed_tip = "hat_closed_tip";
       }
@@ -138,15 +148,19 @@ namespace Keys {
       const string tambourine = "tambourine";
    }
    namespace Snare {
-      const string electric_snare = "electric_snare";
-      const string snare_flam = "snare_flam";
-      const string snare_off = "snare_off";
-      const string snare_rim = "snare_rim";
-      const string snare_rimshot = "snare_rimshot";
-      const string snare_ruff = "snare_ruff";
-      const string snare_side = "snare_side";
-      const string snare_sidestick = "snare_sidestick";
-      const string snare_hit = "snare_hit";
+      namespace Side {
+         const string snare_rim = "snare_rim";
+         const string snare_rimshot = "snare_rimshot";
+         const string snare_side = "snare_side";
+         const string snare_sidestick = "snare_sidestick";
+      }
+      namespace Hit {
+         const string electric_snare = "electric_snare";
+         const string snare_flam = "snare_flam";
+         const string snare_off = "snare_off";
+         const string snare_ruff = "snare_ruff";
+         const string snare_hit = "snare_hit";
+      }
    }
    namespace Tom {
       namespace Rimshot {
@@ -176,6 +190,7 @@ namespace Keys {
             const string tom_rack1 = "tom_rack1";
             const string tom_rack2 = "tom_rack2";
             const string tom_rack3 = "tom_rack3";
+            const string tom_rack4 = "tom_rack4";
          }
       }
    }

@@ -12,6 +12,8 @@ cymbal
   *ride
    *ride1_bell
    *ride1_bell_tip
+   *ride2_bell
+   *ride2_bell_tip
   *china
    *china1_bell
    *china1_bell_tip
@@ -27,6 +29,7 @@ cymbal
    *crash5_choke
   *ride
    *ride1_choke
+   *ride2_choke
   *splash
    *splash1_choke
    *splash2_choke
@@ -52,9 +55,13 @@ cymbal
    crash4_bow_tip
   *ride
    ride1_bow
+   ride2_bow
    ride1_bow_tip
+   ride2_bow_tip
    ride1_edge
+   ride2_edge
    *ride1_hit
+   *ride2_hit
   *splash
    *splash1_hit
    *splash2_hit
@@ -62,6 +69,7 @@ cymbal
    *stack1_hit
 hat
  closed
+  *hat_closed0
   hat_closed_bell
   *hat_closed_edge
   *hat_closed_tip
@@ -69,6 +77,8 @@ hat
   hat_tight_edge
   hat_tight_tip
   hat_x_closed
+  hat_tight
+  hat_closed_loose
  *open
   hat_cc
   hat_ching
@@ -109,15 +119,17 @@ perc
  sticks
  vibraslap
 snare
- electric_snare
- snare_flam
- snare_off
- snare_rim
- snare_rimshot
- snare_ruff
- snare_sidestick
- snare_side
- *snare_hit
+ *hit
+  electric_snare
+  snare_flam
+  snare_off
+  snare_ruff
+  *snare_hit
+ side
+  *snare_side
+  *snare_sidestick
+  *snare_rim
+  *snare_rimshot
 tom
  rimshot
   *floor
@@ -142,3 +154,4 @@ tom
    *tom_rack1
    *tom_rack2
    *tom_rack3
+   *tom_rack4

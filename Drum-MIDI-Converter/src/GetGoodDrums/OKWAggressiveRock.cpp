@@ -35,7 +35,7 @@ Mapping Mappings::GetGoodDrums::getOKWAggressiveRockMapping() {
 
         {Kick::kick_hit, yamahatoi(Note::C, 0)},
 
-        {Snare::snare_hit, yamahatoi(Note::D, 0)},
-        {Snare::snare_sidestick, yamahatoi(Note::F_SHARP, 0)}
+        {Snare::Hit::snare_hit, yamahatoi(Note::D, 0)},
+        {Snare::Side::snare_sidestick, yamahatoi(Note::F_SHARP, 0)}
     });
 }

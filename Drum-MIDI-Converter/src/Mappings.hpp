@@ -16,12 +16,12 @@ namespace Mappings {
         Mapping getUltimateMapping();
     }
 
-    namespace GeneralMidi {
+    namespace GeneralMIDI {
         Mapping getGmStandardMapping();
     }
 
     namespace GetGoodDrums {
-        Mapping getGroovePlayerMidiPackMapping();
+        Mapping getGroovePlayerMIDIPackMapping();
         Mapping getInvasionMapping();
         Mapping getModernAndMassiveMapping();
         Mapping getOKWAggressiveRockMapping();

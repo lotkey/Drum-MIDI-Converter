@@ -60,10 +60,10 @@ Mapping Mappings::GetGoodDrums::getInvasionMapping() {
         {Kick::kick_adk, yamahatoi(Note::A_SHARP, -1)},
         {Kick::kick_left, yamahatoi(Note::B, -1)},
 
-        {Snare::snare_flam, yamahatoi(Note::D_SHARP, 0)},
-        {Snare::snare_hit, yamahatoi(Note::D, 0)},
-        {Snare::snare_off, yamahatoi(Note::F, 0)},
-        {Snare::snare_ruff, yamahatoi(Note::E, 0)},
-        {Snare::snare_sidestick, yamahatoi(Note::F_SHARP, 0)}
+        {Snare::Hit::snare_flam, yamahatoi(Note::D_SHARP, 0)},
+        {Snare::Hit::snare_hit, yamahatoi(Note::D, 0)},
+        {Snare::Hit::snare_off, yamahatoi(Note::F, 0)},
+        {Snare::Hit::snare_ruff, yamahatoi(Note::E, 0)},
+        {Snare::Side::snare_sidestick, yamahatoi(Note::F_SHARP, 0)}
     });
 }

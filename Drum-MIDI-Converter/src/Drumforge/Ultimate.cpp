@@ -33,7 +33,7 @@ Mapping Mappings::Drumforge::getUltimateMapping() {
 
         {Kick::kick_hit, yamahatoi(Note::C, 1)},
 
-        {Snare::snare_hit, yamahatoi(Note::D, 1)},
-        {Snare::snare_ruff, yamahatoi(Note::D_SHARP, 1)}
+        {Snare::Hit::snare_hit, yamahatoi(Note::D, 1)},
+        {Snare::Hit::snare_ruff, yamahatoi(Note::D_SHARP, 1)}
     });
 }
