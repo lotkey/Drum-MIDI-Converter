@@ -1,5 +1,5 @@
-#ifndef MAPPING_H
-#define MAPPING_H
+#ifndef MAPPING_HPP
+#define MAPPING_HPP
 
 #include <cinttypes>
 #include <map>

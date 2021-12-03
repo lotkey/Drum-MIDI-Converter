@@ -1,5 +1,5 @@
-#ifndef CONVERSIONMAP_H
-#define CONVERSIONMAP_H
+#ifndef CONVERSIONMAP_HPP
+#define CONVERSIONMAP_HPP
 
 #include <cinttypes>
 #include <map>

@@ -1,5 +1,5 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef TEST_HPP
+#define TEST_HPP
 
 #include <string>
 

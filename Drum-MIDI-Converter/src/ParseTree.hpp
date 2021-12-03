@@ -1,5 +1,5 @@
-#ifndef PARSETREE_H
-#define PARSETREE_H
+#ifndef PARSETREE_HPP
+#define PARSETREE_HPP
 
 #include <map>
 #include <optional>

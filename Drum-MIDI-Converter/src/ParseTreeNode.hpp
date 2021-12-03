@@ -1,5 +1,5 @@
-#ifndef PARSETREENODE_H
-#define PARSETREENODE_H
+#ifndef PARSETREENODE_HPP
+#define PARSETREENODE_HPP
 
 #include <cinttypes>
 #include <fstream>

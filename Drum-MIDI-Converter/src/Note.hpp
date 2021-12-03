@@ -1,5 +1,5 @@
-#ifndef NOTE_H
-#define NOTE_H
+#ifndef NOTE_HPP
+#define NOTE_HPP
 
 enum class Note {
     C = 0,

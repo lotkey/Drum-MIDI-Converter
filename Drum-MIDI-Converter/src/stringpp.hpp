@@ -1,5 +1,5 @@
-#ifndef STRINGPP_H
-#define STRINGPP_H
+#ifndef STRINGPP_HPP
+#define STRINGPP_HPP
 
 #include <cinttypes>
 #include <string>
