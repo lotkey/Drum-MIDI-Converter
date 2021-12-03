@@ -133,14 +133,15 @@ bool ParseTreeNode::containsKey(const std::string& key) const {
     return hasKey;
 }
 
-std::vector<std::string> ParseTreeNode::getPathToKey(const std::string& key) const {
+std::optional<std::vector<std::string>> ParseTreeNode::getPathToKey(const std::string& key) const {
     for (const auto& pair : _children) {
         if (pair.second->isLeaf()) {
             if (pair.first == key) return std::vector<std::string>({pair.first});
         }
 
-        std::vector<std::string> path = pair.second->getPathToKey(key);
-        if (path.size() != 0) {
+        std::optional<std::vector<std::string>> pathOpt = pair.second->getPathToKey(key);
+        if (pathOpt.has_value()) {
+            std::vector<std::string> path(pathOpt.value());
             path.insert(path.begin(), pair.first);
             return path;
         }
@@ -151,13 +152,14 @@ std::vector<std::string> ParseTreeNode::getPathToKey(const std::string& key) con
             if (pair.first == key) return std::vector<std::string>({pair.first});
         }
 
-        std::vector<std::string> path = pair.second->getPathToKey(key);
-        if (path.size() != 0) {
+        std::optional<std::vector<std::string>> pathOpt = pair.second->getPathToKey(key);
+        if (pathOpt.has_value()) {
+            std::vector<std::string> path(pathOpt.value());
             path.insert(path.begin(), pair.first);
             return path;
         }
     }
-    return std::vector<std::string>();
+    return {};
 }
 
 std::vector<std::string> ParseTreeNode::getDefaultKeys() const {

@@ -4,6 +4,7 @@
 #include <cinttypes>
 #include <fstream>
 #include <map>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -28,7 +29,7 @@ public:
     void print() const;
     bool isLeaf() const { return _isLeaf; };
     bool containsKey(const std::string&) const;
-    std::vector<std::string> getPathToKey(const std::string&) const;
+    std::optional<std::vector<std::string>> getPathToKey(const std::string&) const;
     std::vector<std::string> getDefaultKeys() const;
     std::vector<std::string> getDefaultKeys(const std::string&) const;
     #pragma endregion

@@ -2,6 +2,7 @@
 #define PARSETREE_H
 
 #include <map>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -24,7 +25,7 @@ public:
     #pragma region Info
     void print() const;
     bool containsKey(const std::string&) const;
-    std::vector<std::string> getPathToKey(const std::string&) const;
+    std::optional<std::vector<std::string>> getPathToKey(const std::string&) const;
     #pragma endregion
     #pragma region Modifiers
     void addRoot(const std::string&);
@@ -37,7 +38,7 @@ public:
     #pragma endregion
     #pragma region Parsing
     void exportAsNamespace(const std::string&) const;
-    bool findNearestFit(const Mapping&, std::vector<std::string>, uint8_t&) const;
+    std::optional<uint8_t> findNearestFit(const Mapping&, std::vector<std::string>) const;
     ConversionMap makeConversionMapping(const Mapping&, const Mapping&) const;
     #pragma endregion
 };

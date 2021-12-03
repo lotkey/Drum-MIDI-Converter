@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <optional>
 #include <random>
 #include <stdexcept>
 #include <string>
@@ -146,16 +147,17 @@ bool ParseTree::containsKey(const std::string& key) const {
     return false;
 }
 
-std::vector<std::string> ParseTree::getPathToKey(const std::string& key) const {
-    std::vector<std::string> path;
+std::optional<std::vector<std::string>> ParseTree::getPathToKey(const std::string& key) const {
+    std::optional<std::vector<std::string>> pathOpt;
     for (const auto& pair : _roots) {
-        path = pair.second->getPathToKey(key);
-        if (path.size() != 0) {
+        pathOpt = pair.second->getPathToKey(key);
+        if (pathOpt.has_value()) {
+            std::vector<std::string> path(pathOpt.value());
             path.insert(path.begin(), pair.first);
             return path;
         }
     }
-    return path;
+    return {};
 }
 
 #pragma endregion
@@ -214,13 +216,12 @@ void ParseTree::exportAsNamespace(const std::string& path) const {
     outfile.close();
 }
 
-bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path, uint8_t& value) const {
+std::optional<uint8_t> ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path) const {
     std::string exclude;
     
-    if (mapping.containsKey(path.back())) {
-        value = mapping[path.back()];
-        return true;
-    }
+    if (mapping.containsKey(path.back()))
+        return mapping[path.back()];
+        
     exclude = path.back();
     path.pop_back();
 
@@ -232,30 +233,26 @@ bool ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> 
         std::shuffle(defaults.begin(), defaults.end(), rd);
         for (const auto& key : defaults) {
             path.push_back(key);
-            if (mapping.containsKey(path.back())) {
-                value = mapping[path.back()];
-                return true;
-            }
+            if (mapping.containsKey(path.back()))
+                return mapping[path.back()];
             path.pop_back();
         }
         exclude = path.back();
         path.pop_back();
     }
-    value = 0;
-    return false;
+    return {};
 }
 
 ConversionMap ParseTree::makeConversionMapping(const Mapping& mapFrom, const Mapping& mapTo) const {
     bool hasNearestFit;
-    uint8_t value;
+    std::optional<uint8_t> value;
     ConversionMap m = ConversionMap(mapFrom.name(), mapTo.name());
-    std::vector<std::string> path;
 
     for (const std::string& key : mapFrom.getKeys()) {
-        path = getPathToKey(key);
-        hasNearestFit = findNearestFit(mapTo, path, value);
-        if (hasNearestFit)
-            m.insert(mapFrom[key], value);
+        auto path = getPathToKey(key);
+        value = findNearestFit(mapTo, path.value());
+        if (value.has_value())
+            m.insert(mapFrom[key], value.value());
     }
 
     return m;
