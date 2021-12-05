@@ -26,8 +26,9 @@ namespace Mappings {
         Mapping getModernAndMassiveMapping();
         Mapping getOKWAggressiveRockMapping();
         Mapping getOKWClassicRockMapping();
-        Mapping getOKWFusionMapping();
         Mapping getOKWMetalMapping();
+        Mapping getOKWModernFusionMapping();
+        Mapping getP4MattHalpernMapping();
     }
 
     namespace GuitarPro {

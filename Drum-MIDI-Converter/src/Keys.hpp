@@ -1,5 +1,5 @@
-#ifndef TEST_HPP
-#define TEST_HPP
+#ifndef TEST_H
+#define TEST_H
 
 #include <string>
 
@@ -48,6 +48,7 @@ namespace Keys {
          namespace Splash {
             const string splash1_choke = "splash1_choke";
             const string splash2_choke = "splash2_choke";
+            const string splash3_choke = "splash3_choke";
          }
       }
       namespace Hit {
@@ -85,6 +86,7 @@ namespace Keys {
          namespace Splash {
             const string splash1_hit = "splash1_hit";
             const string splash2_hit = "splash2_hit";
+            const string splash3_hit = "splash3_hit";
          }
          namespace Stack {
             const string stack1_hit = "stack1_hit";
