@@ -1,6 +1,7 @@
 #ifndef PARSETREE_HPP
 #define PARSETREE_HPP
 
+#include <filesystem>
 #include <map>
 #include <optional>
 #include <string>
@@ -13,6 +14,10 @@
 class ParseTree {
 private:
     std::map<std::string, ParseTreeNode*> _roots;
+
+    void _initFromFile(const std::string&);
+    void _initFromDir(const std::string&);
+    void _addRootFromFile(const std::filesystem::path&);
 public:
     #pragma region Constructors/Destructors/Assignment
     ParseTree();

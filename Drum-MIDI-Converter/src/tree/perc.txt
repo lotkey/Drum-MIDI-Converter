@@ -1,0 +1,6 @@
+*clap
+*shaker
+*tambourine
+*cowbell
+sticks
+vibraslap

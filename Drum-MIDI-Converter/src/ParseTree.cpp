@@ -2,6 +2,7 @@
 #include <cinttypes>
 #include <cstdlib>
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <map>
 #include <optional>
@@ -21,11 +22,37 @@ ParseTree::ParseTree()
 { }
 
 ParseTree::ParseTree(const ParseTree& src) {
-    for (const auto& pair : src._roots)
-        _roots.insert({pair.first, new ParseTreeNode(*pair.second)});
+    for (const auto& [name, root] : src._roots)
+        _roots.insert({name, new ParseTreeNode(*root)});
 }
 
 ParseTree::ParseTree(const std::string& path) {
+    if (std::filesystem::is_directory(path))
+        _initFromDir(path);
+    else if (std::filesystem::exists(path))
+        _initFromFile(path);
+    else
+        throw std::invalid_argument("Path does not correspond to a file or directory.");
+}
+
+ParseTree::ParseTree(const std::vector<std::string>& keys) {
+    for (const std::string& key : keys)
+        _roots.insert({key, new ParseTreeNode()});
+}
+
+ParseTree::~ParseTree() {
+    for (const auto& [_, root] : _roots) {
+        delete root;
+    }
+    _roots.clear();
+}
+
+void ParseTree::operator=(const ParseTree& src) {
+    for (const auto& [name, root] : src._roots)
+        _roots.insert({name, new ParseTreeNode(*root)});
+}
+
+void ParseTree::_initFromFile(const std::string& path) {
     std::ifstream infile;
     infile.open(path);
     if (infile.is_open()) {
@@ -113,21 +140,11 @@ ParseTree::ParseTree(const std::string& path) {
     }
 }
 
-ParseTree::ParseTree(const std::vector<std::string>& keys) {
-    for (const std::string& key : keys)
-        _roots.insert({key, new ParseTreeNode()});
-}
-
-ParseTree::~ParseTree() {
-    for (const auto& pair : _roots) {
-        delete pair.second;
-        _roots.erase(pair.first);
+void ParseTree::_initFromDir(const std::string& path) {
+    for (const auto& entry : std::filesystem::directory_iterator(path)) {
+        if (!entry.is_directory())
+            _addRootFromFile(entry.path());
     }
-}
-
-void ParseTree::operator=(const ParseTree& src) {
-    for (const auto& pair : src._roots)
-        _roots.insert({pair.first, new ParseTreeNode(*pair.second)});
 }
 
 #pragma endregion
@@ -135,25 +152,25 @@ void ParseTree::operator=(const ParseTree& src) {
 #pragma region Info
 
 void ParseTree::print() const {
-    for (const auto& pair : _roots) {
-        std::cout << "\033[1;32m" << pair.first << "\033[0m" << std::endl;
-        pair.second->print();
+    for (const auto& [name, root] : _roots) {
+        std::cout << "\033[1;32m" << name << "\033[0m" << std::endl;
+        root->print();
     }
 }
 
 bool ParseTree::containsKey(const std::string& key) const {
-    for (const auto& pair : _roots)
-        if (pair.second->containsKey(key)) return true;
+    for (const auto& [_, root] : _roots)
+        if (root->containsKey(key)) return true;
     return false;
 }
 
 std::optional<std::vector<std::string>> ParseTree::getPathToKey(const std::string& key) const {
     std::optional<std::vector<std::string>> pathOpt;
-    for (const auto& pair : _roots) {
-        pathOpt = pair.second->getPathToKey(key);
+    for (const auto& [name, root] : _roots) {
+        pathOpt = root->getPathToKey(key);
         if (pathOpt.has_value()) {
             std::vector<std::string> path(pathOpt.value());
-            path.insert(path.begin(), pair.first);
+            path.insert(path.begin(), name);
             return path;
         }
     }
@@ -166,6 +183,64 @@ std::optional<std::vector<std::string>> ParseTree::getPathToKey(const std::strin
 
 void ParseTree::addRoot(const std::string& key) {
     _roots.insert({key, new ParseTreeNode()});
+}
+
+void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
+    std::ifstream infile(path);
+    std::string filename(path.filename().string());
+    std::string rootname(filename.substr(0, filename.find_last_of('.')));
+    uint32_t numSpaces = 0;
+    std::vector<std::string> currentPath = { rootname };
+    this->addRoot(rootname);
+    std::string line, key;
+
+    if (infile.is_open()) {
+        while (std::getline(infile, line)) {
+            uint32_t numSpacesLine = line.find_last_of(" ") + 1;
+
+            if (numSpaces == numSpacesLine) {
+
+                if (currentPath.size() != 1) currentPath.pop_back();
+
+                key = stringpp::trim(line);
+                if (key[0] == '*') {
+                    key = key.substr(1, key.length() - 1);
+                    this->at(currentPath).addDefault(key);
+                } else {
+                    this->at(currentPath).addChild(key);
+                }
+                currentPath.push_back(key);
+            }
+            else if (numSpaces < numSpacesLine) {
+                key = stringpp::trim(line);
+                if (key[0] == '*') {
+                    key = key.substr(1, key.length() - 1);
+                    this->at(currentPath).addDefault(key);
+                } else {
+                    this->at(currentPath).addChild(key);
+                }
+
+                currentPath.push_back(key);
+                numSpaces = numSpacesLine;
+            }
+            else {
+                for (uint32_t i = 0; i <= numSpaces - numSpacesLine; i++) // pop the difference
+                    currentPath.pop_back();
+
+                key = stringpp::trim(line);
+                if (key[0] == '*') {
+                    key = key.substr(1, key.length() - 1);
+                    this->at(currentPath).addDefault(key);
+                } else {
+                    this->at(currentPath).addChild(key);
+                }
+                currentPath.push_back(key);
+                numSpaces = numSpacesLine;
+            }
+        }
+    }
+    else
+        throw std::runtime_error("Couldn't open \"" + path.string() + "\"");
 }
 
 #pragma endregion

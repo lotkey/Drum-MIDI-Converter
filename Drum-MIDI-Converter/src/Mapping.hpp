@@ -14,6 +14,7 @@ public:
     Mapping();
     Mapping(const std::string&);
     Mapping(const std::string&, const std::map<std::string, uint8_t>&);
+    Mapping(const std::string&, const Mapping&);
     std::string name() const;
     void insert(const std::string&, const uint8_t&);
     void insert(const std::map<std::string, uint8_t>&);

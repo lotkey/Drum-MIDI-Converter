@@ -1,0 +1,3 @@
+kick_adk
+kick_left
+*kick_hit

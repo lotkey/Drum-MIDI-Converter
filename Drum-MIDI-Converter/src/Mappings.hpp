@@ -35,6 +35,10 @@ namespace Mappings {
         Mapping getDrumMapping();
     }
 
+    namespace LogicPro {
+        Mapping getDrummerMapping();
+    }
+
     namespace MandaAudio {
         Mapping getMTPowerDrumKit2Mapping();
     }

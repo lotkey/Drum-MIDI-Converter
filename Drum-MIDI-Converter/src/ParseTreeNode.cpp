@@ -6,7 +6,8 @@
 
 #pragma region Constructors/Destructors/Assignment
 
-ParseTreeNode::ParseTreeNode() 
+ParseTreeNode::ParseTreeNode()
+    : _isLeaf(true)
 { }
 
 ParseTreeNode::ParseTreeNode(const ParseTreeNode& src) {
@@ -16,14 +17,14 @@ ParseTreeNode::ParseTreeNode(const ParseTreeNode& src) {
         _isLeaf = true;
     }
     else {
-        for (const auto& pair : src._children) {
-            _children.insert({pair.first, new ParseTreeNode(*pair.second)});
-            _children[pair.first]->_parent = this;
+        for (const auto& [name, root] : src._children) {
+            _children.insert({name, new ParseTreeNode(*root)});
+            _children[name]->_parent = this;
         }
 
-        for (const auto& pair : src._defaults) {
-            _defaults.insert({pair.first, new ParseTreeNode(*pair.second)});
-            _defaults[pair.first]->_parent = this;
+        for (const auto& [name, root] : src._defaults) {
+            _defaults.insert({name, new ParseTreeNode(*root)});
+            _defaults[name]->_parent = this;
         }
     }
 }
@@ -33,16 +34,16 @@ ParseTreeNode::ParseTreeNode(ParseTreeNode* parent)
 { }
 
 ParseTreeNode::~ParseTreeNode() {
-    for (const auto& pair : _children) {
-        pair.second->_parent = nullptr;
-        delete pair.second;
-        _children.erase(pair.first);
+    for (const auto& [name, root] : _children) {
+        root->_parent = nullptr;
+        delete root;
+        _children.erase(name);
     }
 
-    for (const auto& pair : _defaults) {
-        pair.second->_parent = nullptr;
-        delete pair.second;
-        _children.erase(pair.first);
+    for (const auto& [name, root] : _defaults) {
+        root->_parent = nullptr;
+        delete root;
+        _children.erase(name);
     }
 }
 
@@ -53,14 +54,14 @@ void ParseTreeNode::operator=(const ParseTreeNode& src) {
         _isLeaf = true;
     }
     else {
-        for (const auto& pair : src._children) {
-            _children.insert({pair.first, new ParseTreeNode(*pair.second)});
-            _children[pair.first]->_parent = this;
+        for (const auto& [name, root] : src._children) {
+            _children.insert({name, new ParseTreeNode(*root)});
+            _children[name]->_parent = this;
         }
 
-        for (const auto& pair : src._defaults) {
-            _defaults.insert({pair.first, new ParseTreeNode(*pair.second)});
-            _defaults[pair.first]->_parent = this;
+        for (const auto& [name, root] : src._defaults) {
+            _defaults.insert({name, new ParseTreeNode(*root)});
+            _defaults[name]->_parent = this;
         }
     }
 }
@@ -71,61 +72,61 @@ void ParseTreeNode::operator=(const ParseTreeNode& src) {
 
 void ParseTreeNode::print(const uint32_t& numIndents) const {
     if (!_isLeaf) {
-        for (const auto& pair : _children) {
+        for (const auto& [name, root] : _children) {
             for (unsigned int i = 0; i < numIndents; i++)
                 std::cout << "  ";
-            if (pair.second->isLeaf())
-                std::cout << pair.first << std::endl;
+            if (root->isLeaf())
+                std::cout << name << std::endl;
             else
-                std::cout << "\033[1;34m" << pair.first << "\033[0m" << std::endl;
-            pair.second->print(numIndents + 1);
+                std::cout << "\033[1;34m" << name << "\033[0m" << std::endl;
+            root->print(numIndents + 1);
         }
 
-        for (const auto& pair : _defaults) {
+        for (const auto& [name, root] : _defaults) {
             for (unsigned int i = 0; i < numIndents; i++)
                 std::cout << "  ";
-            if (pair.second->isLeaf())
-                std::cout << "\033[1;31m" << pair.first << "\033[0m" << std::endl;
+            if (root->isLeaf())
+                std::cout << "\033[1;31m" << name << "\033[0m" << std::endl;
             else
-                std::cout << "\033[1;35m" << pair.first << "\033[0m" << std::endl;
-            pair.second->print(numIndents + 1);
+                std::cout << "\033[1;35m" << name << "\033[0m" << std::endl;
+            root->print(numIndents + 1);
         }
     }
 }
 
 void ParseTreeNode::print() const {
     if (!_isLeaf) {
-        for (const auto& pair : _children) {
+        for (const auto& [name, root] : _children) {
             std::cout << "  ";
-            if (pair.second->isLeaf())
-                std::cout << pair.first << std::endl;
+            if (root->isLeaf())
+                std::cout << name << std::endl;
             else
-                std::cout << "\033[1;34m" << pair.first << "\033[0m" << std::endl;
-            pair.second->print(2);
+                std::cout << "\033[1;34m" << name << "\033[0m" << std::endl;
+            root->print(2);
         }
-        for (const auto& pair : _defaults) {
+        for (const auto& [name, root] : _defaults) {
             std::cout << "  ";
-            if (pair.second->isLeaf())
-                std::cout << "\033[1;31m" << pair.first << "\033[0m" << std::endl;
+            if (root->isLeaf())
+                std::cout << "\033[1;31m" << name << "\033[0m" << std::endl;
             else
-                std::cout << "\033[1;35m" << pair.first << "\033[0m" << std::endl;
-            pair.second->print(2);
+                std::cout << "\033[1;35m" << name << "\033[0m" << std::endl;
+            root->print(2);
         }
     }
 }
 
 bool ParseTreeNode::containsKey(const std::string& key) const {
     bool hasKey = false;
-    for (const auto& pair : _defaults) {
-        if (pair.second->isLeaf()) hasKey = hasKey || key == pair.first;
-        else hasKey = hasKey || pair.second->containsKey(key);
+    for (const auto& [name, root] : _defaults) {
+        if (root->isLeaf()) hasKey = hasKey || key == name;
+        else hasKey = hasKey || root->containsKey(key);
 
         if (hasKey) return true;
     }
 
-    for (const auto& pair : _children) {
-        if (pair.second->isLeaf()) hasKey = hasKey || key == pair.first;
-        else hasKey = hasKey || pair.second->containsKey(key);
+    for (const auto& [name, root] : _children) {
+        if (root->isLeaf()) hasKey = hasKey || key == name;
+        else hasKey = hasKey || root->containsKey(key);
 
         if (hasKey) return true;
     }
@@ -134,28 +135,28 @@ bool ParseTreeNode::containsKey(const std::string& key) const {
 }
 
 std::optional<std::vector<std::string>> ParseTreeNode::getPathToKey(const std::string& key) const {
-    for (const auto& pair : _children) {
-        if (pair.second->isLeaf()) {
-            if (pair.first == key) return std::vector<std::string>({pair.first});
+    for (const auto& [name, root] : _children) {
+        if (root->isLeaf()) {
+            if (name == key) return std::vector<std::string>({name});
         }
 
-        std::optional<std::vector<std::string>> pathOpt = pair.second->getPathToKey(key);
+        std::optional<std::vector<std::string>> pathOpt = root->getPathToKey(key);
         if (pathOpt.has_value()) {
             std::vector<std::string> path(pathOpt.value());
-            path.insert(path.begin(), pair.first);
+            path.insert(path.begin(), name);
             return path;
         }
     }
 
-    for (const auto& pair : _defaults) {
-        if (pair.second->isLeaf()) {
-            if (pair.first == key) return std::vector<std::string>({pair.first});
+    for (const auto& [name, root] : _defaults) {
+        if (root->isLeaf()) {
+            if (name == key) return std::vector<std::string>({name});
         }
 
-        std::optional<std::vector<std::string>> pathOpt = pair.second->getPathToKey(key);
+        std::optional<std::vector<std::string>> pathOpt = root->getPathToKey(key);
         if (pathOpt.has_value()) {
             std::vector<std::string> path(pathOpt.value());
-            path.insert(path.begin(), pair.first);
+            path.insert(path.begin(), name);
             return path;
         }
     }
@@ -177,19 +178,19 @@ std::vector<std::string> ParseTreeNode::getDefaultKeys(const std::string& exclud
 void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys) const {
     if (_isLeaf) return;
 
-    for (const auto& pair : _defaults) {
-        if (pair.second->isLeaf()) keys.push_back(pair.first);
-        else pair.second->addDefaultKeys(keys);
+    for (const auto& [name, root] : _defaults) {
+        if (root->isLeaf()) keys.push_back(name);
+        else root->addDefaultKeys(keys);
     }
 }
 
 void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys, const std::string& exclude) const {
     if (_isLeaf) return;
 
-    for (const auto& pair : _defaults) {
-        if (pair.first != exclude) {
-            if (pair.second->isLeaf()) keys.push_back(pair.first);
-            else pair.second->addDefaultKeys(keys, exclude);
+    for (const auto& [name, root] : _defaults) {
+        if (name != exclude) {
+            if (root->isLeaf()) keys.push_back(name);
+            else root->addDefaultKeys(keys, exclude);
         }        
     }
 }
@@ -251,26 +252,26 @@ ParseTreeNode& ParseTreeNode::at(std::vector<std::string> key) const {
 }
 
 void ParseTreeNode::addToStream(std::ofstream& outfile, uint32_t numTabs) const {
-    for (const auto& pair : _children) {
-        if (pair.second->isLeaf())
-            outfile << stringpp::repeat("   ", numTabs) << "const string " << pair.first << " = \"" << pair.first << "\";\n";
+    for (const auto& [name, root] : _children) {
+        if (root->isLeaf())
+            outfile << stringpp::repeat("   ", numTabs) << "const string " << name << " = \"" << name << "\";\n";
         else {
-            std::string label = pair.first;
+            std::string label = name;
             label[0] = toupper(label[0]);
             outfile << stringpp::repeat("   ", numTabs) << "namespace " << label << " {\n";
-            pair.second->addToStream(outfile, numTabs + 1);
+            root->addToStream(outfile, numTabs + 1);
             outfile << stringpp::repeat("   ", numTabs) << "}\n";
         }
     }
 
-    for (const auto& pair : _defaults) {
-        if (pair.second->isLeaf())
-            outfile << stringpp::repeat("   ", numTabs) << "const string " << pair.first << " = \"" << pair.first << "\";\n";
+    for (const auto& [name, root] : _defaults) {
+        if (root->isLeaf())
+            outfile << stringpp::repeat("   ", numTabs) << "const string " << name << " = \"" << name << "\";\n";
         else {
-            std::string label = pair.first;
+            std::string label = name;
             label[0] = toupper(label[0]);
             outfile << stringpp::repeat("   ", numTabs) << "namespace " << label << " {\n";
-            pair.second->addToStream(outfile, numTabs + 1);
+            root->addToStream(outfile, numTabs + 1);
             outfile << stringpp::repeat("   ", numTabs) << "}\n";
         }
     }

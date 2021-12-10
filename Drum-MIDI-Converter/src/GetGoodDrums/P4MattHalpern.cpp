@@ -30,6 +30,24 @@ Mapping Mappings::GetGoodDrums::getP4MattHalpernMapping() {
         {Tom::Hit::Floor::tom_floor1, yamahatoi(Note::B, 0)},
         {Tom::Hit::Floor::tom_floor2, yamahatoi(Note::C, 1)},
         {Tom::Hit::Rack::tom_rack1, yamahatoi(Note::A, 0)},
-        {Tom::Hit::Rack::tom_rack2, yamahatoi(Note::A_SHARP, 0)}
+        {Tom::Hit::Rack::tom_rack2, yamahatoi(Note::A_SHARP, 0)},
+
+        {Hat::Open::hat_cc, yamahatoi(Note::F, -1)},
+        {Hat::Closed::hat_closed_edge, yamahatoi(Note::G_SHARP, 1)},
+        {Hat::Closed::hat_closed_tip, yamahatoi(Note::G, 1)},
+        {Hat::Open::hat_open0, yamahatoi(Note::A, 1)},
+        {Hat::Open::hat_open1, yamahatoi(Note::A_SHARP, 1)},
+        {Hat::Open::hat_open2, yamahatoi(Note::B, 1)},
+        {Hat::Closed::hat_pedal_close_foot, yamahatoi(Note::C, 2)},
+        {Hat::Closed::hat_tight_edge, yamahatoi(Note::F_SHARP, 1)},
+        {Hat::Closed::hat_tight_tip, yamahatoi(Note::F, 1)},
+        
+        {Kick::kick_hit, yamahatoi(Note::C, 0)},
+        
+        {Snare::Hit::snare_flam, yamahatoi(Note::D_SHARP, 0)},
+        {Snare::Hit::snare_hit, yamahatoi(Note::D, 0)},
+        {Snare::Hit::snare_off, yamahatoi(Note::F, 0)},
+        {Snare::Hit::snare_ruff, yamahatoi(Note::E, 0)},
+        {Snare::Side::snare_sidestick, yamahatoi(Note::F_SHARP, 0)}
     });
 }

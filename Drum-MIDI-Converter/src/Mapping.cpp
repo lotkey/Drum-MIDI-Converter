@@ -16,6 +16,10 @@ Mapping::Mapping(const std::string &name, const std::map<std::string, uint8_t> &
     : _map(map), _name(name)
 { }
 
+Mapping::Mapping(const std::string& name, const Mapping& map)
+    : _name(name), _map(map._map)
+{ }
+
 std::string Mapping::name() const {
     return _name;
 }
@@ -26,7 +30,7 @@ void Mapping::insert(const std::string &key, const uint8_t &value) {
 
 void Mapping::insert(const std::map<std::string, uint8_t> &mapping) {
     for (const auto &pair : mapping)
-        _map.insert({pair.first, pair.second});
+        _map.insert(pair);
 }
 
 bool Mapping::containsKey(const std::string &key) const {
