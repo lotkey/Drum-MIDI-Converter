@@ -1,0 +1,27 @@
+rimshot
+    *floor
+        *tom_floor1_rimshot
+        *tom_floor2_rimshot
+        *tom_floor3_rimshot
+        rim
+            *tom_floor1_rim
+            *tom_floor2_rim
+            *tom_floor3_rim
+    *rack
+        *tom_rack1_rimshot
+        *tom_rack2_rimshot
+        *tom_rack3_rimshot
+        rim
+            *tom_rack1_rim
+            *tom_rack2_rim
+            *tom_rack3_rim
+hit
+    *floor
+        *tom_floor1
+        *tom_floor2
+        *tom_floor3
+    *rack
+        *tom_rack1
+        *tom_rack2
+        *tom_rack3
+        *tom_rack4
