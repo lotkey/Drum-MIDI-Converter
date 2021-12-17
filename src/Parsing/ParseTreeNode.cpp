@@ -1,8 +1,8 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "ParseTreeNode.hpp"
-#include "stringpp.hpp"
+#include "../Helpers/stringpp.hpp"
+#include "../Parsing/ParseTreeNode.hpp"
 
 #pragma region Constructors/Destructors/Assignment
 

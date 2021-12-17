@@ -3,9 +3,8 @@
 
 #include <string>
 
-using namespace std;
-
 namespace Keys {
+   using std::string;
    namespace Cymbal {
       namespace Bell {
          namespace China {

@@ -3,9 +3,9 @@
 
 #include <cinttypes>
 
-#include "Keys.hpp"
-#include "Mapping.hpp"
-#include "Note.hpp"
+#include "../Parsing/Keys.hpp"
+#include "../Mapping/Mapping.hpp"
+#include "../Midi/Note.hpp"
 
 namespace Mappings {
 

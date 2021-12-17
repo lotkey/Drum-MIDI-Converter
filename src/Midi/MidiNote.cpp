@@ -1,5 +1,9 @@
-#include "Mappings.hpp"
-#include "MidiNote.hpp"
+#include "../Mapping/Mappings.hpp"
+#include "./MidiNote.hpp"
+
+MidiNote::MidiNote(const uint8_t& value) 
+    :_value(value)
+{ }
 
 MidiNote::MidiNote(const Note& note, const int8_t& octave) 
     : _value(Mappings::yamahatoi(note, octave))

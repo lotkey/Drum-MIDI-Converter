@@ -7,9 +7,10 @@
 #include <string>
 #include <vector>
 
-#include "ConversionMap.hpp"
-#include "Mapping.hpp"
-#include "ParseTreeNode.hpp"
+#include "../Mapping/ConversionMap.hpp"
+#include "../Mapping/Mapping.hpp"
+#include "../Midi/MidiNoteGroup.hpp"
+#include "./ParseTreeNode.hpp"
 
 class ParseTree {
 private:
@@ -43,7 +44,7 @@ public:
     #pragma endregion
     #pragma region Parsing
     void exportAsNamespace(const std::string&) const;
-    std::optional<uint8_t> findNearestFit(const Mapping&, std::vector<std::string>) const;
+    std::optional<MidiNoteGroup> findNearestFit(const Mapping&, std::vector<std::string>) const;
     ConversionMap makeConversionMapping(const Mapping&, const Mapping&) const;
     #pragma endregion
 };

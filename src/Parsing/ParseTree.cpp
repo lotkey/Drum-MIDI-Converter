@@ -11,10 +11,10 @@
 #include <string>
 #include <vector>
 
-#include "ConversionMap.hpp"
-#include "Mapping.hpp"
-#include "ParseTree.hpp"
-#include "stringpp.hpp"
+#include "../Mapping/ConversionMap.hpp"
+#include "../Mapping/Mapping.hpp"
+#include "../Parsing/ParseTree.hpp"
+#include "../Helpers/stringpp.hpp"
 
 #pragma region Constructors/Destructors/Assignment
 
@@ -294,7 +294,7 @@ void ParseTree::exportAsNamespace(const std::string& path) const {
     std::ofstream outfile;
     outfile.open(path);
 
-    outfile << "#ifndef KEYS_H\n#define KEYS_H\n\n#include <string>\n\nusing namespace std;\n\nnamespace Keys {\n";
+    outfile << "#ifndef KEYS_H\n#define KEYS_H\n\n#include <string>\n\nnamespace Keys {\n\tusing std::string;\n";
     for (const auto& [name, root] : _roots) {
         std::string label = name;
         label[0] = toupper(label[0]);
@@ -307,7 +307,7 @@ void ParseTree::exportAsNamespace(const std::string& path) const {
     outfile.close();
 }
 
-std::optional<uint8_t> ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path) const {
+std::optional<MidiNoteGroup> ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path) const {
     std::string exclude;
     
     if (mapping.containsKey(path.back()))
@@ -336,7 +336,7 @@ std::optional<uint8_t> ParseTree::findNearestFit(const Mapping& mapping, std::ve
 
 ConversionMap ParseTree::makeConversionMapping(const Mapping& mapFrom, const Mapping& mapTo) const {
     bool hasNearestFit;
-    std::optional<uint8_t> value;
+    std::optional<MidiNoteGroup> value;
     ConversionMap m = ConversionMap(mapFrom.name(), mapTo.name());
 
     for (const std::string& key : mapFrom.getKeys()) {
