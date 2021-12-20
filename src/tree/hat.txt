@@ -1,15 +1,15 @@
 closed
     *edge
         *_1
-        *tight1
+        tight1
     *tip
         *_1
-        *tight1
+        tight1
     bell
         *_1
     shank
         *_1
-        *tight1
+        tight1
     *_0
     foot
     x
@@ -21,25 +21,25 @@ closed
         *_1
         *_2
         *_3
-        loose
+        loose1
     *tip
         *_0
         *_1
         *_2
         *_3
         *_5
-        loose
+        loose1
     shank
         *_0
         *_1
         *_2
-        loosen
+        loose1
     bell
         *_0
         *_1
         *_2
         *_3
-        loose
+        loose1
     cc
     ching
     loose

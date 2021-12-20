@@ -1,4 +1,4 @@
-#include <inttypes.h>
+#include <cinttypes>
 #include <string>
 
 #include "../../../Parsing/Keys.hpp"
@@ -26,13 +26,13 @@ Mapping Mappings::StevenSlateDrums::getSSD5Mapping() {
         {Hat::Open::Tip::_0, {{Note::A, 3}}},
         {Hat::Open::Tip::_1, {{Note::A_SHARP, 3}}},
         {Hat::Open::Tip::_2, {{Note::B, 3}}},
-        {Hat::Open::Tip::loose, {{Note::G_SHARP, 3}}},
+        {Hat::Open::Tip::loose1, {{Note::G_SHARP, 3}}},
         {Hat::Closed::Tip::_1, {{Note::G, 3}}},
         {Hat::Closed::Tip::tight1, {{Note::F_SHARP, 3}}},
         {Hat::Open::Shank::_2, {{Note::F, 3}}},
         {Hat::Open::Shank::_1, {{Note::E, 3}}},
         {Hat::Open::Shank::_0, {{Note::D_SHARP, 3}}},
-        {Hat::Open::Shank::loosen, {{Note::D, 3}}},
+        {Hat::Open::Shank::loose1, {{Note::D, 3}}},
         {Hat::Closed::Shank::_1, {{Note::C_SHARP, 3}}},
         {Hat::Closed::Shank::tight1, {{Note::C, 3}}},
         {Hat::Open::cc, {{Note::A_SHARP, 1}}},
@@ -60,15 +60,15 @@ Mapping Mappings::StevenSlateDrums::getSSD5Mapping() {
         {Tom::Rimshot::Floor::_1, {{Note::D, -1}}},
         {Tom::Rimshot::Floor::_2, {{Note::C, -1}}},
 
-        {Snare::Alt::Rim::rimshot, {{Note::E, 1}}},
+        {Snare::Alt::Rim::Shot::_1, {{Note::E, 1}}},
         {Snare::Alt::Rim::rimclick, {{Note::D_SHARP, 1}}},
         {Snare::Hit::_1, {{Note::D, 1}}},
         {Snare::Alt::Side::stick, {{Note::C_SHARP, 1}}},
         {Snare::Alt::Side::_1, {{Note::A_SHARP, 0}}},
-        {Snare::Alt::Rim::rimshot_edge, {{Note::A, 0}}},
+        {Snare::Alt::Rim::Shot::edge1, {{Note::A, 0}}},
         {Snare::Hit::roll, {{Note::A, -1}}},
 
-        {Kick::hit, {{Note::C, 1}}},
+        {Kick::_1, {{Note::C, 1}}},
         {Kick::left, {{Note::B, 0}}}
     });
 }

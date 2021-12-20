@@ -32,7 +32,7 @@ Mapping Mappings::GeneralMIDI::getGmStandardMapping() {
         {Hat::Open::_1, {{Note::A_SHARP, 1}}},
         {Hat::Closed::foot, {{Note::G_SHARP, 1}}},
 
-        {Kick::hit, {{Note::C, 1}}},
+        {Kick::_1, {{Note::C, 1}}},
         {Snare::Hit::_1, {{Note::D, 1}}},
         {Snare::Alt::Side::stick, {{Note::C_SHARP, 1}}}
     });

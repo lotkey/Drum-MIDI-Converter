@@ -123,24 +123,24 @@ namespace Keys {
          const string foot = "hat_closed_foot";
          const string loose = "hat_closed_loose";
          namespace Shank {
-            const string _1 = "hat_closed_shank__1";
             const string tight1 = "hat_closed_shank_tight1";
+            const string _1 = "hat_closed_shank__1";
          }
          const string tight = "hat_closed_tight";
          const string x = "hat_closed_x";
          const string _0 = "hat_closed__0";
          namespace Edge {
-            const string _1 = "hat_closed_edge__1";
             const string tight1 = "hat_closed_edge_tight1";
+            const string _1 = "hat_closed_edge__1";
          }
          namespace Tip {
-            const string _1 = "hat_closed_tip__1";
             const string tight1 = "hat_closed_tip_tight1";
+            const string _1 = "hat_closed_tip__1";
          }
       }
       namespace Open {
          namespace Bell {
-            const string loose = "hat_open_bell_loose";
+            const string loose1 = "hat_open_bell_loose1";
             const string _0 = "hat_open_bell__0";
             const string _1 = "hat_open_bell__1";
             const string _2 = "hat_open_bell__2";
@@ -152,7 +152,7 @@ namespace Keys {
          const string pedal_splash = "hat_open_pedal_splash";
          const string seq = "hat_open_seq";
          namespace Shank {
-            const string loosen = "hat_open_shank_loosen";
+            const string loose1 = "hat_open_shank_loose1";
             const string _0 = "hat_open_shank__0";
             const string _1 = "hat_open_shank__1";
             const string _2 = "hat_open_shank__2";
@@ -164,14 +164,14 @@ namespace Keys {
          const string _2 = "hat_open__2";
          const string _3 = "hat_open__3";
          namespace Edge {
-            const string loose = "hat_open_edge_loose";
+            const string loose1 = "hat_open_edge_loose1";
             const string _0 = "hat_open_edge__0";
             const string _1 = "hat_open_edge__1";
             const string _2 = "hat_open_edge__2";
             const string _3 = "hat_open_edge__3";
          }
          namespace Tip {
-            const string loose = "hat_open_tip_loose";
+            const string loose1 = "hat_open_tip_loose1";
             const string _0 = "hat_open_tip__0";
             const string _1 = "hat_open_tip__1";
             const string _2 = "hat_open_tip__2";
@@ -183,7 +183,7 @@ namespace Keys {
    namespace Kick {
       const string adk = "kick_adk";
       const string left = "kick_left";
-      const string hit = "kick_hit";
+      const string _1 = "kick__1";
    }
    namespace Perc {
       const string sticks = "perc_sticks";
@@ -206,8 +206,10 @@ namespace Keys {
          namespace Rim {
             const string rimclick = "snare_alt_rim_rimclick";
             const string _1 = "snare_alt_rim__1";
-            const string rimshot = "snare_alt_rim_rimshot";
-            const string rimshot_edge = "snare_alt_rim_rimshot_edge";
+            namespace Shot {
+               const string _1 = "snare_alt_rim_shot__1";
+               const string edge1 = "snare_alt_rim_shot_edge1";
+            }
          }
          namespace Side {
             const string _1 = "snare_alt_side__1";

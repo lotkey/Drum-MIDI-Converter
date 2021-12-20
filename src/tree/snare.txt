@@ -11,6 +11,7 @@ alt
         *stick
     *rim
         *_1
-        *rimshot
-        *rimshot_edge
+        *shot
+            *_1
+            *edge1
         rimclick

@@ -1,4 +1,4 @@
-#include <inttypes.h>
+#include <cinttypes>
 #include <string>
 
 #include "../../../Parsing/Keys.hpp"
@@ -55,12 +55,12 @@ Mapping Mappings::XLNAudio::getAddictiveDrums2Mapping() {
         {Hat::Closed::Edge::tight1, {{Note::D, 2}}},
         {Hat::Closed::Tip::tight1, {{Note::C_SHARP, 2}}},
 
-        {Kick::hit, {{Note::C, 1}}},
+        {Kick::_1, {{Note::C, 1}}},
 
         {Snare::Hit::_1, {{Note::D, 1}, {Note::E, 1}, {Note::G, 1}}},
         {Snare::Hit::electric, {{Note::F, 6}}},
         {Snare::Alt::Rim::_1, {{Note::G_SHARP, 1}}},
-        {Snare::Alt::Rim::rimshot, {{Note::C_SHARP, 1}}},
+        {Snare::Alt::Rim::Shot::_1, {{Note::C_SHARP, 1}}},
         {Snare::Alt::Side::stick, {{Note::F_SHARP, 1}}}
     });
 }

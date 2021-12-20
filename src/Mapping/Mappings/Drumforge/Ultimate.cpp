@@ -31,7 +31,7 @@ Mapping Mappings::Drumforge::getUltimateMapping() {
         {Hat::Closed::Edge::tight1, {{Note::A, 2}}},
         {Hat::Closed::Tip::tight1, {{Note::A_SHARP, 2}}},
 
-        {Kick::hit, {{Note::C, 1}}},
+        {Kick::_1, {{Note::C, 1}}},
 
         {Snare::Hit::_1, {{Note::D, 1}}},
         {Snare::Hit::ruff, {{Note::D_SHARP, 1}}}
