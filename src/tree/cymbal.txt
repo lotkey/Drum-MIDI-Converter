@@ -1,82 +1,82 @@
 bell
     *crash
-        *crash1_bell
-        *crash2_bell
-        *crash3_bell
-        *crash4_bell
+        *_1
+        *_2
+        *_3
+        *_4
         tip
-            *crash1_bell_tip
-            *crash2_bell_tip
-            *crash3_bell_tip
-            *crash4_bell_tip
+            *_1
+            *_2
+            *_3
+            *_4
     *ride
-        *ride1_bell
-        *ride2_bell
+        *_1
+        *_2
         tip
-            *ride1_bell_tip
-            *ride2_bell_tip
+            *_1
+            *_2
     *china
-        *china1_bell
+        *_1
         tip
-            *china1_bell_tip
+            *_1
 choke
     *china
-        *china1_choke
-        *china2_choke
+        *_1
+        *_2
     *crash
-        *crash1_choke
-        *crash2_choke
-        *crash3_choke
-        *crash4_choke
-        *crash5_choke
+        *_1
+        *_2
+        *_3
+        *_4
+        *_5
     *ride
-        *ride1_choke
-        *ride2_choke
+        *_1
+        *_2
     *splash
-        *splash1_choke
-        *splash2_choke
-        *splash3_choke
+        *_1
+        *_2
+        *_3
 *hit
     *china
-        *china1_hit
-        *china2_hit
+        *_1
+        *_2
         bow
-            *china1_bow
+            *_1
             tip
-                *china1_bow_tip
+                *_1
     *crash
-        *crash1_hit
-        *crash2_hit
-        *crash3_hit
-        *crash4_hit
-        *crash5_hit
+        *_1
+        *_2
+        *_3
+        *_4
+        *_5
         bow
-            *crash1_bow
-            *crash2_bow
-            *crash3_bow
-            *crash4_bow
+            *_1
+            *_2
+            *_3
+            *_4
             tip
-                *crash1_bow_tip
-                *crash2_bow_tip
-                *crash3_bow_tip
-                *crash4_bow_tip
+                *_1
+                *_2
+                *_3
+                *_4
     *ride
         bow
-            *ride1_bow
-            *ride2_bow
+            *_1
+            *_2
             tip
-                *ride1_bow_tip
-                *ride2_bow_tip
+                *_1
+                *_2
         edge
-            *ride1_edge
-            *ride2_edge
-        *ride1_hit
-        *ride2_hit
+            *_1
+            *_2
+        *_1
+        *_2
     *splash
-        *splash1_hit
-        *splash2_hit
-        *splash3_hit
+        *_1
+        *_2
+        *_3
         tip
-            *splash1_tip
+            *_1
     *stack
-        *stack1_hit
+        *_1

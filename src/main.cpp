@@ -9,7 +9,7 @@
 int main() {
     ParseTree tree("./tree/");
     tree.print();
-    tree.exportAsNamespace("./test.hpp");
+    tree.exportAsNamespace("./Parsing/Keys.hpp");
     // // tree.print();
 
     // Mapping ggdMM = Mappings::GetGoodDrums::getModernAndMassiveMapping();

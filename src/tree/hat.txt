@@ -1,53 +1,53 @@
 closed
     *edge
-        *hat_closed_edge
-        *hat_tight_edge
+        *_1
+        *tight1
     *tip
-        *hat_closed_tip
-        *hat_tight_tip
+        *_1
+        *tight1
     bell
-        *hat_closed_bell
+        *_1
     shank
-        *hat_shank_closed
-        *hat_shank_closed_tight
-    *hat_closed0
-    hat_pedal_close_foot
-    hat_x_closed
-    hat_tight
-    hat_closed_loose
+        *_1
+        *tight1
+    *_0
+    foot
+    x
+    tight
+    loose
 *open
     *edge
-        *hat_open0_edge
-        *hat_open1_edge
-        *hat_open2_edge
-        *hat_open3_edge
-        hat_loose_edge
+        *_0
+        *_1
+        *_2
+        *_3
+        loose
     *tip
-        *hat_open0_tip
-        *hat_open1_tip
-        *hat_open2_tip
-        *hat_open3_tip
-        *hat_open5_tip
-        hat_loose_tip
+        *_0
+        *_1
+        *_2
+        *_3
+        *_5
+        loose
     shank
-        *hat_shank_open0
-        *hat_shank_open1
-        *hat_shank_open2
-        hat_shank_loosen
+        *_0
+        *_1
+        *_2
+        loosen
     bell
-        *hat_open0_bell
-        *hat_open1_bell
-        *hat_open2_bell
-        *hat_open3_bell
-        hat_loose_bell
-    hat_cc
-    hat_ching
-    hat_loose
-    hat_pedal_splash
-    hat_seq
-    hat_x_open
-    hat_trigger
-    *hat_open0
-    *hat_open1
-    *hat_open2
-    *hat_open3
+        *_0
+        *_1
+        *_2
+        *_3
+        loose
+    cc
+    ching
+    loose
+    pedal_splash
+    seq
+    x
+    trigger
+    *_0
+    *_1
+    *_2
+    *_3

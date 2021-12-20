@@ -1,12 +1,12 @@
 *clap
 *shaker
 *tambourine
-    *tambourine_hit
-    *tambourine_down
-    *tambourine_up
+    *hit
+    *down
+    *up
 *cowbell
-    *cowbell_hit
-    *cowbell_tip
-    *cowbell_shank
+    *hit
+    *tip
+    *shank
 sticks
 vibraslap

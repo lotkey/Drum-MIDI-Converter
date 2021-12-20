@@ -1,14 +1,16 @@
 *hit
-    electric_snare
-    snare_flam
-    snare_off
-    snare_ruff
-    snare_roll
-    *snare_hit
-side
-    *snare_side
-    *snare_sidestick
-    *snare_rim
-    *snare_rimshot
-    *snare_rimshot_edge
-    snare_rimclick
+    electric
+    flam
+    off
+    ruff
+    roll
+    *_1
+alt
+    *side
+        *_1
+        *stick
+    *rim
+        *_1
+        *rimshot
+        *rimshot_edge
+        rimclick
