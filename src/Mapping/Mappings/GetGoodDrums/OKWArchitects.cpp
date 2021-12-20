@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GetGoodDrums::getOKWArchitectsMapping() {
+    using namespace Keys;
     return Mapping("GGD OKW Architects", {
         {Kick::kick_hit, {{Note::C, 0}}},
 

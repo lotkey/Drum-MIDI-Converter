@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::StevenSlateDrums::getSSD5Mapping() {
+    using namespace Keys;
     return Mapping("Steven Slate Drums", {
         {Cymbal::Hit::China::Bow::Tip::china1_bow_tip, {{Note::A, 5}}},
         {Cymbal::Hit::Crash::Bow::Tip::crash1_bow_tip, {{Note::G_SHARP, 1}}},

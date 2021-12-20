@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GetGoodDrums::getOKWClassicRockMapping() {
+    using namespace Keys;
     return Mapping("GGD OKW Classic Rock", {
         {Perc::Cowbell::cowbell_hit, {{Note::F, 3}}},
         {Perc::sticks, {{Note::D_SHARP, 4}}},

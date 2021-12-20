@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
+    using namespace Keys;
     return Mapping("GGD Modern & Massive", {
         {Kick::kick_hit, {{Note::C, 0}}},
         

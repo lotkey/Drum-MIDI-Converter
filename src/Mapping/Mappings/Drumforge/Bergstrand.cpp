@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::Drumforge::getBergstrandMapping() {
+    using namespace Keys;
     return Mapping("Drumforge Bergstrand", {
         {Cymbal::Bell::Crash::crash1_bell, {{Note::A, 3}}},
         {Cymbal::Hit::China::china1_hit, {{Note::F, 4}}},

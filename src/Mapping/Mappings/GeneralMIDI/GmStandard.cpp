@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GeneralMIDI::getGmStandardMapping() {
+    using namespace Keys;
     return Mapping("General MIDI Standard", {
         {Perc::Cowbell::cowbell_hit, {{Note::G_SHARP, 2}}},
         {Perc::Tambourine::tambourine_hit, {{Note::F_SHARP, 2}}},

@@ -37,7 +37,7 @@ ParseTree::ParseTree(const std::string& path) {
 
 ParseTree::ParseTree(const std::vector<std::string>& keys) {
     for (const std::string& key : keys)
-        _roots.insert({key, new ParseTreeNode()});
+        _roots.insert({key, new ParseTreeNode(key)});
 }
 
 ParseTree::~ParseTree() {
@@ -55,6 +55,14 @@ void ParseTree::operator=(const ParseTree& src) {
 void ParseTree::_initFromFile(const std::string& path) {
     std::ifstream infile;
     infile.open(path);
+
+    auto getNameFromPath = [](const std::vector<std::string>& v, const std::string& key) {
+        std::string s;
+        for (const auto& str : v)
+            s += str + "_";
+        return s + key;
+    };
+
     if (infile.is_open()) {
         uint32_t numSpaces = 0;
         std::vector<std::string> currentPath;
@@ -90,10 +98,10 @@ void ParseTree::_initFromFile(const std::string& path) {
                     key = stringpp::trim(line); // trim the line
                     if (key[0] == '*') { // add as default
                         key = key.substr(1, key.length() - 1); // remove the '*' from the key
-                        this->operator[](currentPath).addDefault(key); // add as default to the current path
+                        this->operator[](currentPath).addDefault(key, getNameFromPath(currentPath, key)); // add as default to the current path
                     }
                     else // add as child
-                        this->operator[](currentPath).addChild(key); // add as child to the current path
+                        this->operator[](currentPath).addChild(key, getNameFromPath(currentPath, key)); // add as child to the current path
                     numSpaces = numSpacesInLine; // update the number of spaces
                     currentPath.push_back(key); // add the key to the current path
                 }
@@ -116,10 +124,10 @@ void ParseTree::_initFromFile(const std::string& path) {
                     key = stringpp::trim(line); // trim the key
                     if (key[0] == '*') { // check for default symbol
                         key = key.substr(1, key.length() - 1); // remove the '*'
-                        this->operator[](currentPath).addDefault(key); // add as default
+                        this->operator[](currentPath).addDefault(key, getNameFromPath(currentPath, key)); // add as default
                     }
                     else // child
-                        this->operator[](currentPath).addChild(key); // add as child
+                        this->operator[](currentPath).addChild(key, getNameFromPath(currentPath, key)); // add as child
                     numSpaces = numSpacesInLine; // update number of spaces
                     currentPath.push_back(key); // add key to current path
                 }
@@ -131,10 +139,10 @@ void ParseTree::_initFromFile(const std::string& path) {
                 key = stringpp::trim(line); // trim key
                 if (key[0] == '*') { // check for default
                     key = key.substr(1, key.length() - 1); // remove '*'
-                    this->operator[](currentPath).addDefault(key); // add as default
+                    this->operator[](currentPath).addDefault(key, getNameFromPath(currentPath, key)); // add as default
                 }
                 else // child
-                    this->operator[](currentPath).addChild(key); // add as child
+                    this->operator[](currentPath).addChild(key, getNameFromPath(currentPath, key)); // add as child
                 currentPath.push_back(key); // add key to current path
 
             }
@@ -187,7 +195,7 @@ std::optional<std::vector<std::string>> ParseTree::getPathToKey(const std::strin
 #pragma region Modifiers
 
 void ParseTree::addRoot(const std::string& key) {
-    _roots.insert({key, new ParseTreeNode()});
+    _roots.insert({key, new ParseTreeNode(key)});
 }
 
 void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
@@ -199,6 +207,13 @@ void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
     std::vector<std::string> currentPath = { rootname };
     this->addRoot(rootname);
     std::string line, key;
+
+    auto getNameFromPath = [](const std::vector<std::string>& v, const std::string& key) {
+        std::string s;
+        for (const auto& str : v)
+            s += str + "_";
+        return s + key;
+    };
 
     if (infile.is_open()) {
         while (std::getline(infile, line)) {
@@ -212,9 +227,9 @@ void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
                 key = stringpp::trim(line);
                 if (key[0] == '*') {
                     key = key.substr(1, key.length() - 1);
-                    this->at(currentPath).addDefault(key);
+                    this->at(currentPath).addDefault(key, getNameFromPath(currentPath, key));
                 } else {
-                    this->at(currentPath).addChild(key);
+                    this->at(currentPath).addChild(key, getNameFromPath(currentPath, key));
                 }
                 currentPath.push_back(key);
             }
@@ -228,9 +243,9 @@ void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
                 key = stringpp::trim(line);
                 if (key[0] == '*') {
                     key = key.substr(1, key.length() - 1);
-                    this->at(currentPath).addDefault(key);
+                    this->at(currentPath).addDefault(key, getNameFromPath(currentPath, key));
                 } else {
-                    this->at(currentPath).addChild(key);
+                    this->at(currentPath).addChild(key, getNameFromPath(currentPath, key));
                 }
 
                 currentPath.push_back(key);
@@ -243,9 +258,9 @@ void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
                 key = stringpp::trim(line);
                 if (key[0] == '*') {
                     key = key.substr(1, key.length() - 1);
-                    this->at(currentPath).addDefault(key);
+                    this->at(currentPath).addDefault(key, getNameFromPath(currentPath, key));
                 } else {
-                    this->at(currentPath).addChild(key);
+                    this->at(currentPath).addChild(key, getNameFromPath(currentPath, key));
                 }
                 currentPath.push_back(key);
                 numSpaces = numSpacesLine;

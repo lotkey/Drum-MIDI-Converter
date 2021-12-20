@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::Drumforge::getUltimateMapping() {
+    using namespace Keys;
     return Mapping("Drumforge Ultimate", {
         {Cymbal::Hit::Crash::crash1_hit, {{Note::C, 3}}},
         {Cymbal::Choke::Crash::crash1_choke, {{Note::C_SHARP, 3}}},

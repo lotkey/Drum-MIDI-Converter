@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GetGoodDrums::getOKWMetalMapping() {
+    using namespace Keys;
     return Mapping("GGD OKW Metal", {
         {Cymbal::Hit::China::china1_hit, {{Note::F, 3}}},
         {Cymbal::Choke::China::china1_choke, {{Note::F_SHARP, 3}}},

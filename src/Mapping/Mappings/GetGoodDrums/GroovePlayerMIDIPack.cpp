@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GetGoodDrums::getGroovePlayerMIDIPackMapping() {
+    using namespace Keys;
     return Mapping("GGD Groove Player MIDI Pack", {
         {Cymbal::Hit::China::china1_hit, {{Note::E, 2}}},
         {Cymbal::Hit::China::china2_hit, {{Note::D, 4}}},

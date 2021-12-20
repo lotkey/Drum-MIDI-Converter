@@ -12,16 +12,15 @@ class ParseTreeNode {
 private:
     std::map<std::string, ParseTreeNode*> _children;
     std::map<std::string, ParseTreeNode*> _defaults;
-    ParseTreeNode* _parent = nullptr;
+    const std::string _key;
     bool _isLeaf = true;
     void print(const uint32_t&) const;
     void addDefaultKeys(std::vector<std::string>&) const;
     void addDefaultKeys(std::vector<std::string>&, const std::string&) const;
 public:
     #pragma region Constructors/Destructors/Assigment
-    ParseTreeNode();
+    ParseTreeNode(const std::string&);
     ParseTreeNode(const ParseTreeNode&);
-    ParseTreeNode(ParseTreeNode*);
     ~ParseTreeNode();
     void operator=(const ParseTreeNode&);
     #pragma endregion
@@ -34,13 +33,10 @@ public:
     std::vector<std::string> getDefaultKeys(const std::string&) const;
     #pragma endregion
     #pragma region Modifiers
-    void addChild(const std::string&);
-    void addChildren(const std::vector<std::string>&);
-    void addDefault(const std::string&);
-    void addDefaults(const std::vector<std::string>&);
+    void addChild(const std::string&, const std::string&);
+    void addDefault(const std::string&, const std::string&);
     #pragma endregion
     #pragma region Accessors
-    ParseTreeNode* parent() const;
     ParseTreeNode& operator[](const std::string&) const;
     ParseTreeNode& operator[](std::vector<std::string>) const;
     ParseTreeNode& at(const std::string& key) const;

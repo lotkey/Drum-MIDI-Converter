@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::MandaAudio::getMTPowerDrumKit2Mapping() {
+    using namespace Keys;
     return Mapping("Manda Audio MTPowerDrumKit2", {
         {Cymbal::Hit::China::china1_hit, {{Note::E, 2}}},
         {Cymbal::Hit::Crash::crash1_hit, {{Note::C_SHARP, 2}}},

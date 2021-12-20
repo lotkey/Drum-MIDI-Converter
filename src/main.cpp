@@ -8,14 +8,16 @@
 
 int main() {
     ParseTree tree("./tree/");
-    // tree.print();
+    tree.print();
+    tree.exportAsNamespace("./test.hpp");
+    // // tree.print();
 
-    Mapping ggdMM = Mappings::GetGoodDrums::getModernAndMassiveMapping();
-    Mapping sd5 = Mappings::StevenSlateDrums::getSSD5Mapping();
+    // Mapping ggdMM = Mappings::GetGoodDrums::getModernAndMassiveMapping();
+    // Mapping sd5 = Mappings::StevenSlateDrums::getSSD5Mapping();
 
-    std::cout << "\n";
-    ConversionMap conversionMap = tree.makeConversionMapping(ggdMM, sd5);
-    conversionMap.print();
+    // std::cout << "\n";
+    // ConversionMap conversionMap = tree.makeConversionMapping(ggdMM, sd5);
+    // conversionMap.print();
 
     return 0;
 }

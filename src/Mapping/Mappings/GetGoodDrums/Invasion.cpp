@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::GetGoodDrums::getInvasionMapping() {
+    using namespace Keys;
     return Mapping("GGD Invasion", {
         {Cymbal::Bell::Crash::crash1_bell, {{Note::G, 4}}},
         {Cymbal::Bell::Crash::crash2_bell, {{Note::G_SHARP, 4}}},

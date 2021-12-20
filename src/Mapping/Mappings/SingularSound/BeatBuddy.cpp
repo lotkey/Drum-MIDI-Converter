@@ -6,9 +6,8 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-using namespace Keys;
-
 Mapping Mappings::SingularSound::getBeatBuddyMapping() {
+    using namespace Keys;
     return Mapping("Singular Sound Beat Buddy", {
         {Perc::clap, {{Note::D_SHARP, 1}}},
         {Perc::Cowbell::cowbell_hit, {{Note::G_SHARP, 2}}},
