@@ -45,6 +45,7 @@ namespace Keys {
             const string _3 = "cymbal_choke_crash__3";
             const string _4 = "cymbal_choke_crash__4";
             const string _5 = "cymbal_choke_crash__5";
+            const string _6 = "cymbal_choke_crash__6";
          }
          namespace Ride {
             const string _1 = "cymbal_choke_ride__1";
@@ -54,6 +55,9 @@ namespace Keys {
             const string _1 = "cymbal_choke_splash__1";
             const string _2 = "cymbal_choke_splash__2";
             const string _3 = "cymbal_choke_splash__3";
+         }
+         namespace Stack {
+            const string _1 = "cymbal_choke_stack__1";
          }
       }
       namespace Hit {
@@ -85,6 +89,7 @@ namespace Keys {
             const string _3 = "cymbal_hit_crash__3";
             const string _4 = "cymbal_hit_crash__4";
             const string _5 = "cymbal_hit_crash__5";
+            const string _6 = "cymbal_hit_crash__6";
          }
          namespace Ride {
             namespace Bow {
@@ -163,12 +168,14 @@ namespace Keys {
          const string _1 = "hat_open__1";
          const string _2 = "hat_open__2";
          const string _3 = "hat_open__3";
+         const string _4 = "hat_open__4";
          namespace Edge {
             const string loose1 = "hat_open_edge_loose1";
             const string _0 = "hat_open_edge__0";
             const string _1 = "hat_open_edge__1";
             const string _2 = "hat_open_edge__2";
             const string _3 = "hat_open_edge__3";
+            const string _4 = "hat_open_edge__4";
          }
          namespace Tip {
             const string loose1 = "hat_open_tip_loose1";
@@ -176,7 +183,7 @@ namespace Keys {
             const string _1 = "hat_open_tip__1";
             const string _2 = "hat_open_tip__2";
             const string _3 = "hat_open_tip__3";
-            const string _5 = "hat_open_tip__5";
+            const string _4 = "hat_open_tip__4";
          }
       }
    }

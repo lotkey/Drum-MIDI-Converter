@@ -27,6 +27,9 @@ add_executable(main
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/SingularSound/BeatBuddy.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/SolemnTones/MjolnirDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/StevenSlateDrums/SSD5.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/Toontrack/EZDrummer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/Toontrack/EZDrummerProgressiveFoundry.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/Toontrack/SuperiorDrummer3.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/XLNAudio/AddictiveDrums2.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Midi/MidiNote.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Midi/MidiNoteGroup.cpp

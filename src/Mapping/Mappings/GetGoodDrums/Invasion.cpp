@@ -11,12 +11,10 @@ Mapping Mappings::GetGoodDrums::getInvasionMapping() {
     return Mapping("GGD Invasion", {
         {Cymbal::Bell::Crash::_1, {{Note::G, 4}}},
         {Cymbal::Bell::Crash::_2, {{Note::G_SHARP, 4}}},
-        
         {Cymbal::Hit::China::_1, {{Note::F, 3}}},
         {Cymbal::Choke::China::_1, {{Note::F_SHARP, 3}}},
         {Cymbal::Hit::China::_2, {{Note::G, 3}}},
         {Cymbal::Choke::China::_2, {{Note::G_SHARP, 3}}},
-
         {Cymbal::Hit::Crash::_1, {{Note::E, 2}}},
         {Cymbal::Choke::Crash::_1, {{Note::F, 2}}},
         {Cymbal::Hit::Crash::_2, {{Note::F_SHARP, 2}}},
@@ -25,14 +23,11 @@ Mapping Mappings::GetGoodDrums::getInvasionMapping() {
         {Cymbal::Choke::Crash::_3, {{Note::A, 2}}},
         {Cymbal::Hit::Crash::_4, {{Note::A_SHARP, 2}}},
         {Cymbal::Choke::Crash::_4, {{Note::B, 2}}},
-
         {Cymbal::Hit::Splash::_1, {{Note::C_SHARP, 4}}},
         {Cymbal::Choke::Splash::_1, {{Note::D, 4}}},
         {Cymbal::Hit::Splash::_2, {{Note::D_SHARP, 4}}},
         {Cymbal::Choke::Splash::_2, {{Note::E, 4}}},    
-
         {Cymbal::Hit::Stack::_1, {{Note::F_SHARP, 4}}},
-
         {Cymbal::Bell::Ride::_1, {{Note::C_SHARP, 3}}},
         {Cymbal::Hit::Ride::Bow::_1, {{Note::D, 3}}},
         {Cymbal::Hit::Ride::Bow::Tip::_1, {{Note::D_SHARP, 3}}},
