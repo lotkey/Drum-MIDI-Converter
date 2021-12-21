@@ -20,9 +20,12 @@ add_executable(main
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/GetGoodDrums/OKWMetal.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/GetGoodDrums/OKWModernFusion.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/GetGoodDrums/P4MattHalpern.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/GuitarPro/DrumMap.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/LogicPro/Drummer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/MandaAudio/MTPowerDrumKit2.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/NaughtySealAudio/PerfectDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/SingularSound/BeatBuddy.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/SolemnTones/MjolnirDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/StevenSlateDrums/SSD5.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Mapping/Mappings/XLNAudio/AddictiveDrums2.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Midi/MidiNote.cpp

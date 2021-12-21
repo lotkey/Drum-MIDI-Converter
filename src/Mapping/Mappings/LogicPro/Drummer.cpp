@@ -1,4 +1,4 @@
-#include <inttypes.h>
+#include <cinttypes>
 #include <string>
 
 #include "../../../Parsing/Keys.hpp"
