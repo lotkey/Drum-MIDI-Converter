@@ -8,16 +8,10 @@
 
 int main() {
     ParseTree tree("./tree/");
-    tree.print();
-    tree.exportAsNamespace("./Parsing/Keys.hpp");
-    // // tree.print();
-
-    // Mapping ggdMM = Mappings::GetGoodDrums::getModernAndMassiveMapping();
-    // Mapping sd5 = Mappings::StevenSlateDrums::getSSD5Mapping();
-
-    // std::cout << "\n";
-    // ConversionMap conversionMap = tree.makeConversionMapping(ggdMM, sd5);
-    // conversionMap.print();
+    Mapping m1 = Mappings::Drumforge::getBergstrandMapping();
+    Mapping m2 = Mappings::GetGoodDrums::getModernAndMassiveMapping();
+    ConversionMap m3 = tree.makeConversionMapping(m1, m2);
+    m3.print();
 
     return 0;
 }

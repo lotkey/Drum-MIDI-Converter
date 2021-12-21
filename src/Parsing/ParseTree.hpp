@@ -19,6 +19,8 @@ private:
     void _initFromFile(const std::string&);
     void _initFromDir(const std::string&);
     void _addRootFromFile(const std::filesystem::path&);
+    static std::string keyFromPath(const std::vector<std::string>&);
+    static std::string keyFromPath(const std::vector<std::string>&, const std::string&);
 public:
     #pragma region Constructors/Destructors/Assignment
     ParseTree();

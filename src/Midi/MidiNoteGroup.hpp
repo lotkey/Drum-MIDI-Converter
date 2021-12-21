@@ -7,6 +7,7 @@
 
 #include "./MidiNote.hpp"
 
+// Group of MIDI notes
 class MidiNoteGroup {
 private:
     std::set<MidiNote> _notes;

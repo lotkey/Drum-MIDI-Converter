@@ -7,6 +7,7 @@
 
 #include "./Note.hpp"
 
+// Class for converting MIDI notes to/from integers
 class MidiNote {
 private:
     const uint8_t _value;

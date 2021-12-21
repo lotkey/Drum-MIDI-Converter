@@ -9,10 +9,10 @@
 Mapping Mappings::GetGoodDrums::getOKWClassicRockMapping() {
     using namespace Keys;
     return Mapping("GGD OKW Classic Rock", {
-        {Perc::Cowbell::hit, {{Note::F, 3}}},
-        {Perc::sticks, {{Note::D_SHARP, 4}}},
+        {Perc::Cowbell::hit, {{Note::F, 3}, {Note::F_SHARP, 3}}},
+        {Perc::sticks, {{Note::D_SHARP, 4}, {Note::E, 4}}},
 
-        {Cymbal::Hit::Crash::_1, {{Note::E, 2}}},
+        {Cymbal::Hit::Crash::_1, {{Note::E, 2}, {Note::G, 2}}},
         {Cymbal::Choke::Crash::_1, {{Note::F, 2}}},
         {Cymbal::Hit::Crash::_2, {{Note::A_SHARP, 2}}},
         {Cymbal::Choke::Crash::_2, {{Note::B, 2}}},
@@ -21,7 +21,7 @@ Mapping Mappings::GetGoodDrums::getOKWClassicRockMapping() {
         {Cymbal::Hit::Ride::Edge::_1, {{Note::F_SHARP, 2}}},
 
         {Tom::Hit::Floor::_1, {{Note::A_SHARP, 0}}},
-        {Tom::Hit::Floor::_2, {{Note::B, 0}}},
+        {Tom::Hit::Floor::_2, {{Note::B, 0}, {Note::C, 1}}},
         {Tom::Hit::Rack::_1, {{Note::A, 0}}},
 
         {Hat::Open::cc, {{Note::F, -1}}},

@@ -9,7 +9,7 @@
 Mapping Mappings::Drumforge::getBergstrandMapping() {
     using namespace Keys;
     return Mapping("Drumforge Bergstrand", {
-        {Cymbal::Bell::Crash::_1, {{Note::A, 3}}},
+        {Cymbal::Bell::Crash::_1, {{Note::A, 3}, {Note::D, 4}}},
         {Cymbal::Hit::China::_1, {{Note::F, 4}}},
         {Cymbal::Choke::China::_1, {{Note::F_SHARP, 4}}},
         {Cymbal::Hit::Crash::_1, {{Note::C, 3}}},
@@ -22,9 +22,9 @@ Mapping Mappings::Drumforge::getBergstrandMapping() {
         {Cymbal::Choke::Splash::_1, {{Note::G_SHARP, 4}}},
         {Cymbal::Hit::Splash::_2, {{Note::A, 4}}},
         {Cymbal::Choke::Splash::_2, {{Note::A_SHARP, 4}}},
-        {Cymbal::Bell::Ride::_1, {{Note::A_SHARP, 3}}},
-        {Cymbal::Hit::Ride::Bow::Tip::_1, {{Note::G, 3}}},
-        {Cymbal::Hit::Ride::Edge::_1, {{Note::G_SHARP, 3}}},
+        {Cymbal::Bell::Ride::_1, {{Note::A_SHARP, 3}, {Note::D_SHARP, 4}}},
+        {Cymbal::Hit::Ride::Bow::Tip::_1, {{Note::G, 3}, {Note::C, 4}}},
+        {Cymbal::Hit::Ride::Edge::_1, {{Note::G_SHARP, 3}, {Note::C_SHARP, 4}}},
 
         {Tom::Hit::Floor::_1, {{Note::G_SHARP, 1}}},
         {Tom::Hit::Floor::_2, {{Note::A, 1}}},

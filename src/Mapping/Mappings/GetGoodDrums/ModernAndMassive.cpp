@@ -18,7 +18,7 @@ Mapping Mappings::GetGoodDrums::getModernAndMassiveMapping() {
         {Snare::Hit::off, {{Note::F, 0}}},
 
         {Tom::Hit::Rack::_1, {{Note::A, 0}}},
-        {Tom::Hit::Floor::_1, {{Note::C_SHARP, 1}}},
+        {Tom::Hit::Floor::_1, {{Note::C_SHARP, 1}, {Note::B, 0}}},
         {Tom::Hit::Floor::_2, {{Note::D_SHARP, 1}}},
 
         {Hat::Closed::tight, {{Note::A, 1}}},

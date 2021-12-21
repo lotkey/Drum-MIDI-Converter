@@ -30,7 +30,7 @@ Mapping Mappings::XLNAudio::getAddictiveDrums2Mapping() {
         {Cymbal::Choke::Ride::_1, {{Note::D_SHARP, 3}}},
         {Cymbal::Bell::Ride::_2, {{Note::C_SHARP, 5}}},
         {Cymbal::Hit::Ride::Bow::_2, {{Note::D, 5}}},
-        {Cymbal::Hit::Ride::Bow::Tip::_2, {{Note::C, 5}}},
+        {Cymbal::Hit::Ride::Bow::Tip::_2, {{Note::C, 5}, {Note::A, 1}}},
         {Cymbal::Choke::Ride::_2, {{Note::D_SHARP, 5}}},
 
         {Tom::Hit::Floor::_1, {{Note::F, 3}}},
@@ -60,7 +60,7 @@ Mapping Mappings::XLNAudio::getAddictiveDrums2Mapping() {
         {Snare::Hit::_1, {{Note::D, 1}, {Note::E, 1}, {Note::G, 1}}},
         {Snare::Hit::electric, {{Note::F, 6}}},
         {Snare::Alt::Rim::_1, {{Note::G_SHARP, 1}}},
-        {Snare::Alt::Rim::Shot::_1, {{Note::C_SHARP, 1}}},
+        {Snare::Alt::Rim::Shot::_1, {{Note::C_SHARP, 1}, {Note::D_SHARP, 1}, {Note::F, 1}}},
         {Snare::Alt::Side::stick, {{Note::F_SHARP, 1}}}
     });
 }

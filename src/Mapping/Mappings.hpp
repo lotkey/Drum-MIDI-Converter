@@ -7,10 +7,10 @@
 #include "../Mapping/Mapping.hpp"
 #include "../Midi/Note.hpp"
 
+// Namespace for all mappings
 namespace Mappings {
 
     uint8_t yamahatoi(const Note&, const int8_t&);
-    uint8_t yamahatoi(const std::pair<Note, int8_t>&);
 
     namespace Drumforge {
         Mapping getBergstrandMapping();
