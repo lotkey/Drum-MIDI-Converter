@@ -4,6 +4,10 @@
 #include "./Mapping.hpp"
 #include "../Helpers/stringpp.hpp"
 
+Mapping::Mapping()
+    : _name("undef")
+{ }
+
 // Construct from name
 Mapping::Mapping(const std::string &name)
     : _name(name)

@@ -15,6 +15,7 @@ private:
     const std::string _name;
     std::map<std::string, MidiNoteGroup> _map;
 public:
+    Mapping();
     Mapping(const std::string&);
     Mapping(const std::string&, const std::map<std::string, MidiNoteGroup>&);
     Mapping(const std::string&, const Mapping&);

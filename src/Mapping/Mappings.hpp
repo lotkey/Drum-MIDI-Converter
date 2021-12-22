@@ -11,6 +11,7 @@
 namespace Mappings {
 
     uint8_t yamahatoi(const Note&, const int8_t&);
+    std::map<std::string, Mapping> getAllMappings();
 
     namespace Drumforge {
         Mapping getBergstrandMapping();

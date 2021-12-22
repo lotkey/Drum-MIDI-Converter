@@ -1,0 +1,17 @@
+*hit
+    electric
+    flam
+    off
+    ruff
+    roll
+    *_1
+alt
+    *side
+        *_1
+        *stick
+    *rim
+        *_1
+        *shot
+            *_1
+            *edge1
+        rimclick
