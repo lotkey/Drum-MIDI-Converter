@@ -4,4 +4,7 @@ src/cmake_install.cmake
 src/CMakeCache.txt
 src/Makefile
 src/main
-# /Mappings
+
+/QT-src/*
+!/QT-src/builds/
+!/QT-src/DrumMIDIConverter/

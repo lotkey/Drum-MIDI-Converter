@@ -798,6 +798,10 @@ debug\moc_mainwindow.cpp: ..\DrumMIDIConverter\mainwindow.h \
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Parsing\ParseTreeNode.hpp \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp \
 		..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -987,6 +991,10 @@ debug\main.obj: ..\DrumMIDIConverter\main.cpp ..\DrumMIDIConverter\mainwindow.h 
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Parsing\ParseTreeNode.hpp \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp \
 		..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1178,47 +1186,14 @@ debug\mainwindow.obj: ..\DrumMIDIConverter\mainwindow.cpp C:\Qt\6.2.2\msvc2019_6
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Parsing\ParseTreeNode.hpp \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp \
 		..\DrumMIDIConverter\src\Parsing\Keys.hpp \
-		ui_mainwindow.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\QVariant \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QApplication \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qapplication.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qeventloop.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qcoreapplication_platform.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qfuture.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qfutureinterface.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qmutex.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qresultstore.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qfuture_impl.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qthreadpool.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qthread.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qrunnable.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtCore\qexception.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtGui\qguiapplication.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtGui\qinputmethod.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtGui\qguiapplication_platform.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QFormLayout \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qformlayout.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QLayout \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qlayout.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qboxlayout.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qgridlayout.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QMenuBar \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qmenubar.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qmenu.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtGui\qaction.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QPushButton \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QStatusBar \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\qstatusbar.h \
-		C:\Qt\6.2.2\msvc2019_64\include\QtWidgets\QWidget
+		ui_mainwindow.h
 
 debug\stringpp.obj: ..\DrumMIDIConverter\src\Helpers\stringpp.cpp ..\DrumMIDIConverter\src\Helpers\stringpp.hpp
 
@@ -1227,12 +1202,20 @@ debug\ConversionMap.obj: ..\DrumMIDIConverter\src\Mapping\ConversionMap.cpp ..\D
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Helpers\stringpp.hpp
 
 debug\Mapping.obj: ..\DrumMIDIConverter\src\Mapping\Mapping.cpp ..\DrumMIDIConverter\src\Mapping\Mapping.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Helpers\stringpp.hpp
 
 debug\Mappings.obj: ..\DrumMIDIConverter\src\Mapping\Mappings.cpp ..\DrumMIDIConverter\src\Mapping\Mappings.hpp \
@@ -1240,13 +1223,21 @@ debug\Mappings.obj: ..\DrumMIDIConverter\src\Mapping\Mappings.cpp ..\DrumMIDICon
 		..\DrumMIDIConverter\src\Mapping\Mapping.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
-		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp
+		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h
 
 debug\Bergstrand.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Drumforge\Bergstrand.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
 		..\DrumMIDIConverter\src\Mapping\Mapping.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\Ultimate.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Drumforge\Ultimate.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1254,6 +1245,10 @@ debug\Ultimate.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Drumforge\Ultimate
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\GmStandard.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GeneralMIDI\GmStandard.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1261,6 +1256,10 @@ debug\GmStandard.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GeneralMIDI\GmSt
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\GroovePlayerMIDIPack.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\GroovePlayerMIDIPack.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1268,6 +1267,10 @@ debug\GroovePlayerMIDIPack.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoo
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\Invasion.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\Invasion.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1275,6 +1278,10 @@ debug\Invasion.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\Invas
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\ModernAndMassive.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\ModernAndMassive.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1282,6 +1289,10 @@ debug\ModernAndMassive.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDru
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\OKWAggressiveRock.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\OKWAggressiveRock.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1289,6 +1300,10 @@ debug\OKWAggressiveRock.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDr
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\OKWArchitects.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\OKWArchitects.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1296,6 +1311,10 @@ debug\OKWArchitects.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\OKWClassicRock.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\OKWClassicRock.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1303,6 +1322,10 @@ debug\OKWClassicRock.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\OKWMetal.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\OKWMetal.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1310,6 +1333,10 @@ debug\OKWMetal.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\OKWMe
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\OKWModernFusion.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\OKWModernFusion.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1317,6 +1344,10 @@ debug\OKWModernFusion.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrum
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\P4MattHalpern.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\P4MattHalpern.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1324,6 +1355,10 @@ debug\P4MattHalpern.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GetGoodDrums\
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\DrumMap.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GuitarPro\DrumMap.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1331,6 +1366,10 @@ debug\DrumMap.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\GuitarPro\DrumMap.c
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\Drummer.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\LogicPro\Drummer.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1338,6 +1377,10 @@ debug\Drummer.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\LogicPro\Drummer.cp
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\MTPowerDrumKit2.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\MandaAudio\MTPowerDrumKit2.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1345,6 +1388,10 @@ debug\MTPowerDrumKit2.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\MandaAudio\
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\PerfectDrums.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\NaughtySealAudio\PerfectDrums.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1352,6 +1399,10 @@ debug\PerfectDrums.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\NaughtySealAud
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\BeatBuddy.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\SingularSound\BeatBuddy.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1359,6 +1410,10 @@ debug\BeatBuddy.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\SingularSound\Bea
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\MjolnirDrums.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\SolemnTones\MjolnirDrums.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1366,6 +1421,10 @@ debug\MjolnirDrums.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\SolemnTones\Mj
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\SSD5.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\StevenSlateDrums\SSD5.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1373,6 +1432,10 @@ debug\SSD5.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\StevenSlateDrums\SSD5.
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\EZDrummer.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Toontrack\EZDrummer.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1380,6 +1443,10 @@ debug\EZDrummer.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Toontrack\EZDrumm
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\EZDrummerProgressiveFoundry.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Toontrack\EZDrummerProgressiveFoundry.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1387,6 +1454,10 @@ debug\EZDrummerProgressiveFoundry.obj: ..\DrumMIDIConverter\src\Mapping\Mappings
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\SuperiorDrummer3.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Toontrack\SuperiorDrummer3.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1394,6 +1465,10 @@ debug\SuperiorDrummer3.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\Toontrack\
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\AddictiveDrums2.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\XLNAudio\AddictiveDrums2.cpp ..\DrumMIDIConverter\src\Parsing\Keys.hpp \
@@ -1401,6 +1476,10 @@ debug\AddictiveDrums2.obj: ..\DrumMIDIConverter\src\Mapping\Mappings\XLNAudio\Ad
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Mapping\Mappings.hpp
 
 debug\MidiNote.obj: ..\DrumMIDIConverter\src\Midi\MidiNote.cpp ..\DrumMIDIConverter\src\Mapping\Mappings.hpp \
@@ -1408,7 +1487,11 @@ debug\MidiNote.obj: ..\DrumMIDIConverter\src\Midi\MidiNote.cpp ..\DrumMIDIConver
 		..\DrumMIDIConverter\src\Mapping\Mapping.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
-		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp
+		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h
 
 debug\MidiNoteGroup.obj: ..\DrumMIDIConverter\src\Midi\MidiNoteGroup.cpp ..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
@@ -1419,6 +1502,10 @@ debug\ParseTree.obj: ..\DrumMIDIConverter\src\Parsing\ParseTree.cpp ..\DrumMIDIC
 		..\DrumMIDIConverter\src\Midi\MidiNote.hpp \
 		..\DrumMIDIConverter\src\Midi\Note.hpp \
 		..\DrumMIDIConverter\src\Midi\MidiNoteGroup.hpp \
+		..\DrumMIDIConverter\midifile\include\MidiFile.h \
+		..\DrumMIDIConverter\midifile\include\MidiEventList.h \
+		..\DrumMIDIConverter\midifile\include\MidiEvent.h \
+		..\DrumMIDIConverter\midifile\include\MidiMessage.h \
 		..\DrumMIDIConverter\src\Parsing\ParseTree.hpp \
 		..\DrumMIDIConverter\src\Parsing\ParseTreeNode.hpp \
 		..\DrumMIDIConverter\src\Helpers\stringpp.hpp

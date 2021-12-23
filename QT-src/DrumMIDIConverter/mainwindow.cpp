@@ -15,10 +15,10 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       mappings(Mappings::getAllMappings()),
-      ui(new Ui::MainWindow)
+      ui(new Ui::MainWindow),
+      parseTree(ParseTree("C:/Users/Chris/Desktop/Code/Drum-MIDI-Converter/src/tree/"))
 {
     ui->setupUi(this);
-    parseTree = ParseTree("C:/Users/Chris/Desktop/Code/Drum-MIDI-Converter/QT-src/DrumMIDIConverter/src/tree");
 
     for (const auto& [name, mapping] : mappings)
         mappingNames.append(name.c_str());
@@ -33,15 +33,28 @@ MainWindow::MainWindow(QWidget *parent)
     auto getInputLambda = [this]() {
         getInputFilename();
         showPercentMatch();
+        ui->labelExport->setText("");
         ui->dropdownMappingFrom->setDisabled(false);
         ui->dropdownMappingTo->setDisabled(false);
+        ui->buttonExport->setDisabled(false);
+    };
+
+    auto changeMappingFrom = [this]() {
+        ui->labelExport->setText("");
+        showPercentMatch();
+        ui->buttonExport->setDisabled(false);
+    };
+
+    auto changeMappingTo = [this]() {
+        ui->labelExport->setText("");
         ui->buttonExport->setDisabled(false);
     };
 
     connect(ui->buttonBrowseInput, &QPushButton::clicked, this, getInputLambda);
     connect(ui->buttonExport, &QPushButton::clicked, this, &MainWindow::exportMIDI);
 
-    connect(ui->dropdownMappingFrom, &QComboBox::currentIndexChanged, this, &MainWindow::showPercentMatch);
+    connect(ui->dropdownMappingFrom, &QComboBox::currentIndexChanged, this, changeMappingFrom);
+    connect(ui->dropdownMappingTo, &QComboBox::currentIndexChanged, this, changeMappingTo);
 }
 
 MainWindow::~MainWindow()
@@ -58,7 +71,6 @@ void MainWindow::getInputFilename() {
 }
 
 void MainWindow::exportMIDI() {
-    std::cerr << "Exporting MIDI.\n";
     if (inputFilename.has_value()) {
         QString outputFilename = QFileDialog::getSaveFileName(this, "Save file as:");
 
@@ -66,28 +78,27 @@ void MainWindow::exportMIDI() {
         Mapping mappingTo = mappings[ui->dropdownMappingTo->currentText().toStdString()];
         ConversionMap conversionMap = parseTree.makeConversionMapping(mappingFrom, mappingTo);
 
-//        std::cerr << "Reading input file.\n";
-//        smf::MidiFile mf(inputFilename.value().toStdString());
-//        smf::MidiFile mfOut = smf::MidiFile();
-//        std::cerr << "Starting loop.\n";
-//        for (unsigned int i = 0; i < mf.getNumTracks(); i++) {
-//            for (unsigned int j = 0; j < mf[i].size(); j++) {
-//                if (mf[i][j].isNote()) {
-//                    std::cerr << "Getting key number...\n";
-//                    int key = mf[i][j].getKeyNumber();
-//                    std::cerr << "Got key number.\n";
-//                    if (conversionMap.containsKey(key)) {
-//                        smf::MidiEvent event = mf[i][j];
-//                        event.setKeyNumber(conversionMap[key]);
-//                        mfOut.addEvent(i, event);
-//                    }
-//                } else {
-//                    mfOut.addEvent(mf[i][j]);
-//                }
-//            }
-//        }
+        smf::MidiFile mf(inputFilename.value().toStdString());
+        smf::MidiFile mfOut = smf::MidiFile();
+        for (int i = 0; i < mf.getNumTracks(); i++) {
+            for (int j = 0; j < mf[i].size(); j++) {
+                if (mf[i][j].isNote()) {
+                    int key = mf[i][j].getKeyNumber();
+                    if (conversionMap.containsKey(key)) {
+                        smf::MidiEvent event = mf[i][j];
+                        event.setKeyNumber(conversionMap[key]);
+                        mfOut.addEvent(i, event.tick / 8, event);
+                    }
+                } else {
+                    mfOut.addEvent(i, mf[i][j].tick / 8, mf[i][j]);
+                }
+            }
+        }
 
-//        mfOut.write(outputFilename.toStdString());
+        mfOut.write(outputFilename.toStdString());
+        std::string label = "Exported to " + outputFilename.toStdString();
+        ui->labelExport->setText(label.c_str());
+        ui->buttonExport->setDisabled(true);
 
     } else {
         ui->labelExport->setText("Select an input file first");

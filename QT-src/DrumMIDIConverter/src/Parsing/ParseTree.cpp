@@ -289,11 +289,10 @@ void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
 #pragma region Accessors
 
 ParseTreeNode& ParseTree::operator[](const std::string& key) const {
-    if (_roots.find(key) != _roots.end()) return *_roots.at(key);
-    else {
-        std::cerr << key << std::endl;
+    if (_roots.find(key) != _roots.end())
+        return *_roots.at(key);
+    else
         throw std::invalid_argument("Key doesn't match any root key");
-    }
 }
 
 ParseTreeNode& ParseTree::operator[](std::vector<std::string> keys) const {
@@ -371,17 +370,16 @@ std::optional<MidiNoteGroup> ParseTree::findNearestFit(const Mapping& mapping, s
 
 ConversionMap ParseTree::makeConversionMapping(const Mapping& mapFrom, const Mapping& mapTo) const {
     std::optional<MidiNoteGroup> value;
-    ConversionMap m = ConversionMap(mapFrom.name(), mapTo.name());
+    ConversionMap m(mapFrom.name(), mapTo.name());
 
     for (const std::string& key : mapFrom.getKeys()) {
-        auto path = getPathToKey(key);
+        std::optional<std::vector<std::string>> path = getPathToKey(key);
 
-        value = findNearestFit(mapTo, path.value());
-        if (value.has_value()) {
-            m.insert(mapFrom[key], value.value());
-            std::cerr << "Found mapping!\n";
-        } else {
-            std::cerr << "No mapping :(\n";
+        if (path.has_value()) {
+            value = findNearestFit(mapTo, path.value());
+            if (value.has_value()) {
+                m.insert(mapFrom[key], value.value());
+            }
         }
     }
 

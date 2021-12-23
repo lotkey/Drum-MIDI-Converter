@@ -9,7 +9,7 @@
 int main() {
     ParseTree tree("./tree/");
     std::map<std::string, Mapping> mappings = Mappings::getAllMappings();
-    ConversionMap m3 = tree.makeConversionMapping(mappings["GGD Modern & Massive"], mappings["General MIDI Standard"]);
+    ConversionMap m3 = tree.makeConversionMapping(mappings["GGD Modern & Massive"], mappings["Drumforge Bergstrand"]);
     m3.print();
 
     return 0;

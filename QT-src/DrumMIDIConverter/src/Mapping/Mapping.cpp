@@ -49,8 +49,8 @@ bool Mapping::containsValue(const MidiNote& value) const {
 
 double Mapping::getPercentMatch(const smf::MidiFile &mf) const {
     double total = 0, matched = 0;
-    for (unsigned int i = 0; i < mf.getNumTracks(); i++) {
-        for (unsigned int j = 0; j < mf[i].size(); j++) {
+    for (int i = 0; i < mf.getNumTracks(); i++) {
+        for (int j = 0; j < mf[i].size(); j++) {
             if (mf[i][j].isNote()) {
                 total++;
                 if (containsValue(mf[i][j].getKeyNumber()))
