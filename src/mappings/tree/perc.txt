@@ -1,0 +1,12 @@
+*clap
+*shaker
+*tambourine
+    *hit
+    *down
+    *up
+*cowbell
+    *hit
+    *tip
+    *shank
+sticks
+vibraslap
