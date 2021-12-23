@@ -16,10 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       mappings(Mappings::getAllMappings()),
       ui(new Ui::MainWindow),
-      parseTree(ParseTree("C:/Users/Chris/Desktop/Code/Drum-MIDI-Converter/src/tree/"))
+      parseTree(ParseTree("./tree"))
 {
     ui->setupUi(this);
-
     for (const auto& [name, mapping] : mappings)
         mappingNames.append(name.c_str());
 
