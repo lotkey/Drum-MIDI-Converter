@@ -1,10 +1,5 @@
-**/.vscode
-src/CMakeFiles/
-src/cmake_install.cmake
-src/CMakeCache.txt
-src/Makefile
-src/main
-
-/QT-src/*
-!/QT-src/builds/
-!/QT-src/DrumMIDIConverter/
+*
+!builds/
+!src/
+!.gitignore
+!README.md
