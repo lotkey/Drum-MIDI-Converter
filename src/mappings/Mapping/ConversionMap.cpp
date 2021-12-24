@@ -91,6 +91,6 @@ void ConversionMap::save(const std::filesystem::path& path) const {
     std::ofstream outfile(path);
     outfile << _mapFrom << " " << _mapTo << "\n";
     for (const auto& [from, to] : _map)
-        outfile << from << " " << to << "\n";
+        outfile << (int)from << " " << (int)to << "\n";
     outfile.close();
 }
