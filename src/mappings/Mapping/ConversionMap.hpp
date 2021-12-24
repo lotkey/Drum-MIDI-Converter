@@ -16,16 +16,20 @@
 class ConversionMap {
 private:
     const std::string _mapFrom, _mapTo;
-    std::map<MidiNote, MidiNote> _map;
+    std::map<uint8_t, uint8_t> _map;
 public:
+    static ConversionMap load(const std::filesystem::path&);
+
     ConversionMap(const std::string&, const std::string&);
     void insert(const MidiNoteGroup&, const uint8_t&);
-    bool containsKey(const MidiNote&) const;
-    bool containsValue(const MidiNote&) const;
-    MidiNote operator[](const MidiNote&) const;
-    MidiNote at(const MidiNote&) const;
-    std::optional<MidiNote> keyFromValue(const MidiNote&) const;
+    void insert(const uint8_t&, const uint8_t&);
+    bool containsKey(const uint8_t&) const;
+    bool containsValue(const uint8_t&) const;
+    uint8_t operator[](const uint8_t&) const;
+    uint8_t at(const uint8_t&) const;
+    std::optional<uint8_t> keyFromValue(const uint8_t&) const;
     void print() const;
+    void save(const std::filesystem::path&) const;
 };
 
 #endif

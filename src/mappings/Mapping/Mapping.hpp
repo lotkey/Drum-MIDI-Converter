@@ -10,8 +10,6 @@
 #include "../Midi/MidiNoteGroup.hpp"
 
 #include "../../midifile/include/MidiFile.h"
-#include "../../midifile/include/MidiEvent.h"
-#include "../../midifile/include/MidiEventList.h"
 
 // Maps string -> MIDI note group
 class Mapping {
