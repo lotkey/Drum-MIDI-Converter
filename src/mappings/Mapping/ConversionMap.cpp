@@ -9,10 +9,11 @@
 
 ConversionMap ConversionMap::load(const std::filesystem::path& path) {
     std::ifstream infile(path);
-    std::string fromStr, toStr;
+    std::string line, fromStr, toStr;
     uint8_t from, to;
-    infile >> fromStr;
-    infile >> toStr;
+    std::getline(infile, fromStr);
+    std::getline(infile, toStr);
+
     ConversionMap map(fromStr, toStr);
 
     while (infile >> from && infile >> to)
@@ -89,7 +90,8 @@ void ConversionMap::print() const {
 
 void ConversionMap::save(const std::filesystem::path& path) const {
     std::ofstream outfile(path);
-    outfile << _mapFrom << " " << _mapTo << "\n";
+    outfile << _mapFrom << "\n";
+    outfile << _mapTo << "\n";
     for (const auto& [from, to] : _map)
         outfile << (int)from << " " << (int)to << "\n";
     outfile.close();
