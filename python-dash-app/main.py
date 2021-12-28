@@ -1,4 +1,4 @@
-from mapping import ConversionMap
+from conversionmap import ConversionMap
 import os
 
 mappings = ConversionMap.loadAllConversionMaps('./conversions/')
