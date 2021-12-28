@@ -18,7 +18,6 @@ ConversionMap ConversionMap::load(const std::filesystem::path& path) {
 
     while (infile >> from && infile >> to)
         map.insert(from, to);
-    
     infile.close();
 
     return map;
