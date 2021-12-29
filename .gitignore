@@ -2,3 +2,4 @@
 /build-DrumMIDIConverter-Desktop_Qt_6_2_2_MSVC2019_64bit-Release/
 /.vs/
 /python-dash-app/__pycache__/
+/python-dash-app/assets/

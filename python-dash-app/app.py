@@ -3,28 +3,16 @@ from dash import dcc
 from dash import html
 import plotly.graph_objects as go
 import plotly.express as px
+from conversionmap import ConversionMap
 
-app = dash.Dash()
-df = px.data.stocks()
+app = dash.Dash(__name__)
 
-def stock_prices():
-    # Function for creating line chart showing Google stock prices over time 
-    fig = go.Figure([go.Scatter(x = df['date'], y = df['GOOG'],\
-                     line = dict(color = 'firebrick', width = 4), name = 'Google')
-                     ])
-    fig.update_layout(title = 'Prices over time',
-                      xaxis_title = 'Dates',
-                      yaxis_title = 'Prices'
-                      )
-    return fig  
-
- 
 app.layout = html.Div(
     id = 'parent', 
     children = [
         html.H1(
             id = 'H1', 
-            children = 'Styling using html components', 
+            children = 'Drum MIDI Converter', 
             style = {
                 'textAlign':'center',
                 'marginTop':40,
@@ -32,18 +20,45 @@ app.layout = html.Div(
             }
         ),
 
-        dcc.Dropdown(
-            id = 'dropdown',
-            options = [
-                {'label':'Google', 'value':'GOOGL'},
-                {'label':'Apple', 'value':'AAPL'}
+        dcc.Upload(
+            id = 'upload_fileInput',
+            children = [
+                html.Button(
+                    'Upload',
+                    id = 'button_upload'
+                )
             ],
-            value = 'GOOGL'
+            accept = '*.mid'
         ),
-    
-        dcc.Graph(id = 'line_plot', figure = stock_prices())    
+
+        dcc.Dropdown(
+            id = 'dropdown_mapIn',
+            options = [{'label':i, 'value':i.upper()} for i in ConversionMap.getMappingNames('./python-dash-app/conversions/')],
+            value = ConversionMap.getMappingNames('./python-dash-app/conversions/')[0].upper()
+        ),
+
+        dcc.Dropdown(
+            id = 'dropdown_mapOut',
+            options = [{'label':i, 'value':i.upper()} for i in ConversionMap.getMappingNames('./python-dash-app/conversions/')],
+            value = ConversionMap.getMappingNames('./python-dash-app/conversions/')[1].upper()
+        ),
+
+        html.Button(
+            'Download',
+            id = 'download_fileOutput'
+        ),
+
+        dcc.Download(id='download')
     ]
 )
 
+@app.callback(
+    dash.Output('download', 'data'),
+    dash.Input('download_fileOutput', 'n_clicks'),
+    prevent_initial_call = True
+)
+def func(n_clicks):
+    return dict(content='Hello world!', filename='hello.txt')
+
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)

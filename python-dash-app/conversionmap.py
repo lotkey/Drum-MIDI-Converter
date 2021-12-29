@@ -1,13 +1,23 @@
 import os
 
 class ConversionMap():
-    def loadAllConversionMaps(path:str):
-        mappings = list()
-        for (dirpath, dirnames, filenames) in os.walk(path):
-            for filename in filenames:
-                mappings.append(ConversionMap(f'{dirpath}/{filename}'))
 
+    def loadAllConversionMaps(path:str):
+        mappings = dict()
+        for (dirpath, dirnames, filenames) in os.walk(path):        
+            for filename in filenames:
+                periodIndex = filename.rfind('.')
+
+                map = ConversionMap(f'{dirpath}/{filename}')
+                map1 = map.mapFrom
+                map2 = map.mapTo
+                if map1 not in mappings:
+                    mappings[map1] = dict()
+                mappings[map1][map2] = map
         return mappings
+
+    def getMappingNames(path:str):
+        return os.listdir(path)
 
     def __init__(self, path:str):
         with open(path, 'r') as infile:
