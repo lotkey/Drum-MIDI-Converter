@@ -42,5 +42,5 @@ class ConversionMap():
     def at(self, key:int):
         return self.map[key]
 
-    def contains(self, key:str):
+    def contains(self, key:int):
         return key in self.map
