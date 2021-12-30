@@ -1,23 +1,14 @@
-from flask import Flask, send_from_directory
 import dash
-from dash import dcc
-from dash import html
-import os
-import base64
+from dash import dcc, html, Input, Output, State
 from conversionmap import ConversionMap
+import base64
+from mido import MidiFile
 
-UPLOAD_DIRECTORY = "./python-dash-app/app_uploaded_files"
+DOWNLOAD_PATH = './python-dash-app/upload.mid'
+CONVERTED_PATH = './python-dash-app/converted.mid'
 
-if not os.path.exists(UPLOAD_DIRECTORY):
-    os.makedirs(UPLOAD_DIRECTORY)
-
-server = Flask(__name__)
 app = dash.Dash(__name__)
-
-@server.route("/download/<path:path>")
-def download(path):
-    """Serve a file from the upload directory."""
-    return send_from_directory(UPLOAD_DIRECTORY, path, as_attachment=True)
+conversionMaps = ConversionMap.loadAllConversionMaps('./python-dash-app/conversions/')
 
 app.layout = html.Div(
     id = 'parent', 
@@ -41,6 +32,14 @@ app.layout = html.Div(
                 )
             ],
             accept = '.mid',
+            style = {
+                'margin':10
+            }
+        ),
+
+        html.Div(
+            children = '',
+            id = 'filename',
             style = {
                 'margin':10
             }
@@ -71,60 +70,79 @@ app.layout = html.Div(
             id = 'download_fileOutput',
             style = {
                 'marginLeft':10
-            }
+            },
+            disabled = True
         ),
 
-        dcc.Download(id='download')
+        dcc.Download(id='download'),
+
+        html.Div(
+            id = 'hidden1',
+            style = {
+                'display':'none'
+            }
+        )
     ]
 )
 
 @app.callback(
-    dash.Output('download', 'data'),
-    dash.Input('download_fileOutput', 'n_clicks'),
+    Output('download', 'data'),
+    Input('download_fileOutput', 'n_clicks'),
+    State('upload_fileInput', 'contents'),
+    State('upload_fileInput', 'filename'),
+    State('dropdown_mapIn', 'value'),
+    State('dropdown_mapOut', 'value'),
     prevent_initial_call = True
 )
-def export(n_clicks):
-    return dict(content='Hello world!', filename='hello.txt')
+def export(num_clicks, content, filename, mapIn, mapOut):
+    try:
+        save_file(DOWNLOAD_PATH, content)
+        map = conversionMaps[mapIn.upper()][mapOut.upper()]
+        convert_midi(map)
 
-def save_file(name, content):
-    """Decode and store a file uploaded with Plotly Dash."""
-    data = content.encode("utf8").split(b";base64,")[1]
-    with open(os.path.join(UPLOAD_DIRECTORY, name), "wb") as fp:
-        fp.write(base64.decodebytes(data))
-
-
-def uploaded_files():
-    """List the files in the upload directory."""
-    files = []
-    for filename in os.listdir(UPLOAD_DIRECTORY):
-        path = os.path.join(UPLOAD_DIRECTORY, filename)
-        if os.path.isfile(path):
-            files.append(filename)
-    return files
-
-
-def file_download_link(filename):
-    """Create a Plotly Dash 'A' element that downloads a file from the app."""
-    location = "/download/{}".format(html.urlquote(filename))
-    return html.A(filename, href=location)
-
+        fn = f'''{filename[:filename.rfind('.')]} ({mapOut}).mid'''
+        with open(CONVERTED_PATH, 'rb') as infile:
+            return dcc.send_bytes(infile.read(), filename=fn)
+    except Exception as e:
+        return dict(content=str(e), filename='error.txt')
 
 @app.callback(
-    dash.Output("file-list", "children"),
-    [dash.Input("upload-data", "filename"), dash.Input("upload-data", "contents")],
+    Output('download_fileOutput', 'disabled'),
+    Input('upload_fileInput', 'contents'),
 )
-def update_output(uploaded_filenames, uploaded_file_contents):
-    """Save uploaded files and regenerate the file list."""
+def enable_download_button(contents):
+    if contents is not None:
+        return False
+    return dash.no_update
 
-    if uploaded_filenames is not None and uploaded_file_contents is not None:
-        for name, data in zip(uploaded_filenames, uploaded_file_contents):
-            save_file(name, data)
+@app.callback(
+    Output('filename', 'children'),
+    Input('upload_fileInput', 'filename')
+)
+def display_filename(filename):
+    return filename
 
-    files = uploaded_files()
-    if len(files) == 0:
-        return [html.Li("No files yet!")]
-    else:
-        return [html.Li(file_download_link(filename)) for filename in files]
+def save_file(path, content):
+    data = content.encode('utf8').split(b';base64,')[1]
+    with open(path, 'wb') as outfile:
+        outfile.write(base64.decodebytes(data))
+
+def convert_midi(conversionMap:ConversionMap):
+    inmidi = MidiFile(DOWNLOAD_PATH)
+    outmidi = MidiFile()
+    indices_to_remove = list()
+
+    for i, track in enumerate(inmidi.tracks):
+        outmidi.add_track()
+        for j, msg in enumerate(track):
+            if (msg.type in ['note_on', 'note_off']):
+                if (conversionMap.contains(msg.note)):
+                    msg.note = conversionMap.at(msg.note)
+                    outmidi.tracks[i].append(msg)
+            else:
+                outmidi.tracks[i].append(msg)
+
+    outmidi.save(CONVERTED_PATH)
 
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -9,8 +9,8 @@ class ConversionMap():
                 periodIndex = filename.rfind('.')
 
                 map = ConversionMap(f'{dirpath}/{filename}')
-                map1 = map.mapFrom
-                map2 = map.mapTo
+                map1 = map.mapFrom.upper()
+                map2 = map.mapTo.upper()
                 if map1 not in mappings:
                     mappings[map1] = dict()
                 mappings[map1][map2] = map
@@ -42,5 +42,5 @@ class ConversionMap():
     def at(self, key:int):
         return self.map[key]
 
-    def contains(self, key:int):
+    def contains(self, key:str):
         return key in self.map
