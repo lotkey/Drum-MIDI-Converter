@@ -23,3 +23,15 @@ std::string stringpp::repeat(const std::string& s, const uint32_t& numRepetition
         result += s;
     return result;
 }
+
+bool stringpp::strcmp(const std::string& s1, const std::string& s2) {
+    return s1 == s2;
+}
+
+bool stringpp::strcmp(const std::string& s, const std::vector<std::string>& v) {
+    for (const auto& str : v)
+        if (s == str)
+            return true;
+
+    return false;
+}

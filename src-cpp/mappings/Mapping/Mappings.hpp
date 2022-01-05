@@ -35,7 +35,7 @@ namespace Mappings {
     }
 
     namespace GuitarPro {
-        Mapping getDrumMapping();
+        Mapping getDrumMapMapping();
     }
 
     namespace LogicPro {

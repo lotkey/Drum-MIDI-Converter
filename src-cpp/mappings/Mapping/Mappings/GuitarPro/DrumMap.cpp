@@ -6,7 +6,7 @@
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
 
-Mapping Mappings::GuitarPro::getDrumMapping() {
+Mapping Mappings::GuitarPro::getDrumMapMapping() {
     using namespace Keys;
     return Mapping("Guitar Pro Drum Map", {
         {Perc::Cowbell::hit, {{Note::G_SHARP, 2}, {Note::D_SHARP, 6}, {Note::E, 6}, {Note::F, 6}, {Note::F_SHARP, 6}, {Note::G, 6}}},

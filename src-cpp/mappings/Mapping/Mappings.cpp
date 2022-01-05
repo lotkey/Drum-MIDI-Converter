@@ -28,7 +28,7 @@ std::map<std::string, Mapping> Mappings::getAllMappings() {
         nameMapPair(Mappings::GetGoodDrums::getOKWMetalMapping()),
         nameMapPair(Mappings::GetGoodDrums::getOKWModernFusionMapping()),
         nameMapPair(Mappings::GetGoodDrums::getP4MattHalpernMapping()),
-        nameMapPair(Mappings::GuitarPro::getDrumMapping()),
+        nameMapPair(Mappings::GuitarPro::getDrumMapMapping()),
         nameMapPair(Mappings::LogicPro::getDrummerMapping()),
         nameMapPair(Mappings::MandaAudio::getMTPowerDrumKit2Mapping()),
         nameMapPair(Mappings::NaughtySealAudio::getPerfectDrumsMapping()),

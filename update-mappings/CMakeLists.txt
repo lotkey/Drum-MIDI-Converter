@@ -1,0 +1,43 @@
+cmake_minimum_required(VERSION 3.13)
+project(update)
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(update
+    ${CMAKE_CURRENT_SOURCE_DIR}/update.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Helpers/stringpp.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/ConversionMap.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mapping.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Bergstrand.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Ultimate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GeneralMIDI/GmStandard.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/GroovePlayerMIDIPack.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/ModernAndMassive.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWAggressiveRock.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWArchitects.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWClassicRock.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWMetal.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWModernFusion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/P4MattHalpern.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GuitarPro/DrumMap.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/LogicPro/Drummer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/MandaAudio/MTPowerDrumKit2.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/NaughtySealAudio/PerfectDrums.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/SingularSound/BeatBuddy.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/SolemnTones/MjolnirDrums.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/StevenSlateDrums/SSD5.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/EZDrummer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/EZDrummerProgressiveFoundry.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/SuperiorDrummer3.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/XLNAudio/AddictiveDrums2.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNote.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNoteGroup.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Parsing/ParseTree.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Parsing/ParseTreeNode.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/Binasc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiEvent.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiEventList.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiFile.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiMessage.cpp
+)
