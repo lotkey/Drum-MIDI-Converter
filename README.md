@@ -22,9 +22,9 @@ You should have the following structure:
 SRC_DIR  
 ├── builds  
 ├── src-cpp  
-|   ├── mappings  
-|   ├── midifile  
-|   └── ...  
+    ├── mappings  
+    ├── midifile  
+    └── ...  
 ├── src-python  
 └── ...  
 
