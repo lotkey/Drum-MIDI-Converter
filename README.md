@@ -9,6 +9,35 @@ This README is written for Linux systems, but can be run in any terminal that ca
 - cmake
 - make
 
+# Table of Contents
+- [Drum MIDI Converter](#drum-midi-converter)
+      - [Free, open-source applications to convert between drum MIDI mappings](#free--open-source-applications-to-convert-between-drum-midi-mappings)
+- [Build](#build)
+  * [1. Clone the repository](#1-clone-the-repository)
+  * [2. Build C++ Qt app](#2-build-c---qt-app)
+    + [a. Download prerequisites](#a-download-prerequisites)
+      - [i. [midifile](https://www.github.com/craigsapp/midifile) library by [craigsapp](https://www.github.com/craigsapp)](#i--midifile--https---wwwgithubcom-craigsapp-midifile--library-by--craigsapp--https---wwwgithubcom-craigsapp-)
+      - [ii. [Qt & Qt Creator](https://www.qt.io/product/development-tools)](#ii--qt---qt-creator--https---wwwqtio-product-development-tools-)
+    + [b. Build the project with Qt Creator](#b-build-the-project-with-qt-creator)
+  * [3. Python Dash web app](#3-python-dash-web-app)
+    + [a. Download prerequisites](#a-download-prerequisites-1)
+      - [i. [Dash](https://plotly.com/dash/) by [Plotly](https://plotly.com)](#i--dash--https---plotlycom-dash---by--plotly--https---plotlycom-)
+      - [ii. [mido](https://github.com/mido/mido)](#ii--mido--https---githubcom-mido-mido-)
+    + [b. Run the Dash app](#b-run-the-dash-app)
+- [Add your own drum mappings](#add-your-own-drum-mappings)
+  * [1. Update the tree (if needed)](#1-update-the-tree--if-needed-)
+    + [a. Update the tree folder](#a-update-the-tree-folder)
+    + [b. Update the Keys namespace](#b-update-the-keys-namespace)
+    + [c. Make sure none of the other mappings are broken](#c-make-sure-none-of-the-other-mappings-are-broken)
+  * [2. Add mapping](#2-add-mapping)
+    + [a. Add the function prototype to Mappings.hpp](#a-add-the-function-prototype-to-mappingshpp)
+    + [b. Add function definition to new C++ source file](#b-add-function-definition-to-new-c---source-file)
+    + [c. Update CMakeLists with the new source file](#c-update-cmakelists-with-the-new-source-file)
+    + [d. Add the mapping to Mappings::getAllMappings() in Mappings.cpp](#d-add-the-mapping-to-mappings--getallmappings---in-mappingscpp)
+    + [e. Update conversions.lkcmap (for the Python app)](#e-update-conversionslkcmap--for-the-python-app-)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # Build
 
 ## 1. Clone the repository
