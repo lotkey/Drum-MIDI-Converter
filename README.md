@@ -108,3 +108,121 @@ Run the following command to run the Dash app:
 ```bash
 python3 ROOT_DIR/src-python/app.py
 ```
+
+# Add your own drum mappings
+
+## 1. Update the tree (if needed)
+
+coming soon
+
+### a. Update the tree folder
+
+### b. Update the Keys namespace
+
+## 2. Add mapping
+
+### a. Add function prototype to Mappings.hpp
+
+[Mappings.hpp](src-cpp/mappings/Mapping/Mappings.hpp) is located at ROOT_DIR/src-cpp/mappings/Mapping/Mappings.hpp. It contains the Mappings namespace. This is where you should add your function prototype.
+
+Conventions:
+- Each company has its own namespace inside the Mappings namespace
+- If a product has a single mapping, then it has a function inside the company's namespace named "get{product name}Mapping()"
+- If a product has multiple mappings, then it has a namespace inside the company's namespace that will contains functions for each mapping, each with the name "get{product name}{mapping name}Mapping()"
+- Every function takes no arguments and returns a Mapping
+
+### b. Add function definition to new C++ source file
+
+Each mapping has its own source file in the [Mappings folder](src-cpp/mappings/Mapping/Mappings) located at ROOT_DIR/src-cpp/mappings/Mappings/.
+
+Conventions:
+- Each company has its own folder inside the Mappings folder
+- If a product has a single mapping, then it has a C++ source file inside the company's folder named "{product name}.cpp"
+- If a product has multiple mappings, then it has a folder for the product with C++ source files inside for each mapping, each with the name "{mapping name}.cpp"
+
+If you follow the conventions, then you must create a new source file. The source file will include some headers and define the function like so:
+
+```c++
+#include "../../../Parsing/Keys.hpp"
+#include "../../Mapping.hpp"
+#include "../../Mappings.hpp"
+#include "../../../Midi/MidiNote.hpp"
+
+Mapping Mappings::CompanyName::getMappingNameMapping() {
+    return Mapping("CompanyName MappingName", {
+        // Each mapping maps a key onto a group of notes
+        // {Keys::..., {{Note::..., ...}, {Note::..., ...}}},
+        // {Keys::..., {{Note::..., ...}}}
+        // Here are some example mappings
+        {Keys::Cymbal::Bell::Crash::_1, {{Note::A, 3}, {Note::D, 4}}},
+        {Keys::Cymbal::Hit::China::_1, {{Note::F, 4}}}
+    });
+}
+```
+
+### c. Update CMakeLists with the new source file
+
+The [CMakeLists](update-mappings/CMakeLists.txt) file is located at ROOT_DIR/update-mappings/CMakeLists.txt. Inside the add_executable part, add the path to the new source file.
+```cmake
+cmake_minimum_required(VERSION 3.13)
+project(update)
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(update
+    ${CMAKE_CURRENT_SOURCE_DIR}/update.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Helpers/stringpp.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/ConversionMap.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mapping.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings.cpp
+
+    # Like so ---
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/CompanyName/MappingName.cpp
+    # -----------
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Bergstrand.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Ultimate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GeneralMIDI/GmStandard.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNote.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNoteGroup.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Parsing/ParseTree.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Parsing/ParseTreeNode.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/Binasc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiEvent.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiEventList.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiFile.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiMessage.cpp
+)
+```
+
+### d. Add the mapping to Mappings::getAllMappings() in Mappings.cpp
+
+Add a line to [Mappings.cpp](src-cpp/mappings/Mapping/Mappings.cpp) located at ROOT_DIR/src-cpp/mappings/Mapping/Mappings.cpp.
+
+```c++
+#include "./Mappings.hpp"
+#include "../Midi/Note.hpp"
+
+// Converts from Yamaha standard to integer
+uint8_t Mappings::yamahatoi(const Note& note, const int8_t& octave) {
+    return 12 * (octave + 2) + (int)note;
+}
+
+std::map<std::string, Mapping> Mappings::getAllMappings() {
+    using namespace Mappings;
+    
+    auto nameMapPair = [](const Mapping& map) {
+        return std::pair<std::string, Mapping>(map.name(), map);
+    };
+
+    std::map<std::string, Mapping> map = {
+        nameMapPair(Mappings::Drumforge::getBergstrandMapping()),
+        nameMapPair(Mappings::CompanyName::getMappingNameMapping()) // like so
+    };
+
+    return map;
+}
+```
+
+### e. Update conversions.lkcmap (for the Python web app)
+
+coming soon!
