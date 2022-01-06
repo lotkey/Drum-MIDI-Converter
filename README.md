@@ -1,14 +1,3 @@
-# Drum MIDI Converter
-#### Free, open-source applications to convert between drum MIDI mappings 
-
-This repository contains all of the source code necessary to build the Drum MIDI Converter. I will make a video explaining how to use it and explaining the backend. When I do, I will link it here.
-
-This README is written for Linux systems, but can be run in any terminal that can use bash commands, assuming you have the following CLI tools installed:  
-- python3
-- git
-- cmake
-- make
-
 # Table of Contents
 - [Drum MIDI Converter](#drum-midi-converter)
       - [Free, open-source applications to convert between drum MIDI mappings](#free--open-source-applications-to-convert-between-drum-midi-mappings)
@@ -16,7 +5,7 @@ This README is written for Linux systems, but can be run in any terminal that ca
   * [1. Clone the repository](#1-clone-the-repository)
   * [2. Build C++ Qt app](#2-build-c---qt-app)
     + [a. Download prerequisites](#a-download-prerequisites)
-      - [i. midifile library by craigsapp](#i--midifile--https---wwwgithubcom-craigsapp-midifile--library-by--craigsapp--https---wwwgithubcom-craigsapp-)
+      - [i. midifile library by craigsapp](#i--midifile-library-by-craigsapp)
       - [ii. [Qt & Qt Creator](https://www.qt.io/product/development-tools)](#ii--qt---qt-creator--https---wwwqtio-product-development-tools-)
     + [b. Build the project with Qt Creator](#b-build-the-project-with-qt-creator)
   * [3. Python Dash web app](#3-python-dash-web-app)
@@ -37,6 +26,17 @@ This README is written for Linux systems, but can be run in any terminal that ca
     + [e. Update conversions.lkcmap (for the Python app)](#e-update-conversionslkcmap--for-the-python-app-)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+# Drum MIDI Converter
+#### Free, open-source applications to convert between drum MIDI mappings 
+
+This repository contains all of the source code necessary to build the Drum MIDI Converter. I will make a video explaining how to use it and explaining the backend. When I do, I will link it here.
+
+This README is written for Linux systems, but can be run in any terminal that can use bash commands, assuming you have the following CLI tools installed:  
+- python3
+- git
+- cmake
+- make
 
 # Build
 
