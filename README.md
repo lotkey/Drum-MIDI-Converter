@@ -8,17 +8,17 @@ Clone this repository:
 
 ```git clone https://github.com/lotkey/Drum-MIDI-Converter```
 
-I will refer to the cloned repo's directory as SRC_DIR.
+I will refer to the cloned repo's directory as ROOT_DIR.
 
-## 2. Download all prerequisites
+## 2. Build C++ Qt app
 
-### a. C++
+### a. Download prerequisites
 
 #### i. [midifile](https://www.github.com/craigsapp/midifile) library by [craigsapp](https://www.github.com/craigsapp)
 
-Clone the [midifile](https://www.github.com/craigsapp/midifile) library into SRC_DIR/src-cpp/.
+Clone the [midifile](https://www.github.com/craigsapp/midifile) library into ROOT_DIR/src-cpp/.
 ```bash
-cd SRC_DIR/src-cpp/
+cd ROOT_DIR/src-cpp/
 git clone https://www.github.com/craigsapp/midifile
 ```
 
@@ -32,7 +32,7 @@ rm include/Options.h
 
 You should have the following structure:  
 ```
-SRC_DIR  
+ROOT_DIR  
 ├── ...  
 ├── src-cpp  
 |   ├── mappings  
@@ -70,24 +70,41 @@ To:
 
 Download and install [Qt Creator](https://www.qt.io/product/development-tools). If any issues come up, I recommend following this [YouTube guide](https://www.youtube.com/watch?v=H2ud-ATLIdI):
 
-[![alt text](https://img.youtube.com/vi/H2ud-ATLIdI/maxresdefault.jpg)](https://www.youtube.com/watch?v=H2ud-ATLIdI)
+[![video thumbnail](https://img.youtube.com/vi/H2ud-ATLIdI/maxresdefault.jpg)](https://www.youtube.com/watch?v=H2ud-ATLIdI)
 
-### b. Python
+
+### b. Build the project with Qt Creator
+
+Open Qt Creator. On the top menu, select File > Open File or Project.
+![open project](./imgs/qt-creator-01.png)
+
+Open ROOT_DIR/src-cpp/DrumMIDIConverter.pro. If prompted, configure the project with a kit.
+![configure project](./imgs/qt-creator-02.png)
+
+Build the project for your system. For Windows, you can follow [this tutorial](https://www.youtube.com/watch?v=rFHPOZoqzcg):
+[![Qt build tutorial](https://img.youtube.com/vi/rFHPOZoqzcg/maxresdefault.jpg)](https://www.youtube.com/watch?v=rFHPOZoqzcg)
+
+## 3. Python Dash web app
+
+### a. Download prerequisites
 
 #### i. [Dash](https://plotly.com/dash/) by [Plotly](https://plotly.com)
 
 Install dash with the following command:
 ```bash
-python -m pip install dash
+python3 -m pip install dash
 ```
 
 #### ii. [mido](https://github.com/mido/mido)
 
 Install mido with the following command:
 ```bash
-python -m pip install mido
+python3 -m pip install mido
 ```
 
-## 3. Open the Qt project in Qt Creator
+### b. Run the Dash app
 
-Open Qt Creator. On the top menu, select File > Open File or Project and open SRC_DIR/src-cpp/DrumMIDIConverter.pro. If prompted, configure the project with a kit.
+Run the following command to run the Dash app:
+```bash
+python3 ROOT_DIR/src-python/app.py
+```

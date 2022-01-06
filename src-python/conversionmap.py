@@ -100,7 +100,7 @@ class ConversionMap():
             print(f'{key} => {self.map[key]}')
 
     def insert(self, pair:tuple):
-        self.map[tuple[0]] = tuple[1]
+        self.map[pair[0]] = pair[1]
 
     def at(self, key:int):
         return self.map[key]

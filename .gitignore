@@ -3,6 +3,7 @@
 /build-DrumMIDIConverter-Desktop_Qt_6_2_2_MSVC2019_64bit-Debug/
 /build-DrumMIDIConverter-Desktop_Qt_6_2_2_MSVC2019_64bit-Release/
 /src-cpp/midifile/
+/src-cpp/DrumMIDIConverter.pro.user
 /src-python/__pycache__/
 /src-python/assets/
 /update-mappings/CMakeFiles/
