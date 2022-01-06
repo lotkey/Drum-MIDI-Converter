@@ -17,13 +17,13 @@ I will refer to the cloned repo's directory as SRC_DIR.
 #### i. [midifile](https://www.github.com/craigsapp/midifile) library by [craigsapp](https://www.github.com/craigsapp)
 
 Clone the [midifile](https://www.github.com/craigsapp/midifile) library into SRC_DIR/src-cpp/.
-```
+```bash
 cd SRC_DIR/src-cpp/
 git clone https://www.github.com/craigsapp/midifile
 ```
 
 Optionally, remove all the unnecessary stuff:
-```
+```bash
 cd midifile
 rm -rvf !("include"|"src")
 rm src/Options.cpp
@@ -54,14 +54,14 @@ You may need to change the include paths in the following files:
 - MidiFile.cpp  
 - MidiMessage.cpp  
 
-Change from:
-```
+For example, change from:
+```c++
 #include "MidiFile.h"
 #include "Binasc.h"
 ```
 
 To:
-```
+```c++
 #include "src-cpp/midifile/include/MidiFile.h"
 #include "src-cpp/midifile/include/Binasc.h"
 ```
@@ -77,14 +77,14 @@ Download and install [Qt Creator](https://www.qt.io/product/development-tools). 
 #### i. [Dash](https://plotly.com/dash/) by [Plotly](https://plotly.com)
 
 Install dash with the following command:
-```
+```bash
 python -m pip install dash
 ```
 
 #### ii. [mido](https://github.com/mido/mido)
 
 Install mido with the following command:
-```
+```bash
 python -m pip install mido
 ```
 
