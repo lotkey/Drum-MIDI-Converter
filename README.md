@@ -1,4 +1,13 @@
-# Drum-MIDI-Converter
+# Drum MIDI Converter
+#### Free, open-source applications to convert between drum MIDI mappings 
+
+This repository contains all of the source code necessary to build the Drum MIDI Converter. I will make a video explaining how to use it and explaining the backend. When I do, I will link it here.
+
+This README is written for Linux systems, but can be run in any terminal that can use bash commands, assuming you have the following CLI tools installed:  
+- python3
+- git
+- cmake
+- make
 
 # Build
 
@@ -113,15 +122,43 @@ python3 ROOT_DIR/src-python/app.py
 
 ## 1. Update the tree (if needed)
 
-coming soon
+If the mapping you are adding has kit pieces that are not in the tree, you will need to add some kit pieces to the tree. The [tree](src-cpp/mappings/tree) is located at ROOT_DIR/src-cpp/mappings/tree. This tree is used to generate the [Keys namespace](src-cpp/mappings/Parsing/Keys.hpp), which is used to create mappings.
+
+RULES:
+- Each root has it's own text file. These roots are completely separate, there is no crossover, and the kit pieces under one root cannot replace or substitute kit pieces under any other root.
+- Defaults have an \*asterisk\* in the beginning of the name
+- Indent with spaces, and keep the amount of spaces consistent in each text file
 
 ### a. Update the tree folder
 
+Update the tree folder to fit your needs. This could include:
+- Reorganizing the tree
+- Adding kit pieces
+- Creating roots
+
 ### b. Update the Keys namespace
+
+I have included a program to automate updating the Keys namespace from the tree. You will need to build app from the source code and then run it.
+
+To build the program:
+```bash
+cd ROOT_DIR/update-mappings/
+cmake .
+make
+```
+
+This will build an executable called "update." To update the Keys namespace with the current tree, run the following:
+```bash
+ROOT_DIR/update-mappings/update --keys
+```
+
+### c. Make sure none of the other mappings are broken
+
+If you reorganized the tree or removed some kit pieces, the other mappings will not compile. You will need to update them to use the current Keys namespace.
 
 ## 2. Add mapping
 
-### a. Add function prototype to Mappings.hpp
+### a. Add the function prototype to Mappings.hpp
 
 [Mappings.hpp](src-cpp/mappings/Mapping/Mappings.hpp) is located at ROOT_DIR/src-cpp/mappings/Mapping/Mappings.hpp. It contains the Mappings namespace. This is where you should add your function prototype.
 
@@ -223,6 +260,18 @@ std::map<std::string, Mapping> Mappings::getAllMappings() {
 }
 ```
 
-### e. Update conversions.lkcmap (for the Python web app)
+After that, the C++ app will be completely updated.
 
-coming soon!
+### e. Update conversions.lkcmap (for the Python app)
+
+If you want the Python app to have the new mapping, you will have to update [conversions.lkcmap](src-python/conversions.lkcmap), located at ROOT_DIR/src-python/conversions.lkcmap. You can use the update program from earlier, but you will need to update that as well.
+
+Update and run the update program:
+```bash
+cd ROOT_DIR/update-mappings/
+cmake .
+make
+./update --cmaps
+```
+
+After that, the Python app will be completely updated.
