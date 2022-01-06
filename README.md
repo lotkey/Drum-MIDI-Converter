@@ -16,7 +16,7 @@ This README is written for Linux systems, but can be run in any terminal that ca
   * [1. Clone the repository](#1-clone-the-repository)
   * [2. Build C++ Qt app](#2-build-c---qt-app)
     + [a. Download prerequisites](#a-download-prerequisites)
-      - [i. [midifile](https://www.github.com/craigsapp/midifile) library by [craigsapp](https://www.github.com/craigsapp)](#i--midifile--https---wwwgithubcom-craigsapp-midifile--library-by--craigsapp--https---wwwgithubcom-craigsapp-)
+      - [i. midifile library by craigsapp](#i--midifile--https---wwwgithubcom-craigsapp-midifile--library-by--craigsapp--https---wwwgithubcom-craigsapp-)
       - [ii. [Qt & Qt Creator](https://www.qt.io/product/development-tools)](#ii--qt---qt-creator--https---wwwqtio-product-development-tools-)
     + [b. Build the project with Qt Creator](#b-build-the-project-with-qt-creator)
   * [3. Python Dash web app](#3-python-dash-web-app)
