@@ -1,3 +1,7 @@
+# For people who JUST WANT TO USE THE WEB APP and DON'T WANT TO DO ANY CODE!!!!!
+
+Just go to [https://www.synthchris.com/projects/drum-midi-converter/](https://www.synthchris.com/projects/drum-midi-converter/) to use the web app, or [this page](https://github.com/lotkey/Drum-MIDI-Converter/releases) to download the latest release for the 64-bit Windows app. That's all there is to it!
+
 # Table of Contents
 - [Drum MIDI Converter](#drum-midi-converter)
       - [Free, open-source applications to convert between drum MIDI mappings](#free--open-source-applications-to-convert-between-drum-midi-mappings)
