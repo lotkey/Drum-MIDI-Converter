@@ -4,9 +4,9 @@ from conversionmap import ConversionMap
 import base64
 from mido import MidiFile
 
-DOWNLOAD_PATH = './upload.mid'
-CONVERTED_PATH = './converted.mid'
-CONVERSIONS_PATH = './conversions.lkcmap'
+DOWNLOAD_PATH = './src-python/upload.mid'
+CONVERTED_PATH = './src-python/converted.mid'
+CONVERSIONS_PATH = './src-python/conversions.lkcmap'
 
 app = dash.Dash(__name__)
 app.title = 'Drum MIDI Converter'
