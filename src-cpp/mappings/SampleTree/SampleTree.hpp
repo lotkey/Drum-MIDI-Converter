@@ -13,7 +13,7 @@
 
 class SampleTree {
 private:
-    std::map<std::string, SampleTreeNode*> _roots;
+    std::map<std::string, SampleTreeNode> _roots;
 
     void _initFromFile(const std::string&);
     void _initFromDir(const std::string&);
@@ -23,10 +23,8 @@ private:
 public:
     #pragma region Constructors/Destructors/Assignment
     SampleTree();
-    SampleTree(const SampleTree&);
     SampleTree(const std::string&);
     SampleTree(const std::vector<std::string>&);
-    ~SampleTree();
     void operator=(const SampleTree&);
     #pragma endregion
     #pragma region Info
@@ -38,10 +36,14 @@ public:
     void addRoot(const std::string&);
     #pragma endregion
     #pragma region Accessors
-    SampleTreeNode& operator[](const std::string&) const;
-    SampleTreeNode& operator[](std::vector<std::string>) const;
-    SampleTreeNode& at(const std::string&) const;
-    SampleTreeNode& at(std::vector<std::string>) const;
+    SampleTreeNode& operator[](const std::string&);
+    SampleTreeNode& operator[](std::vector<std::string>);
+    SampleTreeNode& at(const std::string&);
+    SampleTreeNode& at(std::vector<std::string>);
+    const SampleTreeNode& operator[](const std::string&) const;
+    const SampleTreeNode& operator[](std::vector<std::string>) const;
+    const SampleTreeNode& at(const std::string&) const;
+    const SampleTreeNode& at(std::vector<std::string>) const;
     #pragma endregion
     #pragma region Parsing
     void exportAsNamespace(const std::string&) const;

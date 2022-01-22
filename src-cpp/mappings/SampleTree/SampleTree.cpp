@@ -41,11 +41,6 @@ std::string SampleTree::keyFromPath(const std::vector<std::string>& v, const std
 SampleTree::SampleTree()
 { }
 
-SampleTree::SampleTree(const SampleTree& src) {
-    for (const auto& [name, root] : src._roots)
-        _roots.insert({name, new SampleTreeNode(*root)});
-}
-
 SampleTree::SampleTree(const std::string& path) {
     if (std::filesystem::is_directory(path))
         _initFromDir(path);
@@ -57,19 +52,12 @@ SampleTree::SampleTree(const std::string& path) {
 
 SampleTree::SampleTree(const std::vector<std::string>& keys) {
     for (const std::string& key : keys)
-        _roots.insert({key, new SampleTreeNode(key)});
-}
-
-SampleTree::~SampleTree() {
-    for (const auto& [_, root] : _roots) {
-        delete root;
-    }
-    _roots.clear();
+        _roots.insert({key, SampleTreeNode(key)});
 }
 
 void SampleTree::operator=(const SampleTree& src) {
     for (const auto& [name, root] : src._roots)
-        _roots.insert({name, new SampleTreeNode(*root)});
+        _roots.insert({name, SampleTreeNode(root)});
 }
 
 void SampleTree::_initFromFile(const std::string& path) {
@@ -180,20 +168,20 @@ void SampleTree::_initFromDir(const std::string& path) {
 void SampleTree::print() const {
     for (const auto& [name, root] : _roots) {
         std::cout << "\033[1;32m" << name << "\033[0m" << std::endl;
-        root->print();
+        root.print();
     }
 }
 
 bool SampleTree::containsKey(const std::string& key) const {
     for (const auto& [_, root] : _roots)
-        if (root->containsKey(key)) return true;
+        if (root.containsKey(key)) return true;
     return false;
 }
 
 std::optional<std::vector<std::string>> SampleTree::getPathToKey(const std::string& key) const {
     std::optional<std::vector<std::string>> pathOpt;
     for (const auto& [name, root] : _roots) {
-        pathOpt = root->getPathToKey(key);
+        pathOpt = root.getPathToKey(key);
         if (pathOpt.has_value()) {
             std::vector<std::string> path(pathOpt.value());
             path.insert(path.begin(), name);
@@ -208,7 +196,7 @@ std::optional<std::vector<std::string>> SampleTree::getPathToKey(const std::stri
 #pragma region Modifiers
 
 void SampleTree::addRoot(const std::string& key) {
-    _roots.insert({key, new SampleTreeNode(key)});
+    _roots.insert({key, SampleTreeNode(key)});
 }
 
 void SampleTree::_addRootFromFile(const std::filesystem::path& path) {
@@ -288,28 +276,53 @@ void SampleTree::_addRootFromFile(const std::filesystem::path& path) {
 
 #pragma region Accessors
 
-SampleTreeNode& SampleTree::operator[](const std::string& key) const {
+SampleTreeNode& SampleTree::operator[](const std::string& key) {
     if (_roots.find(key) != _roots.end())
-        return *_roots.at(key);
+        return _roots.at(key);
     else
         throw std::invalid_argument("Key doesn't match any root key");
 }
 
-SampleTreeNode& SampleTree::operator[](std::vector<std::string> keys) const {
+SampleTreeNode& SampleTree::operator[](std::vector<std::string> keys) {
     if (keys.size() == 0) throw std::runtime_error("No keys provided.");
     if (keys.size() == 1) return operator[](keys[0]);
 
     std::string key = keys[0];
     keys.erase(keys.begin());
-    if (_roots.find(key) != _roots.end()) return _roots.at(key)->at(keys);
+    if (_roots.find(key) != _roots.end()) return _roots.at(key).at(keys);
     throw std::invalid_argument("Key doesn't map to a root.");
 }
 
-SampleTreeNode& SampleTree::at(const std::string& key) const {
+SampleTreeNode& SampleTree::at(const std::string& key) {
     return operator[](key);
 }
 
-SampleTreeNode& SampleTree::at(std::vector<std::string> keys) const {
+SampleTreeNode& SampleTree::at(std::vector<std::string> keys) {
+    return operator[](keys);
+}
+
+const SampleTreeNode& SampleTree::operator[](const std::string& key) const {
+    if (_roots.find(key) != _roots.end())
+        return _roots.at(key);
+    else
+        throw std::invalid_argument("Key doesn't match any root key");
+}
+
+const SampleTreeNode& SampleTree::operator[](std::vector<std::string> keys) const {
+    if (keys.size() == 0) throw std::runtime_error("No keys provided.");
+    if (keys.size() == 1) return operator[](keys[0]);
+
+    std::string key = keys[0];
+    keys.erase(keys.begin());
+    if (_roots.find(key) != _roots.end()) return _roots.at(key).at(keys);
+    throw std::invalid_argument("Key doesn't map to a root.");
+}
+
+const SampleTreeNode& SampleTree::at(const std::string& key) const {
+    return operator[](key);
+}
+
+const SampleTreeNode& SampleTree::at(std::vector<std::string> keys) const {
     return operator[](keys);
 }
 
@@ -326,7 +339,7 @@ void SampleTree::exportAsNamespace(const std::string& path) const {
         std::string label = name;
         label[0] = toupper(label[0]);
         outfile << "   " << "namespace " << label << " {\n";
-        root->addToStream(outfile, 2);
+        root.addToStream(outfile, 2);
         outfile << "   }\n";
     }
     outfile << "}";

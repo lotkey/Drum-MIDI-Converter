@@ -3,6 +3,7 @@
 #include <iostream>
 #include <map>
 #include <set>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -13,47 +14,36 @@
 
 ConversionMap ConversionMap::load(const std::filesystem::path& path) {
     std::ifstream infile(path);
-    std::string fromStr, toStr;
+    std::string fromStr, toStr, line;
     uint8_t from, to;
+
     std::getline(infile, fromStr);
     std::getline(infile, toStr);
-
     ConversionMap map(fromStr, toStr);
 
-    while (infile >> from && infile >> to)
+    while (infile >> from && infile >> to && from != 128 && to != 128) {
         map.insert(from, to);
-    infile.close();
+    }
+    std::getline(infile, line);
 
     return map;
 }
 
 std::vector<ConversionMap> ConversionMap::loadMultiple(const std::filesystem::path& path) {
     std::ifstream infile(path);
-    std::string fromStr, toStr, item;
+    std::string fromStr, toStr, line;
     uint8_t from, to;
     std::vector<ConversionMap> cmaps;
-    int counter = 0;
 
     if (infile) {
         std::getline(infile, fromStr);
         std::getline(infile, toStr);
         cmaps.push_back(ConversionMap(fromStr, toStr));
 
-        while (infile >> item) {
-            if (item == "//")
-                break;
-                
-            if (!item.empty()) {
-                if (counter % 2 == 0)
-                    from = std::stoi(item);
-                else {
-                    to = std::stoi(item);
-                    cmaps.back().insert(from, to);
-                }
-
-                counter++;
-            }
+        while (infile >> from && infile >> to && from != 128 && to != 128) {
+            cmaps.back().insert(from, to);
         }
+        std::getline(infile, line);
     }
 
     return cmaps;
@@ -134,7 +124,6 @@ void ConversionMap::save(const std::filesystem::path& path, const bool& append) 
     std::ofstream outfile;
     if (append) {
         outfile.open(path, std::ios_base::app);
-        outfile << "\n//\n";
     } else {
         outfile.open(path);
     }
@@ -142,6 +131,7 @@ void ConversionMap::save(const std::filesystem::path& path, const bool& append) 
     outfile << _mapFrom << "\n";
     outfile << _mapTo << "\n";
     for (const auto& [from, to] : _map)
-        outfile << (int)from << " " << (int)to << "\n";
+        outfile << from << to;
+    outfile << (uint8_t)128 << (uint8_t)128 << "\n";
     outfile.close();
 }

@@ -9,8 +9,8 @@
 
 class SampleTreeNode {
 private:
-    std::map<std::string, SampleTreeNode*> _children;
-    std::map<std::string, SampleTreeNode*> _defaults;
+    std::map<std::string, SampleTreeNode> _children;
+    std::map<std::string, SampleTreeNode> _defaults;
     const std::string _key;
     bool _isLeaf = true;
     void print(const uint32_t&) const;
@@ -19,9 +19,6 @@ private:
 public:
     #pragma region Constructors/Destructors/Assigment
     SampleTreeNode(const std::string&);
-    SampleTreeNode(const SampleTreeNode&);
-    ~SampleTreeNode();
-    void operator=(const SampleTreeNode&);
     #pragma endregion
     #pragma region Info
     void print() const;
@@ -36,10 +33,14 @@ public:
     void addDefault(const std::string&, const std::string&);
     #pragma endregion
     #pragma region Accessors
-    SampleTreeNode& operator[](const std::string&) const;
-    SampleTreeNode& operator[](std::vector<std::string>) const;
-    SampleTreeNode& at(const std::string& key) const;
-    SampleTreeNode& at(std::vector<std::string> keys) const;
+    SampleTreeNode& operator[](const std::string&);
+    SampleTreeNode& operator[](std::vector<std::string>);
+    SampleTreeNode& at(const std::string& key);
+    SampleTreeNode& at(std::vector<std::string> keys);
+    const SampleTreeNode& operator[](const std::string&) const;
+    const SampleTreeNode& operator[](std::vector<std::string>) const;
+    const SampleTreeNode& at(const std::string& key) const;
+    const SampleTreeNode& at(std::vector<std::string> keys) const;
     void addToStream(std::ofstream&, uint32_t) const;
     #pragma endregion
 };

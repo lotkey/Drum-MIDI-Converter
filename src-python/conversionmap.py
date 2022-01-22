@@ -4,42 +4,19 @@ class ConversionMap():
     mappingNames = set()
 
     def loadAllConversionMaps(path:str):
-        addingNames = len(ConversionMap.mappingNames) == 0
         mappings = dict()
         if not os.path.isdir(path):
             with open(path, 'r') as infile:
-                lines = [line.strip() for line in infile.readlines()]
-                lookingForMapFrom = lookingForMapTo = True
-                appendNext = False
-
-                for line in lines:
-                    if lookingForMapFrom:
-                        mapFrom = line
-                        if addingNames:
-                            ConversionMap.mappingNames.add(mapFrom)
-                        lookingForMapFrom = False
-                    elif lookingForMapTo:
-                        mapTo = line
-                        lookingForMapTo = False
-                        appendNext = True
-                    elif line == "//":
-                        lookingForMapFrom = lookingForMapTo = True
-                        appendNext = False
-                    else:
-                        if appendNext:
-                            if mapFrom.upper() in mappings:
-                                mappings[mapFrom.upper()][mapTo.upper()] = ConversionMap(mapFrom=mapFrom, mapTo=mapTo)
-                            else:
-                                mappings[mapFrom.upper()] = dict()
-                                mappings[mapFrom.upper()][mapTo.upper()] = ConversionMap(mapFrom=mapFrom, mapTo=mapTo)
-                            appendNext = False
-                        
-                        pair = line.split()
-                        if len(pair) == 2:
-                            mappings[mapFrom.upper()][mapTo.upper()].insert((int(pair[0]), int(pair[1])))
-
-
-                
+                mapFrom = infile.readline().strip()
+                mapTo = infile.readline().strip()
+                mappings[mapFrom.upper()][mapTo.upper()] = ConversionMap(mapFrom=mapFrom, mapTo=mapTo)
+                while (True):
+                    fromInt = ord(infile.read())
+                    toInt = ord(infile.read())
+                    if (fromInt == 128 and toInt == 128):
+                        infile.read()
+                        break
+                    mappings[mapFrom.upper()][mapTo.upper()].insert((fromInt, toInt))                
         else:
             for (dirpath, _, filenames) in os.walk(path):        
                 for filename in filenames:
@@ -82,16 +59,15 @@ class ConversionMap():
             self.mapTo = mapTo
         else:
             with open(path, 'r') as infile:
-                lines = infile.readlines()
+                self.mapFrom = infile.readline().strip()
+                self.mapTo = infile.readline().strip()
 
-                self.mapFrom = lines[0].strip()
-                lines.pop(0)
-                self.mapTo = lines[0].strip()
-                lines.pop(0)
-                
-                for line in lines:
-                    mapping = line.split()
-                    self.map[int(mapping[0])] = int(mapping[1])
+                fromInt = ord(infile.read())
+                toInt = ord(infile.read())
+                while fromInt != toInt != 128:
+                    self.map[fromInt] = toInt
+                    fromInt = ord(infile.read())
+                    toInt = ord(infile.read())
 
     def print(self):
         print(f'Conversion from "{self.mapFrom}" to "{self.mapTo}"')
