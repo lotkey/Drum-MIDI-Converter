@@ -1,4 +1,4 @@
-#include "../../../Parsing/Keys.hpp"
+#include "../../../SampleTree/Keys.hpp"
 #include "../../Mapping.hpp"
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
@@ -31,26 +31,26 @@ Mapping Mappings::XLNAudio::getAddictiveDrums2Mapping() {
         {Cymbal::Choke::Ride::_2, {{Note::D_SHARP, 5}}},
 
         {Tom::Hit::Floor::_1, {{Note::F, 3}}},
-        {Tom::Rimshot::Floor::_1, {{Note::F_SHARP, 3}}},
+        {Tom::Rim::Shot::Floor::_1, {{Note::F_SHARP, 3}}},
         {Tom::Hit::Rack::_1, {{Note::F, 3}}},
-        {Tom::Rimshot::Rack::_1, {{Note::F_SHARP, 3}}},
+        {Tom::Rim::Shot::Rack::_1, {{Note::F_SHARP, 3}}},
         {Tom::Hit::Rack::_2, {{Note::A, 3}}},
-        {Tom::Rimshot::Rack::_2, {{Note::A_SHARP, 3}}},
+        {Tom::Rim::Shot::Rack::_2, {{Note::A_SHARP, 3}}},
         {Tom::Hit::Rack::_3, {{Note::G, 3}}},
-        {Tom::Rimshot::Rack::_3, {{Note::G_SHARP, 3}}},
+        {Tom::Rim::Shot::Rack::_3, {{Note::G_SHARP, 3}}},
 
-        {Hat::Closed::Bell::_1, {{Note::F, 2}}},
-        {Hat::Closed::Edge::_1, {{Note::E, 2}}},
-        {Hat::Closed::Tip::_1, {{Note::D_SHARP, 2}}},
-        {Hat::Open::loose, {{Note::F_SHARP, 2}}},
-        {Hat::Open::_0, {{Note::G, 2}}},
-        {Hat::Open::Bell::_0, {{Note::A_SHARP, 2}}},
-        {Hat::Open::_1, {{Note::G_SHARP, 2}}},
-        {Hat::Open::_2, {{Note::A, 2}}},
-        {Hat::Closed::foot, {{Note::C, 2}}},
-        {Hat::Open::pedal_splash, {{Note::B, 2}}},
-        {Hat::Closed::Edge::tight1, {{Note::D, 2}}},
-        {Hat::Closed::Tip::tight1, {{Note::C_SHARP, 2}}},
+        {Hat::Hit::Closed::Bell::_1, {{Note::F, 2}}},
+        {Hat::Hit::Closed::Edge::_1, {{Note::E, 2}}},
+        {Hat::Hit::Closed::Tip::_1, {{Note::D_SHARP, 2}}},
+        {Hat::Hit::Open::Loose::_1, {{Note::F_SHARP, 2}}},
+        {Hat::Hit::Open::_0, {{Note::G, 2}}},
+        {Hat::Hit::Open::Bell::_0, {{Note::A_SHARP, 2}}},
+        {Hat::Hit::Open::_1, {{Note::G_SHARP, 2}}},
+        {Hat::Hit::Open::_2, {{Note::A, 2}}},
+        {Hat::Hit::Closed::Foot::_1, {{Note::C, 2}}},
+        {Hat::Hit::Open::Pedal::Splash::_1, {{Note::B, 2}}},
+        {Hat::Hit::Closed::Edge::Tight::_1, {{Note::D, 2}}},
+        {Hat::Hit::Closed::Tip::Tight::_1, {{Note::C_SHARP, 2}}},
 
         {Kick::_1, {{Note::C, 1}}},
 

@@ -1,4 +1,4 @@
-#include "../../../Parsing/Keys.hpp"
+#include "../../../SampleTree/Keys.hpp"
 #include "../../Mapping.hpp"
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
@@ -25,9 +25,9 @@ Mapping Mappings::GeneralMIDI::getGmStandardMapping() {
         {Tom::Hit::Rack::_3, {{Note::B, 1}}},
         {Tom::Hit::Rack::_4, {{Note::A, 1}}},
 
-        {Hat::Closed::_0, {{Note::F_SHARP, 1}}},
-        {Hat::Open::_1, {{Note::A_SHARP, 1}}},
-        {Hat::Closed::foot, {{Note::G_SHARP, 1}}},
+        {Hat::Hit::Closed::_0, {{Note::F_SHARP, 1}}},
+        {Hat::Hit::Open::_1, {{Note::A_SHARP, 1}}},
+        {Hat::Hit::Closed::Foot::_1, {{Note::G_SHARP, 1}}},
 
         {Kick::_1, {{Note::C, 1}}},
         {Snare::Hit::_1, {{Note::D, 1}}},

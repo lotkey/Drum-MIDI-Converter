@@ -15,19 +15,19 @@
 #include "../Mapping/Mapping.hpp"
 #include "../Midi/MidiNote.hpp"
 #include "../Midi/MidiNoteGroup.hpp"
-#include "../Parsing/ParseTree.hpp"
+#include "../SampleTree/SampleTree.hpp"
 #include "../Helpers/stringpp.hpp"
 
 #pragma region Static functions
 
-std::string ParseTree::keyFromPath(const std::vector<std::string>& v) {
+std::string SampleTree::keyFromPath(const std::vector<std::string>& v) {
     std::string s;
     for (const auto& str : v)
         s += str + "_";
     return s.substr(0, s.length() - 1);
 }
 
-std::string ParseTree::keyFromPath(const std::vector<std::string>& v, const std::string& s) {
+std::string SampleTree::keyFromPath(const std::vector<std::string>& v, const std::string& s) {
     std::string key;
     for (const auto& str : v)
         key += str + "_";
@@ -38,15 +38,15 @@ std::string ParseTree::keyFromPath(const std::vector<std::string>& v, const std:
 
 #pragma region Constructors/Destructors/Assignment
 
-ParseTree::ParseTree()
+SampleTree::SampleTree()
 { }
 
-ParseTree::ParseTree(const ParseTree& src) {
+SampleTree::SampleTree(const SampleTree& src) {
     for (const auto& [name, root] : src._roots)
-        _roots.insert({name, new ParseTreeNode(*root)});
+        _roots.insert({name, new SampleTreeNode(*root)});
 }
 
-ParseTree::ParseTree(const std::string& path) {
+SampleTree::SampleTree(const std::string& path) {
     if (std::filesystem::is_directory(path))
         _initFromDir(path);
     else if (std::filesystem::exists(path))
@@ -55,24 +55,24 @@ ParseTree::ParseTree(const std::string& path) {
         throw std::invalid_argument("Path does not correspond to a file or directory.");
 }
 
-ParseTree::ParseTree(const std::vector<std::string>& keys) {
+SampleTree::SampleTree(const std::vector<std::string>& keys) {
     for (const std::string& key : keys)
-        _roots.insert({key, new ParseTreeNode(key)});
+        _roots.insert({key, new SampleTreeNode(key)});
 }
 
-ParseTree::~ParseTree() {
+SampleTree::~SampleTree() {
     for (const auto& [_, root] : _roots) {
         delete root;
     }
     _roots.clear();
 }
 
-void ParseTree::operator=(const ParseTree& src) {
+void SampleTree::operator=(const SampleTree& src) {
     for (const auto& [name, root] : src._roots)
-        _roots.insert({name, new ParseTreeNode(*root)});
+        _roots.insert({name, new SampleTreeNode(*root)});
 }
 
-void ParseTree::_initFromFile(const std::string& path) {
+void SampleTree::_initFromFile(const std::string& path) {
     std::ifstream infile;
     infile.open(path);
 
@@ -166,7 +166,7 @@ void ParseTree::_initFromFile(const std::string& path) {
     }
 }
 
-void ParseTree::_initFromDir(const std::string& path) {
+void SampleTree::_initFromDir(const std::string& path) {
     for (const auto& entry : std::filesystem::directory_iterator(path)) {
         if (!entry.is_directory())
             _addRootFromFile(entry.path());
@@ -177,20 +177,20 @@ void ParseTree::_initFromDir(const std::string& path) {
 
 #pragma region Info
 
-void ParseTree::print() const {
+void SampleTree::print() const {
     for (const auto& [name, root] : _roots) {
         std::cout << "\033[1;32m" << name << "\033[0m" << std::endl;
         root->print();
     }
 }
 
-bool ParseTree::containsKey(const std::string& key) const {
+bool SampleTree::containsKey(const std::string& key) const {
     for (const auto& [_, root] : _roots)
         if (root->containsKey(key)) return true;
     return false;
 }
 
-std::optional<std::vector<std::string>> ParseTree::getPathToKey(const std::string& key) const {
+std::optional<std::vector<std::string>> SampleTree::getPathToKey(const std::string& key) const {
     std::optional<std::vector<std::string>> pathOpt;
     for (const auto& [name, root] : _roots) {
         pathOpt = root->getPathToKey(key);
@@ -207,11 +207,11 @@ std::optional<std::vector<std::string>> ParseTree::getPathToKey(const std::strin
 
 #pragma region Modifiers
 
-void ParseTree::addRoot(const std::string& key) {
-    _roots.insert({key, new ParseTreeNode(key)});
+void SampleTree::addRoot(const std::string& key) {
+    _roots.insert({key, new SampleTreeNode(key)});
 }
 
-void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
+void SampleTree::_addRootFromFile(const std::filesystem::path& path) {
     std::ifstream infile(path);
     std::string filename(path.filename().string());
     std::string rootname(filename.substr(0, filename.find_last_of('.')));
@@ -288,14 +288,14 @@ void ParseTree::_addRootFromFile(const std::filesystem::path& path) {
 
 #pragma region Accessors
 
-ParseTreeNode& ParseTree::operator[](const std::string& key) const {
+SampleTreeNode& SampleTree::operator[](const std::string& key) const {
     if (_roots.find(key) != _roots.end())
         return *_roots.at(key);
     else
         throw std::invalid_argument("Key doesn't match any root key");
 }
 
-ParseTreeNode& ParseTree::operator[](std::vector<std::string> keys) const {
+SampleTreeNode& SampleTree::operator[](std::vector<std::string> keys) const {
     if (keys.size() == 0) throw std::runtime_error("No keys provided.");
     if (keys.size() == 1) return operator[](keys[0]);
 
@@ -305,11 +305,11 @@ ParseTreeNode& ParseTree::operator[](std::vector<std::string> keys) const {
     throw std::invalid_argument("Key doesn't map to a root.");
 }
 
-ParseTreeNode& ParseTree::at(const std::string& key) const {
+SampleTreeNode& SampleTree::at(const std::string& key) const {
     return operator[](key);
 }
 
-ParseTreeNode& ParseTree::at(std::vector<std::string> keys) const {
+SampleTreeNode& SampleTree::at(std::vector<std::string> keys) const {
     return operator[](keys);
 }
 
@@ -317,11 +317,11 @@ ParseTreeNode& ParseTree::at(std::vector<std::string> keys) const {
 
 #pragma region Parsing
 
-void ParseTree::exportAsNamespace(const std::string& path) const {
+void SampleTree::exportAsNamespace(const std::string& path) const {
     std::ofstream outfile;
     outfile.open(path);
 
-    outfile << "#ifndef KEYS_H\n#define KEYS_H\n\n#include <string>\n\nnamespace Keys {\n\tusing std::string;\n";
+    outfile << "#pragma once\n\n#include <string>\n\nnamespace Keys {\n\tusing std::string;\n";
     for (const auto& [name, root] : _roots) {
         std::string label = name;
         label[0] = toupper(label[0]);
@@ -329,12 +329,12 @@ void ParseTree::exportAsNamespace(const std::string& path) const {
         root->addToStream(outfile, 2);
         outfile << "   }\n";
     }
-    outfile << "}\n\n#endif";
+    outfile << "}";
 
     outfile.close();
 }
 
-std::optional<MidiNoteGroup> ParseTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path) const {
+std::optional<MidiNoteGroup> SampleTree::findNearestFit(const Mapping& mapping, std::vector<std::string> path) const {
     std::string exclude, mapKey;
     std::string temp;
     
@@ -368,7 +368,7 @@ std::optional<MidiNoteGroup> ParseTree::findNearestFit(const Mapping& mapping, s
     return {};
 }
 
-ConversionMap ParseTree::makeConversionMapping(const Mapping& mapFrom, const Mapping& mapTo) const {
+ConversionMap SampleTree::makeConversionMapping(const Mapping& mapFrom, const Mapping& mapTo) const {
     std::optional<MidiNoteGroup> value;
     ConversionMap m(mapFrom.name(), mapTo.name());
 

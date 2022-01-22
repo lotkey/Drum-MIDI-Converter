@@ -1,5 +1,4 @@
-#ifndef PARSETREE_HPP
-#define PARSETREE_HPP
+#pragma once
 
 #include <filesystem>
 #include <map>
@@ -10,11 +9,11 @@
 #include "../Mapping/ConversionMap.hpp"
 #include "../Mapping/Mapping.hpp"
 #include "../Midi/MidiNoteGroup.hpp"
-#include "./ParseTreeNode.hpp"
+#include "./SampleTreeNode.hpp"
 
-class ParseTree {
+class SampleTree {
 private:
-    std::map<std::string, ParseTreeNode*> _roots;
+    std::map<std::string, SampleTreeNode*> _roots;
 
     void _initFromFile(const std::string&);
     void _initFromDir(const std::string&);
@@ -23,12 +22,12 @@ private:
     static std::string keyFromPath(const std::vector<std::string>&, const std::string&);
 public:
     #pragma region Constructors/Destructors/Assignment
-    ParseTree();
-    ParseTree(const ParseTree&);
-    ParseTree(const std::string&);
-    ParseTree(const std::vector<std::string>&);
-    ~ParseTree();
-    void operator=(const ParseTree&);
+    SampleTree();
+    SampleTree(const SampleTree&);
+    SampleTree(const std::string&);
+    SampleTree(const std::vector<std::string>&);
+    ~SampleTree();
+    void operator=(const SampleTree&);
     #pragma endregion
     #pragma region Info
     void print() const;
@@ -39,10 +38,10 @@ public:
     void addRoot(const std::string&);
     #pragma endregion
     #pragma region Accessors
-    ParseTreeNode& operator[](const std::string&) const;
-    ParseTreeNode& operator[](std::vector<std::string>) const;
-    ParseTreeNode& at(const std::string&) const;
-    ParseTreeNode& at(std::vector<std::string>) const;
+    SampleTreeNode& operator[](const std::string&) const;
+    SampleTreeNode& operator[](std::vector<std::string>) const;
+    SampleTreeNode& at(const std::string&) const;
+    SampleTreeNode& at(std::vector<std::string>) const;
     #pragma endregion
     #pragma region Parsing
     void exportAsNamespace(const std::string&) const;
@@ -50,6 +49,3 @@ public:
     ConversionMap makeConversionMapping(const Mapping&, const Mapping&) const;
     #pragma endregion
 };
-
-
-#endif

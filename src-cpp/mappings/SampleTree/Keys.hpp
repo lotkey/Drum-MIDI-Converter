@@ -1,5 +1,4 @@
-#ifndef KEYS_H
-#define KEYS_H
+#pragma once
 
 #include <string>
 
@@ -58,6 +57,8 @@ namespace Keys {
          }
          namespace Stack {
             const string _1 = "cymbal_choke_stack__1";
+            const string _2 = "cymbal_choke_stack__2";
+            const string _3 = "cymbal_choke_stack__3";
          }
       }
       namespace Hit {
@@ -117,74 +118,117 @@ namespace Keys {
          }
          namespace Stack {
             const string _1 = "cymbal_hit_stack__1";
+            const string _2 = "cymbal_hit_stack__2";
+            const string _3 = "cymbal_hit_stack__3";
          }
       }
    }
    namespace Hat {
-      namespace Closed {
-         namespace Bell {
-            const string _1 = "hat_closed_bell__1";
+      namespace Hit {
+         namespace Closed {
+            namespace Bell {
+               const string _1 = "hat_hit_closed_bell__1";
+            }
+            namespace Foot {
+               const string _1 = "hat_hit_closed_foot__1";
+            }
+            namespace Loose {
+               const string _1 = "hat_hit_closed_loose__1";
+            }
+            namespace Shank {
+               namespace Tight {
+                  const string _1 = "hat_hit_closed_shank_tight__1";
+               }
+               const string _1 = "hat_hit_closed_shank__1";
+            }
+            namespace Tight {
+               const string _1 = "hat_hit_closed_tight__1";
+            }
+            namespace X {
+               const string _1 = "hat_hit_closed_x__1";
+            }
+            const string _0 = "hat_hit_closed__0";
+            namespace Edge {
+               namespace Tight {
+                  const string _1 = "hat_hit_closed_edge_tight__1";
+               }
+               const string _1 = "hat_hit_closed_edge__1";
+            }
+            namespace Tip {
+               namespace Tight {
+                  const string _1 = "hat_hit_closed_tip_tight__1";
+               }
+               const string _1 = "hat_hit_closed_tip__1";
+            }
          }
-         const string foot = "hat_closed_foot";
-         const string loose = "hat_closed_loose";
-         namespace Shank {
-            const string tight1 = "hat_closed_shank_tight1";
-            const string _1 = "hat_closed_shank__1";
-         }
-         const string tight = "hat_closed_tight";
-         const string x = "hat_closed_x";
-         const string _0 = "hat_closed__0";
-         namespace Edge {
-            const string tight1 = "hat_closed_edge_tight1";
-            const string _1 = "hat_closed_edge__1";
-         }
-         namespace Tip {
-            const string tight1 = "hat_closed_tip_tight1";
-            const string _1 = "hat_closed_tip__1";
+         namespace Open {
+            namespace Bell {
+               namespace Loose {
+                  const string _1 = "hat_hit_open_bell_loose__1";
+               }
+               const string _0 = "hat_hit_open_bell__0";
+               const string _1 = "hat_hit_open_bell__1";
+               const string _2 = "hat_hit_open_bell__2";
+               const string _3 = "hat_hit_open_bell__3";
+               const string _4 = "hat_hit_open_bell__4";
+               const string _5 = "hat_hit_open_bell__5";
+            }
+            namespace Ching {
+               const string _1 = "hat_hit_open_ching__1";
+            }
+            namespace Loose {
+               const string _1 = "hat_hit_open_loose__1";
+            }
+            namespace Pedal {
+               namespace Splash {
+                  const string _1 = "hat_hit_open_pedal_splash__1";
+               }
+            }
+            namespace Shank {
+               namespace Loose {
+                  const string _1 = "hat_hit_open_shank_loose__1";
+               }
+               const string _0 = "hat_hit_open_shank__0";
+               const string _1 = "hat_hit_open_shank__1";
+               const string _2 = "hat_hit_open_shank__2";
+            }
+            namespace X {
+               const string _1 = "hat_hit_open_x__1";
+            }
+            const string _0 = "hat_hit_open__0";
+            const string _1 = "hat_hit_open__1";
+            const string _2 = "hat_hit_open__2";
+            const string _3 = "hat_hit_open__3";
+            const string _4 = "hat_hit_open__4";
+            const string _5 = "hat_hit_open__5";
+            namespace Edge {
+               namespace Loose {
+                  const string _1 = "hat_hit_open_edge_loose__1";
+               }
+               const string _0 = "hat_hit_open_edge__0";
+               const string _1 = "hat_hit_open_edge__1";
+               const string _2 = "hat_hit_open_edge__2";
+               const string _3 = "hat_hit_open_edge__3";
+               const string _4 = "hat_hit_open_edge__4";
+               const string _5 = "hat_hit_open_edge__5";
+            }
+            namespace Tip {
+               namespace Loose {
+                  const string _1 = "hat_hit_open_tip_loose__1";
+               }
+               const string _0 = "hat_hit_open_tip__0";
+               const string _1 = "hat_hit_open_tip__1";
+               const string _2 = "hat_hit_open_tip__2";
+               const string _3 = "hat_hit_open_tip__3";
+               const string _4 = "hat_hit_open_tip__4";
+               const string _5 = "hat_hit_open_tip__5";
+            }
          }
       }
-      namespace Open {
-         namespace Bell {
-            const string loose1 = "hat_open_bell_loose1";
-            const string _0 = "hat_open_bell__0";
-            const string _1 = "hat_open_bell__1";
-            const string _2 = "hat_open_bell__2";
-            const string _3 = "hat_open_bell__3";
-         }
-         const string cc = "hat_open_cc";
-         const string ching = "hat_open_ching";
-         const string loose = "hat_open_loose";
-         const string pedal_splash = "hat_open_pedal_splash";
-         const string seq = "hat_open_seq";
-         namespace Shank {
-            const string loose1 = "hat_open_shank_loose1";
-            const string _0 = "hat_open_shank__0";
-            const string _1 = "hat_open_shank__1";
-            const string _2 = "hat_open_shank__2";
-         }
-         const string trigger = "hat_open_trigger";
-         const string x = "hat_open_x";
-         const string _0 = "hat_open__0";
-         const string _1 = "hat_open__1";
-         const string _2 = "hat_open__2";
-         const string _3 = "hat_open__3";
-         const string _4 = "hat_open__4";
-         namespace Edge {
-            const string loose1 = "hat_open_edge_loose1";
-            const string _0 = "hat_open_edge__0";
-            const string _1 = "hat_open_edge__1";
-            const string _2 = "hat_open_edge__2";
-            const string _3 = "hat_open_edge__3";
-            const string _4 = "hat_open_edge__4";
-         }
-         namespace Tip {
-            const string loose1 = "hat_open_tip_loose1";
-            const string _0 = "hat_open_tip__0";
-            const string _1 = "hat_open_tip__1";
-            const string _2 = "hat_open_tip__2";
-            const string _3 = "hat_open_tip__3";
-            const string _4 = "hat_open_tip__4";
-         }
+      namespace Midi {
+         const string cc = "hat_midi_cc";
+         const string seq = "hat_midi_seq";
+         const string trigger = "hat_midi_trigger";
       }
    }
    namespace Kick {
@@ -193,8 +237,6 @@ namespace Keys {
       const string _1 = "kick__1";
    }
    namespace Perc {
-      const string sticks = "perc_sticks";
-      const string vibraslap = "perc_vibraslap";
       const string clap = "perc_clap";
       namespace Cowbell {
          const string hit = "perc_cowbell_hit";
@@ -202,16 +244,18 @@ namespace Keys {
          const string tip = "perc_cowbell_tip";
       }
       const string shaker = "perc_shaker";
+      const string sticks = "perc_sticks";
       namespace Tambourine {
          const string down = "perc_tambourine_down";
          const string hit = "perc_tambourine_hit";
          const string up = "perc_tambourine_up";
       }
+      const string vibraslap = "perc_vibraslap";
    }
    namespace Snare {
       namespace Alt {
          namespace Rim {
-            const string rimclick = "snare_alt_rim_rimclick";
+            const string click = "snare_alt_rim_click";
             const string _1 = "snare_alt_rim__1";
             namespace Shot {
                const string _1 = "snare_alt_rim_shot__1";
@@ -246,29 +290,29 @@ namespace Keys {
             const string _4 = "tom_hit_rack__4";
          }
       }
-      namespace Rimshot {
-         namespace Floor {
-            namespace Rim {
-               const string _1 = "tom_rimshot_floor_rim__1";
-               const string _2 = "tom_rimshot_floor_rim__2";
-               const string _3 = "tom_rimshot_floor_rim__3";
+      namespace Rim {
+         namespace Shot {
+            namespace Floor {
+               const string _1 = "tom_rim_shot_floor__1";
+               const string _2 = "tom_rim_shot_floor__2";
+               const string _3 = "tom_rim_shot_floor__3";
             }
-            const string _1 = "tom_rimshot_floor__1";
-            const string _2 = "tom_rimshot_floor__2";
-            const string _3 = "tom_rimshot_floor__3";
+            namespace Rack {
+               const string _1 = "tom_rim_shot_rack__1";
+               const string _2 = "tom_rim_shot_rack__2";
+               const string _3 = "tom_rim_shot_rack__3";
+            }
+         }
+         namespace Floor {
+            const string _1 = "tom_rim_floor__1";
+            const string _2 = "tom_rim_floor__2";
+            const string _3 = "tom_rim_floor__3";
          }
          namespace Rack {
-            namespace Rim {
-               const string _1 = "tom_rimshot_rack_rim__1";
-               const string _2 = "tom_rimshot_rack_rim__2";
-               const string _3 = "tom_rimshot_rack_rim__3";
-            }
-            const string _1 = "tom_rimshot_rack__1";
-            const string _2 = "tom_rimshot_rack__2";
-            const string _3 = "tom_rimshot_rack__3";
+            const string _1 = "tom_rim_rack__1";
+            const string _2 = "tom_rim_rack__2";
+            const string _3 = "tom_rim_rack__3";
          }
       }
    }
 }
-
-#endif

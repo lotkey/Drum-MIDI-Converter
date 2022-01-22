@@ -1,7 +1,6 @@
-#ifndef NOTE_HPP
-#define NOTE_HPP
+#pragma once
 
-enum class Note {
+enum class Note : int {
     C = 0,
     C_SHARP = 1,
     D_FLAT = 1,
@@ -20,5 +19,3 @@ enum class Note {
     B_FLAT = 10,
     B = 11
 };
-
-#endif

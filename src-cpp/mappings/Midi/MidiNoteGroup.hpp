@@ -1,5 +1,4 @@
-#ifndef MIDINOTEGROUP_HPP
-#define MIDINOTEGROUP_HPP
+#pragma once
 
 #include <initializer_list>
 #include <set>
@@ -19,5 +18,3 @@ public:
     bool contains(const int8_t&) const;
     std::string toString() const;
 };
-
-#endif

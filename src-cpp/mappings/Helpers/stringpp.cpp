@@ -3,35 +3,44 @@
 
 #include "stringpp.hpp"
 
-std::string stringpp::ltrim(const std::string& s) {
-    size_t start = s.find_first_not_of(WHITESPACE);
-    return (start == std::string::npos) ? "" : s.substr(start);
-}
+namespace stringpp
+{
+    std::string ltrim(const std::string &s)
+    {
+        size_t start = s.find_first_not_of(WHITESPACE);
+        return (start == std::string::npos) ? s : s.substr(start);
+    }
 
-std::string stringpp::rtrim(const std::string& s) {
-    size_t end = s.find_last_not_of(WHITESPACE);
-    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
-}
- 
-std::string stringpp::trim(const std::string& s) {
-    return rtrim(ltrim(s));
-}
+    std::string rtrim(const std::string &s)
+    {
+        size_t end = s.find_last_not_of(WHITESPACE);
+        return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+    }
 
-std::string stringpp::repeat(const std::string& s, const uint32_t& numRepetitions) {
-    std::string result = "";
-    for (unsigned int i = 0; i < numRepetitions; i++)
-        result += s;
-    return result;
-}
+    std::string trim(const std::string &s)
+    {
+        return rtrim(ltrim(s));
+    }
 
-bool stringpp::strcmp(const std::string& s1, const std::string& s2) {
-    return s1 == s2;
-}
+    std::string repeat(const std::string &s, const uint32_t &numRepetitions)
+    {
+        std::string result = "";
+        for (unsigned int i = 0; i < numRepetitions; i++)
+            result += s;
+        return result;
+    }
 
-bool stringpp::strcmp(const std::string& s, const std::vector<std::string>& v) {
-    for (const auto& str : v)
-        if (s == str)
-            return true;
+    bool strcmp(const std::string &s1, const std::string &s2)
+    {
+        return s1 == s2;
+    }
 
-    return false;
+    bool strcmp(const std::string &s, const std::vector<std::string> &v)
+    {
+        for (const auto &str : v)
+            if (s == str)
+                return true;
+
+        return false;
+    }
 }

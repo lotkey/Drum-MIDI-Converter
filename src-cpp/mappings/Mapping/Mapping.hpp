@@ -1,5 +1,4 @@
-#ifndef MAPPING_HPP
-#define MAPPING_HPP
+#pragma once
 
 #include <cinttypes>
 #include <map>
@@ -34,5 +33,3 @@ public:
     std::string at(const MidiNote&) const;
     void print() const;
 };
-
-#endif

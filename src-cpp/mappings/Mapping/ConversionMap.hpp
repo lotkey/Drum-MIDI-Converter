@@ -1,5 +1,4 @@
-#ifndef CONVERSIONMAP_HPP
-#define CONVERSIONMAP_HPP
+#pragma once
 
 #include <cinttypes>
 #include <filesystem>
@@ -35,5 +34,3 @@ public:
     void print() const;
     void save(const std::filesystem::path&, const bool& append = false) const;
 };
-
-#endif

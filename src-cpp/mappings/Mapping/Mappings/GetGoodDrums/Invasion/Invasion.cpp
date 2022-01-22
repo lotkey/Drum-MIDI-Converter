@@ -1,11 +1,11 @@
-#include "../../../Parsing/Keys.hpp"
-#include "../../Mapping.hpp"
-#include "../../Mappings.hpp"
-#include "../../../Midi/MidiNote.hpp"
+#include "../../../../SampleTree/Keys.hpp"
+#include "../../../Mapping.hpp"
+#include "../../../Mappings.hpp"
+#include "../../../../Midi/MidiNote.hpp"
 
-Mapping Mappings::GetGoodDrums::getInvasionMapping() {
+Mapping Mappings::GetGoodDrums::Invasion::getInvasionMapping() {
     using namespace Keys;
-    return Mapping("GGD Invasion", {
+    return Mapping("GGD Invasion - Invasion (Default)", {
         {Cymbal::Bell::Crash::_1, {{Note::G, 4}}},
         {Cymbal::Bell::Crash::_2, {{Note::G_SHARP, 4}}},
         {Cymbal::Hit::China::_1, {{Note::F, 3}}},
@@ -36,17 +36,17 @@ Mapping Mappings::GetGoodDrums::getInvasionMapping() {
         {Tom::Hit::Rack::_2, {{Note::A_SHARP, 0}}},
         {Tom::Hit::Rack::_3, {{Note::B, 0}}},
 
-        {Hat::Open::cc, {{Note::F, -1}}},
-        {Hat::Closed::Edge::_1, {{Note::G_SHARP, 1}}},
-        {Hat::Closed::Tip::_1, {{Note::G, 1}}},
-        {Hat::Open::_0, {{Note::A, 1}}},
-        {Hat::Open::_1, {{Note::A_SHARP, 1}}},
-        {Hat::Open::_2, {{Note::B, 1}}},
-        {Hat::Closed::foot, {{Note::C, 2}}},
-        {Hat::Closed::Edge::_1, {{Note::F_SHARP, 1}}},
-        {Hat::Closed::Tip::_1, {{Note::F, 1}}},
-        {Hat::Closed::x, {{Note::A_SHARP, 3}}},
-        {Hat::Open::x, {{Note::B, 3}}},
+        {Hat::Midi::cc, {{Note::F, -1}}},
+        {Hat::Hit::Closed::Edge::_1, {{Note::G_SHARP, 1}}},
+        {Hat::Hit::Closed::Tip::_1, {{Note::G, 1}}},
+        {Hat::Hit::Open::_0, {{Note::A, 1}}},
+        {Hat::Hit::Open::_1, {{Note::A_SHARP, 1}}},
+        {Hat::Hit::Open::_2, {{Note::B, 1}}},
+        {Hat::Hit::Closed::Foot::_1, {{Note::C, 2}}},
+        {Hat::Hit::Closed::Edge::_1, {{Note::F_SHARP, 1}}},
+        {Hat::Hit::Closed::Tip::_1, {{Note::F, 1}}},
+        {Hat::Hit::Closed::X::_1, {{Note::A_SHARP, 3}}},
+        {Hat::Hit::Open::X::_1, {{Note::B, 3}}},
 
         {Kick::_1, {{Note::C, 0}}},
         {Kick::adk, {{Note::A_SHARP, -1}}},

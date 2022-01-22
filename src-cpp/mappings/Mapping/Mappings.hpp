@@ -1,9 +1,8 @@
-#ifndef MAPPINGS_HPP
-#define MAPPINGS_HPP
+#pragma once
 
 #include <cinttypes>
 
-#include "../Parsing/Keys.hpp"
+#include "../SampleTree/Keys.hpp"
 #include "../Mapping/Mapping.hpp"
 #include "../Midi/Note.hpp"
 
@@ -24,14 +23,48 @@ namespace Mappings {
 
     namespace GetGoodDrums {
         Mapping getGroovePlayerMIDIPackMapping();
-        Mapping getInvasionMapping();
-        Mapping getModernAndMassiveMapping();
-        Mapping getOKWAggressiveRockMapping();
-        Mapping getOKWArchitectsMapping();
-        Mapping getOKWClassicRockMapping();
-        Mapping getOKWMetalMapping();
-        Mapping getOKWModernFusionMapping();
-        Mapping getP4MattHalpernMapping();
+
+        namespace Invasion {
+            Mapping getGGDMapping();
+            Mapping getInvasionMapping();
+        }
+
+        namespace ModernAndMassive {
+            Mapping getGGDMapping();
+            Mapping getGMMapping();
+            Mapping getHalpernMapping();
+        }
+
+        namespace OneKitWonder {
+            namespace AggressiveRock {
+                Mapping getInvasionMapping();
+            }
+
+            namespace Architects {
+                Mapping getInvasionMapping();
+            }
+
+            namespace ClassicRock {
+                Mapping getGGDMapping();
+                Mapping getGMMapping();
+                Mapping getHalpernMapping();
+                Mapping getInvasionmapping();
+            }
+
+            namespace Metal {
+                Mapping getInvasionmapping();
+            }
+
+            namespace ModernFusion {
+                Mapping getInvasionmapping();
+            }
+        }
+
+        namespace MattHalpern {
+            Mapping getGGDMapping();
+            Mapping getGMMapping();
+            Mapping getHalpernMapping();
+        }
     }
 
     namespace GuitarPro {
@@ -46,6 +79,11 @@ namespace Mappings {
         Mapping getMTPowerDrumKit2Mapping();
     }
 
+    namespace Mixwave {
+        Mapping getGojiraMarioDuplantierMapping();
+        Mapping getThomasPridgenDrumsMapping();
+    }
+
     namespace NaughtySealAudio {
         Mapping getPerfectDrumsMapping();
     }
@@ -55,6 +93,7 @@ namespace Mappings {
     }
 
     namespace StevenSlateDrums {
+        Mapping getSSDMapping();
         Mapping getSSD5Mapping();
     }
     
@@ -72,5 +111,3 @@ namespace Mappings {
         Mapping getAddictiveDrums2Mapping();
     }
 }
-
-#endif

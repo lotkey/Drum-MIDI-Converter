@@ -1,4 +1,4 @@
-#include "../../../Parsing/Keys.hpp"
+#include "../../../SampleTree/Keys.hpp"
 #include "../../Mapping.hpp"
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
@@ -30,10 +30,10 @@ Mapping Mappings::GuitarPro::getDrumMapMapping() {
         {Tom::Hit::Rack::_3, {{Note::A, 1}}},
         {Tom::Hit::Rack::_4, {{Note::G, 1}}},
 
-        {Hat::Closed::_0, {{Note::F_SHARP, 1}}},
-        {Hat::Open::_0, {{Note::G_SHARP, 5}}},
-        {Hat::Open::_1, {{Note::A_SHARP, 1}}},
-        {Hat::Closed::foot, {{Note::G_SHARP, 1}}},
+        {Hat::Hit::Closed::_0, {{Note::F_SHARP, 1}}},
+        {Hat::Hit::Open::_0, {{Note::G_SHARP, 5}}},
+        {Hat::Hit::Open::_1, {{Note::A_SHARP, 1}}},
+        {Hat::Hit::Closed::Foot::_1, {{Note::G_SHARP, 1}}},
 
         {Kick::_1, {{Note::C, 1}}},
         {Kick::left, {{Note::B, 0}}},

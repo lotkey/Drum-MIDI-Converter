@@ -1,17 +1,18 @@
-rimshot
+rim
     *floor
         *_1
         *_2
         *_3
-        rim
-            *_1
-            *_2
-            *_3
     *rack
         *_1
         *_2
         *_3
-        rim
+    shot
+        *floor
+            *_1
+            *_2
+            *_3
+        *rack
             *_1
             *_2
             *_3

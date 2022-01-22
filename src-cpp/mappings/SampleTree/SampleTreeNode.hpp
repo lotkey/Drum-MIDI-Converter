@@ -1,5 +1,4 @@
-#ifndef PARSETREENODE_HPP
-#define PARSETREENODE_HPP
+#pragma once
 
 #include <cinttypes>
 #include <fstream>
@@ -8,10 +7,10 @@
 #include <string>
 #include <vector>
 
-class ParseTreeNode {
+class SampleTreeNode {
 private:
-    std::map<std::string, ParseTreeNode*> _children;
-    std::map<std::string, ParseTreeNode*> _defaults;
+    std::map<std::string, SampleTreeNode*> _children;
+    std::map<std::string, SampleTreeNode*> _defaults;
     const std::string _key;
     bool _isLeaf = true;
     void print(const uint32_t&) const;
@@ -19,10 +18,10 @@ private:
     void addDefaultKeys(std::vector<std::string>&, const std::string&) const;
 public:
     #pragma region Constructors/Destructors/Assigment
-    ParseTreeNode(const std::string&);
-    ParseTreeNode(const ParseTreeNode&);
-    ~ParseTreeNode();
-    void operator=(const ParseTreeNode&);
+    SampleTreeNode(const std::string&);
+    SampleTreeNode(const SampleTreeNode&);
+    ~SampleTreeNode();
+    void operator=(const SampleTreeNode&);
     #pragma endregion
     #pragma region Info
     void print() const;
@@ -37,12 +36,10 @@ public:
     void addDefault(const std::string&, const std::string&);
     #pragma endregion
     #pragma region Accessors
-    ParseTreeNode& operator[](const std::string&) const;
-    ParseTreeNode& operator[](std::vector<std::string>) const;
-    ParseTreeNode& at(const std::string& key) const;
-    ParseTreeNode& at(std::vector<std::string> keys) const;
+    SampleTreeNode& operator[](const std::string&) const;
+    SampleTreeNode& operator[](std::vector<std::string>) const;
+    SampleTreeNode& at(const std::string& key) const;
+    SampleTreeNode& at(std::vector<std::string> keys) const;
     void addToStream(std::ofstream&, uint32_t) const;
     #pragma endregion
 };
-
-#endif

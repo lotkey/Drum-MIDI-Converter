@@ -1,4 +1,4 @@
-#include "../../../Parsing/Keys.hpp"
+#include "../../../SampleTree/Keys.hpp"
 #include "../../Mapping.hpp"
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
@@ -26,12 +26,12 @@ Mapping Mappings::NaughtySealAudio::getPerfectDrumsMapping() {
         {Tom::Hit::Rack::_1, {{Note::A, 1}}},
         {Tom::Hit::Rack::_2, {{Note::G, 1}}},
 
-        {Hat::Closed::Edge::_1, {{Note::F, 1}}},
-        {Hat::Closed::Tip::_1, {{Note::D_SHARP, 3}}},
-        {Hat::Open::_0, {{Note::A_SHARP, 1}}},
-        {Hat::Open::_1, {{Note::F, 3}}},
-        {Hat::Open::_2, {{Note::F_SHARP, 3}}},
-        {Hat::Closed::foot, {{Note::G_SHARP, 1}}},
+        {Hat::Hit::Closed::Edge::_1, {{Note::F, 1}}},
+        {Hat::Hit::Closed::Tip::_1, {{Note::D_SHARP, 3}}},
+        {Hat::Hit::Open::_0, {{Note::A_SHARP, 1}}},
+        {Hat::Hit::Open::_1, {{Note::F, 3}}},
+        {Hat::Hit::Open::_2, {{Note::F_SHARP, 3}}},
+        {Hat::Hit::Closed::Foot::_1, {{Note::G_SHARP, 1}}},
         
         {Kick::_1, {{Note::C, 1}}},
 

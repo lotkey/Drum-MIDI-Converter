@@ -39,6 +39,8 @@ choke
         *_3
     *stack
         *_1
+        *_2
+        *_3
 *hit
     *china
         *_1
@@ -84,3 +86,5 @@ choke
             *_1
     *stack
         *_1
+        *_2
+        *_3

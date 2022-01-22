@@ -14,4 +14,4 @@ alt
         *shot
             *_1
             *edge1
-        rimclick
+        click

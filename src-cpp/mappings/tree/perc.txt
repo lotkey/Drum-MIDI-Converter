@@ -1,10 +1,10 @@
-*clap
-*shaker
-*tambourine
+clap
+shaker
+tambourine
     *hit
     *down
     *up
-*cowbell
+cowbell
     *hit
     *tip
     *shank

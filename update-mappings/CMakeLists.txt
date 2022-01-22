@@ -12,20 +12,31 @@ add_executable(update
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Ultimate.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GeneralMIDI/GmStandard.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/GroovePlayerMIDIPack.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/Invasion.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/ModernAndMassive.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWAggressiveRock.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWArchitects.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWClassicRock.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWMetal.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OKWModernFusion.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/P4MattHalpern.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/Invasion/GGD.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/Invasion/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/ModernAndMassive/GGD.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/ModernAndMassive/GM.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/ModernAndMassive/Halpern.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/AggressiveRock/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/Architects/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/ClassicRock/GGD.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/ClassicRock/GM.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/ClassicRock/Halpern.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/ClassicRock/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/Metal/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/OneKitWonder/ModernFusion/Invasion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/MattHalpern/GGD.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/MattHalpern/GM.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/MattHalpern/MattHalpern.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GuitarPro/DrumMap.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/LogicPro/Drummer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/MandaAudio/MTPowerDrumKit2.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Mixwave/GojiraMarioDuplantier.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Mixwave/ThomasPridgenDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/NaughtySealAudio/PerfectDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/SingularSound/BeatBuddy.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/SolemnTones/MjolnirDrums.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/StevenSlateDrums/SSD.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/StevenSlateDrums/SSD5.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/EZDrummer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/EZDrummerProgressiveFoundry.cpp
@@ -33,8 +44,8 @@ add_executable(update
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/XLNAudio/AddictiveDrums2.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNote.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNoteGroup.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Parsing/ParseTree.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Parsing/ParseTreeNode.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/SampleTree/SampleTree.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/SampleTree/SampleTreeNode.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/Binasc.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiEvent.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/midifile/src/MidiEventList.cpp

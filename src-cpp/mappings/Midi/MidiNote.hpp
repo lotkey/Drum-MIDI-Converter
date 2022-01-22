@@ -1,5 +1,4 @@
-#ifndef MIDINOTE_H
-#define MIDINOTE_H
+#pragma once
 
 #include <cinttypes>
 #include <map>
@@ -17,5 +16,3 @@ public:
     operator uint8_t() const;
     uint8_t value() const;
 };
-
-#endif

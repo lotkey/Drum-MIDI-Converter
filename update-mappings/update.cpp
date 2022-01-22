@@ -8,7 +8,7 @@
 #include "../src-cpp/mappings/Mapping/ConversionMap.hpp"
 #include "../src-cpp/mappings/Mapping/Mapping.hpp"
 #include "../src-cpp/mappings/Mapping/Mappings.hpp"
-#include "../src-cpp/mappings/Parsing/ParseTree.hpp"
+#include "../src-cpp/mappings/SampleTree/SampleTree.hpp"
 
 void printHelp(const std::string&);
 void updateKeys(const std::string&, const std::string&);
@@ -73,12 +73,12 @@ void printHelp(const std::string& dialog) {
 }
 
 void updateKeys(const std::string& treePath, const std::string& keysPath) {
-    ParseTree parseTree(treePath);
+    SampleTree parseTree(treePath);
     parseTree.exportAsNamespace(keysPath);
 }
 
 void updateCmaps(const std::string& treePath, const std::string& cmapsPath) {
-    ParseTree parseTree(treePath);
+    SampleTree parseTree(treePath);
     std::map<std::string, Mapping> mappings = Mappings::getAllMappings();
     std::vector<ConversionMap> conversionMaps;
 

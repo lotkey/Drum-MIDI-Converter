@@ -1,4 +1,4 @@
-#include "../../../Parsing/Keys.hpp"
+#include "../../../SampleTree/Keys.hpp"
 #include "../../Mapping.hpp"
 #include "../../Mappings.hpp"
 #include "../../../Midi/MidiNote.hpp"
@@ -17,7 +17,7 @@ Mapping Mappings::SolemnTones::getMjolnirDrumsMapping() {
         {Tom::Hit::Rack::_1, {{Note::C, 2}}},
         {Tom::Hit::Rack::_2, {{Note::B, 1}}},
 
-        {Hat::Open::_0, {{Note::A, 1}}},
+        {Hat::Hit::Open::_0, {{Note::A, 1}}},
 
         {Kick::_1, {{Note::C, 1}}},
 

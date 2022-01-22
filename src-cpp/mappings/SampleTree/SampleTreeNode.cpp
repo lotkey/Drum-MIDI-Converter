@@ -2,15 +2,15 @@
 #include <stdexcept>
 
 #include "../Helpers/stringpp.hpp"
-#include "../Parsing/ParseTreeNode.hpp"
+#include "../SampleTree/SampleTreeNode.hpp"
 
 #pragma region Constructors/Destructors/Assignment
 
-ParseTreeNode::ParseTreeNode(const std::string& key)
+SampleTreeNode::SampleTreeNode(const std::string& key)
     : _isLeaf(true), _key(key)
 { }
 
-ParseTreeNode::ParseTreeNode(const ParseTreeNode& src) {
+SampleTreeNode::SampleTreeNode(const SampleTreeNode& src) {
     if (src._isLeaf) {
         _defaults.clear();
         _children.clear();
@@ -18,14 +18,14 @@ ParseTreeNode::ParseTreeNode(const ParseTreeNode& src) {
     }
     else {
         for (const auto& [name, root] : src._children)
-            _children.insert({name, new ParseTreeNode(*root)});
+            _children.insert({name, new SampleTreeNode(*root)});
 
         for (const auto& [name, root] : src._defaults)
-            _defaults.insert({name, new ParseTreeNode(*root)});
+            _defaults.insert({name, new SampleTreeNode(*root)});
     }
 }
 
-ParseTreeNode::~ParseTreeNode() {
+SampleTreeNode::~SampleTreeNode() {
     for (const auto& [name, root] : _children)
         delete root;
     _children.clear();
@@ -35,7 +35,7 @@ ParseTreeNode::~ParseTreeNode() {
     _defaults.clear();
 }
 
-void ParseTreeNode::operator=(const ParseTreeNode& src) {
+void SampleTreeNode::operator=(const SampleTreeNode& src) {
     if (src._isLeaf) {
         _defaults.clear();
         _children.clear();
@@ -43,10 +43,10 @@ void ParseTreeNode::operator=(const ParseTreeNode& src) {
     }
     else {
         for (const auto& [name, root] : src._children)
-            _children.insert({name, new ParseTreeNode(*root)});
+            _children.insert({name, new SampleTreeNode(*root)});
 
         for (const auto& [name, root] : src._defaults)
-            _defaults.insert({name, new ParseTreeNode(*root)});
+            _defaults.insert({name, new SampleTreeNode(*root)});
     }
 }
 
@@ -54,7 +54,7 @@ void ParseTreeNode::operator=(const ParseTreeNode& src) {
 
 #pragma region Info
 
-void ParseTreeNode::print(const uint32_t& numIndents) const {
+void SampleTreeNode::print(const uint32_t& numIndents) const {
     if (!_isLeaf) {
         for (const auto& [name, root] : _children) {
             for (unsigned int i = 0; i < numIndents; i++)
@@ -78,7 +78,7 @@ void ParseTreeNode::print(const uint32_t& numIndents) const {
     }
 }
 
-void ParseTreeNode::print() const {
+void SampleTreeNode::print() const {
     if (!_isLeaf) {
         for (const auto& [name, root] : _children) {
             std::cout << "  ";
@@ -99,7 +99,7 @@ void ParseTreeNode::print() const {
     }
 }
 
-bool ParseTreeNode::containsKey(const std::string& key) const {
+bool SampleTreeNode::containsKey(const std::string& key) const {
     bool hasKey = false;
     for (const auto& [name, root] : _defaults) {
         if (root->isLeaf()) hasKey = hasKey || key == root->_key;
@@ -118,7 +118,7 @@ bool ParseTreeNode::containsKey(const std::string& key) const {
     return hasKey;
 }
 
-std::optional<std::vector<std::string>> ParseTreeNode::getPathToKey(const std::string& key) const {
+std::optional<std::vector<std::string>> SampleTreeNode::getPathToKey(const std::string& key) const {
     for (const auto& [name, root] : _children) {
         if (root->isLeaf()) {
             if (root->_key == key)
@@ -149,19 +149,19 @@ std::optional<std::vector<std::string>> ParseTreeNode::getPathToKey(const std::s
     return {};
 }
 
-std::vector<std::string> ParseTreeNode::getDefaultKeys() const {
+std::vector<std::string> SampleTreeNode::getDefaultKeys() const {
     std::vector<std::string> keys;
     addDefaultKeys(keys);
     return keys;
 }
 
-std::vector<std::string> ParseTreeNode::getDefaultKeys(const std::string& exclude) const {
+std::vector<std::string> SampleTreeNode::getDefaultKeys(const std::string& exclude) const {
     std::vector<std::string> keys;
     addDefaultKeys(keys, exclude);
     return keys;
 }
 
-void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys) const {
+void SampleTreeNode::addDefaultKeys(std::vector<std::string>& keys) const {
     if (_isLeaf) return;
 
     for (const auto& [name, root] : _defaults) {
@@ -170,7 +170,7 @@ void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys) const {
     }
 }
 
-void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys, const std::string& exclude) const {
+void SampleTreeNode::addDefaultKeys(std::vector<std::string>& keys, const std::string& exclude) const {
     if (_isLeaf) return;
 
     for (const auto& [name, root] : _defaults) {
@@ -185,27 +185,27 @@ void ParseTreeNode::addDefaultKeys(std::vector<std::string>& keys, const std::st
 
 #pragma region Modifiers
 
-void ParseTreeNode::addChild(const std::string& mapKey, const std::string& noteKey) {
+void SampleTreeNode::addChild(const std::string& mapKey, const std::string& noteKey) {
     _isLeaf = false;
-    _children.insert({mapKey, new ParseTreeNode(noteKey)});
+    _children.insert({mapKey, new SampleTreeNode(noteKey)});
 }
 
-void ParseTreeNode::addDefault(const std::string& mapKey, const std::string& noteKey) {
+void SampleTreeNode::addDefault(const std::string& mapKey, const std::string& noteKey) {
     _isLeaf = false;
-    _defaults.insert({mapKey, new ParseTreeNode(noteKey)});
+    _defaults.insert({mapKey, new SampleTreeNode(noteKey)});
 }
 
 #pragma endregion
 
 #pragma region Accessors
 
-ParseTreeNode& ParseTreeNode::operator[](const std::string& key) const {
+SampleTreeNode& SampleTreeNode::operator[](const std::string& key) const {
     if (_children.find(key) != _children.end()) return *_children.at(key);
     else if (_defaults.find(key) != _defaults.end()) return *_defaults.at(key);
     else throw std::invalid_argument("Provided key out of bounds");
 }
 
-ParseTreeNode& ParseTreeNode::operator[](std::vector<std::string> keys) const {
+SampleTreeNode& SampleTreeNode::operator[](std::vector<std::string> keys) const {
     if (keys.size() == 0) throw std::invalid_argument("List of keys is empty.");
     if (keys.size() == 1) return at(keys[0]);
     else {
@@ -215,15 +215,15 @@ ParseTreeNode& ParseTreeNode::operator[](std::vector<std::string> keys) const {
     }
 }
 
-ParseTreeNode& ParseTreeNode::at(const std::string& key) const {
+SampleTreeNode& SampleTreeNode::at(const std::string& key) const {
     return operator[](key);
 }
 
-ParseTreeNode& ParseTreeNode::at(std::vector<std::string> key) const {
+SampleTreeNode& SampleTreeNode::at(std::vector<std::string> key) const {
     return operator[](key);
 }
 
-void ParseTreeNode::addToStream(std::ofstream& outfile, uint32_t numTabs) const {
+void SampleTreeNode::addToStream(std::ofstream& outfile, uint32_t numTabs) const {
     for (const auto& [name, root] : _children) {
         if (root->isLeaf())
             outfile << stringpp::repeat("   ", numTabs) << "const string " << name << " = \"" << root->_key << "\";\n";
