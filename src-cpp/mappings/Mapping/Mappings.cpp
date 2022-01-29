@@ -24,6 +24,8 @@ namespace Mappings
         return {
             nameMapPair(Drumforge::getBergstrandMapping()),
             nameMapPair(Drumforge::getUltimateMapping()),
+            nameMapPair(Eastwest::getProdrummerMapping()),
+            nameMapPair(Fxpansion::getBfd3Mapping()),
             nameMapPair(GeneralMIDI::getGmStandardMapping()),
             nameMapPair(GetGoodDrums::getGroovePlayerMIDIPackMapping()),
             nameMapPair(GetGoodDrums::Invasion::getGGDMapping()),
@@ -47,6 +49,7 @@ namespace Mappings
             nameMapPair(MandaAudio::getMTPowerDrumKit2Mapping()),
             nameMapPair(Mixwave::getGojiraMarioDuplantierMapping()),
             nameMapPair(Mixwave::getThomasPridgenDrumsMapping()),
+            nameMapPair(PrencAudio::getKinglakeDrumsMapping()),
             nameMapPair(NaughtySealAudio::getPerfectDrumsMapping()),
             nameMapPair(SingularSound::getBeatBuddyMapping()),
             nameMapPair(SolemnTones::getMjolnirDrumsMapping()),

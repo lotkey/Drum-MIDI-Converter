@@ -8,8 +8,11 @@ add_executable(update
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/ConversionMap.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mapping.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Bergstrand.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Drumforge/Ultimate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Eastwest/Prodrummer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Fxpansion/Bfd3.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GeneralMIDI/GmStandard.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/GroovePlayerMIDIPack.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/GetGoodDrums/Invasion/GGD.cpp
@@ -34,6 +37,7 @@ add_executable(update
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Mixwave/GojiraMarioDuplantier.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Mixwave/ThomasPridgenDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/NaughtySealAudio/PerfectDrums.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/PrencAudio/KinglakeDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/SingularSound/BeatBuddy.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/SolemnTones/MjolnirDrums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/StevenSlateDrums/SSD.cpp
@@ -42,6 +46,7 @@ add_executable(update
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/EZDrummerProgressiveFoundry.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/Toontrack/SuperiorDrummer3.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Mapping/Mappings/XLNAudio/AddictiveDrums2.cpp
+    
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNote.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/Midi/MidiNoteGroup.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../src-cpp/mappings/SampleTree/SampleTree.cpp

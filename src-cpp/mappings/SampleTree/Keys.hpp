@@ -18,11 +18,15 @@ namespace Keys {
                const string _2 = "cymbal_bell_crash_tip__2";
                const string _3 = "cymbal_bell_crash_tip__3";
                const string _4 = "cymbal_bell_crash_tip__4";
+               const string _5 = "cymbal_bell_crash_tip__5";
+               const string _6 = "cymbal_bell_crash_tip__6";
             }
             const string _1 = "cymbal_bell_crash__1";
             const string _2 = "cymbal_bell_crash__2";
             const string _3 = "cymbal_bell_crash__3";
             const string _4 = "cymbal_bell_crash__4";
+            const string _5 = "cymbal_bell_crash__5";
+            const string _6 = "cymbal_bell_crash__6";
          }
          namespace Ride {
             namespace Tip {
@@ -79,11 +83,15 @@ namespace Keys {
                   const string _2 = "cymbal_hit_crash_bow_tip__2";
                   const string _3 = "cymbal_hit_crash_bow_tip__3";
                   const string _4 = "cymbal_hit_crash_bow_tip__4";
+                  const string _5 = "cymbal_hit_crash_bow_tip__5";
+                  const string _6 = "cymbal_hit_crash_bow_tip__6";
                }
                const string _1 = "cymbal_hit_crash_bow__1";
                const string _2 = "cymbal_hit_crash_bow__2";
                const string _3 = "cymbal_hit_crash_bow__3";
                const string _4 = "cymbal_hit_crash_bow__4";
+               const string _5 = "cymbal_hit_crash_bow__5";
+               const string _6 = "cymbal_hit_crash_bow__6";
             }
             const string _1 = "cymbal_hit_crash__1";
             const string _2 = "cymbal_hit_crash__2";
@@ -282,6 +290,7 @@ namespace Keys {
             const string _1 = "tom_hit_floor__1";
             const string _2 = "tom_hit_floor__2";
             const string _3 = "tom_hit_floor__3";
+            const string _4 = "tom_hit_floor__4";
          }
          namespace Rack {
             const string _1 = "tom_hit_rack__1";
@@ -296,22 +305,26 @@ namespace Keys {
                const string _1 = "tom_rim_shot_floor__1";
                const string _2 = "tom_rim_shot_floor__2";
                const string _3 = "tom_rim_shot_floor__3";
+               const string _4 = "tom_rim_shot_floor__4";
             }
             namespace Rack {
                const string _1 = "tom_rim_shot_rack__1";
                const string _2 = "tom_rim_shot_rack__2";
                const string _3 = "tom_rim_shot_rack__3";
+               const string _4 = "tom_rim_shot_rack__4";
             }
          }
          namespace Floor {
             const string _1 = "tom_rim_floor__1";
             const string _2 = "tom_rim_floor__2";
             const string _3 = "tom_rim_floor__3";
+            const string _4 = "tom_rim_floor__4";
          }
          namespace Rack {
             const string _1 = "tom_rim_rack__1";
             const string _2 = "tom_rim_rack__2";
             const string _3 = "tom_rim_rack__3";
+            const string _4 = "tom_rim_rack__4";
          }
       }
    }

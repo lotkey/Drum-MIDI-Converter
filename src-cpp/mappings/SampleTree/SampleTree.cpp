@@ -70,17 +70,29 @@ void SampleTree::_initFromFile(const std::string& path) {
         std::optional<uint32_t> indentInterval;
         std::string line, key;
 
+        auto printCurrentPath = [currentPath]() {
+            for (const auto& s : currentPath) {
+                std::cerr << s << " ";
+            }
+            std::cerr << std::endl;
+        };
+
         while (std::getline(infile, line)) {
             uint32_t numSpacesInLine = line.find_last_of(" ") + 1;
 
             if (numSpacesInLine == 0 && numSpaces == 0) { // Adding first root
 
-                if (_roots.size() > 0) // Adding another root with an empty root, not allowed
+                if (_roots.size() > 0) { // Adding another root with an empty root, not allowed
+                    printCurrentPath();
                     throw std::runtime_error("Parsing error. Adding root after empty root. Empty roots are not allowed.");
+                }
 
                 else { // Adding first root, totally allowed
                     key = stringpp::trim(line); // trim the key
-                    if (key[0] == '*') throw std::runtime_error("Parsing error. Roots cannot be defaulted."); // if defaulted, throw error
+                    if (key[0] == '*') {
+                        printCurrentPath();
+                        throw std::runtime_error("Parsing error. Roots cannot be defaulted."); // if defaulted, throw error
+                    }
                     addRoot(key); // add the root
                     currentPath.push_back(key); // push the root to the path
                 }
@@ -89,11 +101,15 @@ void SampleTree::_initFromFile(const std::string& path) {
             else if (numSpacesInLine > numSpaces) { // Indenting in
                 if (!indentInterval.has_value())
                     indentInterval = numSpacesInLine - numSpaces;
-                else if (numSpacesInLine - numSpaces != indentInterval.value())
+                else if (numSpacesInLine - numSpaces != indentInterval.value()) {
+                    printCurrentPath();
                     throw std::runtime_error("Incorrect number of spaces.");
+                }
 
-                if (numSpacesInLine - numSpaces > 1) // Indenting too much, not allowed
+                if (numSpacesInLine - numSpaces > 1) { // Indenting too much, not allowed
+                    printCurrentPath();
                     throw std::runtime_error("Parsing error. Too many spaces.");
+                }
 
                 else { // Normal indenting, totally allowed
                     key = stringpp::trim(line); // trim the line
@@ -113,7 +129,10 @@ void SampleTree::_initFromFile(const std::string& path) {
                 if (numSpacesInLine == 0) { // Adding another root
                     currentPath.clear(); // clear the path
                     key = stringpp::trim(line); // trim the key
-                    if (key[0] == '*') throw std::runtime_error("Parsing error. Roots cannot be defaulted."); // if defaulted, throw error
+                    if (key[0] == '*') {
+                        printCurrentPath();
+                        throw std::runtime_error("Parsing error. Roots cannot be defaulted."); // if defaulted, throw error
+                    }
                     addRoot(key); // add the key as a root
                     currentPath.push_back(key); // add the key to the path
                     numSpaces = 0; // set the number of spaces to 0
@@ -201,6 +220,7 @@ void SampleTree::addRoot(const std::string& key) {
 
 void SampleTree::_addRootFromFile(const std::filesystem::path& path) {
     std::ifstream infile(path);
+    int lineCounter = 0;
     std::string filename(path.filename().string());
     std::string rootname(filename.substr(0, filename.find_last_of('.')));
     uint32_t numSpaces = 0;
@@ -216,8 +236,17 @@ void SampleTree::_addRootFromFile(const std::filesystem::path& path) {
         return s + key;
     };
 
+    auto printCurrentPath = [](int lineCounter, const std::vector<std::string>& currentPath) {
+        std::cerr << "Line " << lineCounter << ": ";
+        for (const auto& s : currentPath) { 
+            std::cerr << s << " ";
+        }
+        std::cerr << std::endl;
+    };
+
     if (infile.is_open()) {
         while (std::getline(infile, line)) {
+            lineCounter++;
             uint32_t numSpacesLine = line.find_last_of(" ") + 1;
 
             if (numSpaces == numSpacesLine) {
@@ -238,8 +267,10 @@ void SampleTree::_addRootFromFile(const std::filesystem::path& path) {
                 
                 if (!indentInterval.has_value()) 
                     indentInterval = numSpacesLine - numSpaces;
-                else if (numSpacesLine - numSpaces != indentInterval)
+                else if (numSpacesLine - numSpaces != indentInterval) {
+                    printCurrentPath(lineCounter, currentPath);
                     throw std::runtime_error("Parsing error, incorrect number of spaces.");
+                }
 
                 key = stringpp::trim(line);
                 if (key[0] == '*') {

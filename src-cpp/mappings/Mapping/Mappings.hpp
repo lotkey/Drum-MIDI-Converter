@@ -17,6 +17,14 @@ namespace Mappings {
         Mapping getUltimateMapping();
     }
 
+    namespace Eastwest {
+        Mapping getProdrummerMapping();
+    }
+
+    namespace Fxpansion {
+        Mapping getBfd3Mapping();
+    }
+
     namespace GeneralMIDI {
         Mapping getGmStandardMapping();
     }
@@ -86,6 +94,10 @@ namespace Mappings {
 
     namespace NaughtySealAudio {
         Mapping getPerfectDrumsMapping();
+    }
+
+    namespace PrencAudio {
+        Mapping getKinglakeDrumsMapping();
     }
 
     namespace SolemnTones {

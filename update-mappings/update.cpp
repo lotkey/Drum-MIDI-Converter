@@ -18,7 +18,7 @@ void updateAll(const std::string&, const std::string&, const std::string&);
 int main(int argc, char** argv) {
 
     const std::string treePath = "../src-cpp/mappings/tree/";
-    const std::string keysPath = "../src-cpp/mappings/Parsing/Keys.hpp";
+    const std::string keysPath = "../src-cpp/mappings/SampleTree/Keys.hpp";
     const std::string cmapsPath = "../src-python/conversions.lkcmap";
 
     const std::set<std::string> possibleArgs = { "-a", "--keys", "--cmaps", "-h", "--help", "help" };
