@@ -145,6 +145,7 @@ def save_file(path, content):
 def convert_midi(conversionMap:ConversionMap):
     inmidi = MidiFile(DOWNLOAD_PATH)
     outmidi = MidiFile()
+    outmidi.ticks_per_beat = inmidi.ticks_per_beat
 
     for i, track in enumerate(inmidi.tracks):
         outmidi.add_track()

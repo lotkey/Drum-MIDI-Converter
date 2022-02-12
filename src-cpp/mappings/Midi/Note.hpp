@@ -1,10 +1,11 @@
 #pragma once
 
-enum class Note : int {
+enum class Note : int
+{
     C = 0,
     C_SHARP = 1,
     D_FLAT = 1,
-    D = 2, 
+    D = 2,
     D_SHARP = 3,
     E_FLAT = 3,
     E = 4,

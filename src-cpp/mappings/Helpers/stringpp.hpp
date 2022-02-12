@@ -1,5 +1,4 @@
-#ifndef STRINGPP_HPP
-#define STRINGPP_HPP
+#pragma once
 
 #include <cinttypes>
 #include <string>
@@ -15,5 +14,3 @@ namespace stringpp
     bool strcmp(const std::string &, const std::string &);
     bool strcmp(const std::string &, const std::vector<std::string> &);
 }
-
-#endif

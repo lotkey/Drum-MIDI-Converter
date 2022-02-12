@@ -1,7 +1,7 @@
+#include "stringpp.hpp"
+
 #include <cinttypes>
 #include <iostream>
-
-#include "stringpp.hpp"
 
 namespace stringpp
 {

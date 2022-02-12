@@ -1,7 +1,7 @@
-#include <cinttypes>
-
-#include "../Midi/Note.hpp"
 #include "./Mappings.hpp"
+#include "../Midi/Note.hpp"
+
+#include <cinttypes>
 
 namespace Mappings
 {
@@ -58,8 +58,7 @@ namespace Mappings
             nameMapPair(Toontrack::getEZDrummerMapping()),
             nameMapPair(Toontrack::getEZDrummerProgressiveFoundryMapping()),
             nameMapPair(Toontrack::getSuperiorDrummer3Mapping()),
-            nameMapPair(XLNAudio::getAddictiveDrums2Mapping())
-        };
+            nameMapPair(XLNAudio::getAddictiveDrums2Mapping())};
     }
 
 }

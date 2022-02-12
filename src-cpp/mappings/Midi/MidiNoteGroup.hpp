@@ -1,20 +1,22 @@
 #pragma once
 
+#include "./MidiNote.hpp"
+
 #include <initializer_list>
 #include <set>
 #include <string>
 
-#include "./MidiNote.hpp"
-
 // Group of MIDI notes
-class MidiNoteGroup {
-private:
-    std::set<MidiNote> _notes;
+class MidiNoteGroup
+{
 public:
-    MidiNoteGroup(const std::initializer_list<MidiNote>&);
+    MidiNoteGroup(const std::initializer_list<MidiNote> &);
     std::set<MidiNote> getSet() const;
     operator int() const;
-    void add(const MidiNote&);
-    bool contains(const int8_t&) const;
+    void add(const MidiNote &);
+    bool contains(const int8_t &) const;
     std::string toString() const;
+
+private:
+    std::set<MidiNote> m_notes;
 };

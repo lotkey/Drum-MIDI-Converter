@@ -1,125 +1,150 @@
 #pragma once
 
-#include <cinttypes>
-
-#include "../SampleTree/Keys.hpp"
 #include "../Mapping/Mapping.hpp"
 #include "../Midi/Note.hpp"
+#include "../SampleTree/Keys.hpp"
+
+#include <cinttypes>
 
 // Namespace for all mappings
-namespace Mappings {
-
-    uint8_t yamahatoi(const Note&, const int8_t&);
+namespace Mappings
+{
+    uint8_t yamahatoi(const Note &, const int8_t &);
     std::map<std::string, Mapping> getAllMappings();
 
-    namespace Drumforge {
+    namespace Drumforge
+    {
         Mapping getBergstrandMapping();
         Mapping getUltimateMapping();
     }
 
-    namespace Eastwest {
+    namespace Eastwest
+    {
         Mapping getProdrummerMapping();
     }
 
-    namespace Fxpansion {
+    namespace Fxpansion
+    {
         Mapping getBfd3Mapping();
     }
 
-    namespace GeneralMIDI {
+    namespace GeneralMIDI
+    {
         Mapping getGmStandardMapping();
     }
 
-    namespace GetGoodDrums {
+    namespace GetGoodDrums
+    {
         Mapping getGroovePlayerMIDIPackMapping();
 
-        namespace Invasion {
+        namespace Invasion
+        {
             Mapping getGGDMapping();
             Mapping getInvasionMapping();
         }
 
-        namespace ModernAndMassive {
+        namespace ModernAndMassive
+        {
             Mapping getGGDMapping();
             Mapping getGMMapping();
             Mapping getHalpernMapping();
         }
 
-        namespace OneKitWonder {
-            namespace AggressiveRock {
+        namespace OneKitWonder
+        {
+            namespace AggressiveRock
+            {
                 Mapping getInvasionMapping();
             }
 
-            namespace Architects {
+            namespace Architects
+            {
                 Mapping getInvasionMapping();
             }
 
-            namespace ClassicRock {
+            namespace ClassicRock
+            {
                 Mapping getGGDMapping();
                 Mapping getGMMapping();
                 Mapping getHalpernMapping();
                 Mapping getInvasionmapping();
             }
 
-            namespace Metal {
+            namespace Metal
+            {
                 Mapping getInvasionmapping();
             }
 
-            namespace ModernFusion {
+            namespace ModernFusion
+            {
                 Mapping getInvasionmapping();
             }
         }
 
-        namespace MattHalpern {
+        namespace MattHalpern
+        {
             Mapping getGGDMapping();
             Mapping getGMMapping();
             Mapping getHalpernMapping();
         }
     }
 
-    namespace GuitarPro {
+    namespace GuitarPro
+    {
         Mapping getDrumMapMapping();
     }
 
-    namespace LogicPro {
+    namespace LogicPro
+    {
         Mapping getDrummerMapping();
     }
 
-    namespace MandaAudio {
+    namespace MandaAudio
+    {
         Mapping getMTPowerDrumKit2Mapping();
     }
 
-    namespace Mixwave {
+    namespace Mixwave
+    {
         Mapping getGojiraMarioDuplantierMapping();
         Mapping getThomasPridgenDrumsMapping();
     }
 
-    namespace NaughtySealAudio {
+    namespace NaughtySealAudio
+    {
         Mapping getPerfectDrumsMapping();
     }
 
-    namespace PrencAudio {
+    namespace PrencAudio
+    {
         Mapping getKinglakeDrumsMapping();
     }
 
-    namespace SolemnTones {
+    namespace SolemnTones
+    {
         Mapping getMjolnirDrumsMapping();
     }
 
-    namespace StevenSlateDrums {
+    namespace StevenSlateDrums
+    {
         Mapping getSSDMapping();
         Mapping getSSD5Mapping();
     }
-    
-    namespace SingularSound {
+
+    namespace SingularSound
+    {
         Mapping getBeatBuddyMapping();
     }
 
-    namespace Toontrack {
+    namespace Toontrack
+    {
         Mapping getEZDrummerMapping();
         Mapping getEZDrummerProgressiveFoundryMapping();
         Mapping getSuperiorDrummer3Mapping();
     }
 
-    namespace XLNAudio {
+    namespace XLNAudio
+    {
         Mapping getAddictiveDrums2Mapping();
     }
 }
